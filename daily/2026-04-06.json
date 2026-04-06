@@ -1,0 +1,94 @@
+{
+  "date": "2026-04-06",
+  "project": "my-hermes",
+  "summary": "Core my-hermes system is live and materially stronger after yesterday's build sprint: multi-platform gateway running, gws multi-account path established, NotebookLM skill now registered, memory stack expanding, cron jobs active, and key tooling updated. Immediate reality: Rae Gmail auth for the rae gws profile is currently broken because the account directory is missing live credential/token files; macOS update still pending by Tony's choice; Hermes itself remains pinned rather than blindly updated.",
+  "todo": [
+    {
+      "id": "2026-04-06-01",
+      "task": "Authenticate NotebookLM and run a smoke test: list notebooks, create/query a throwaway notebook, and confirm the Hermes skill matches reality.",
+      "status": "pending",
+      "source": "operator_directive",
+      "notes": "Best capability unlock. Requires local auth in browser/session context."
+    },
+    {
+      "id": "2026-04-06-02",
+      "task": "Document the real memory stack and source-of-truth order across file memory, Redis, added memory layers, and later Neo4j plans.",
+      "status": "pending",
+      "source": "operator_directive",
+      "notes": "Needed before cross-surface working memory gets messy."
+    },
+    {
+      "id": "2026-04-06-03",
+      "task": "Bring the first two subagents online: Coder and Researcher.",
+      "status": "pending",
+      "source": "operator_directive",
+      "notes": "Biggest leverage upgrade after memory/NotebookLM are clean."
+    },
+    {
+      "id": "2026-04-06-04",
+      "task": "Design and implement the token-routing skill: smart brain vs cheaper muscle, task decomposition, stage-level model routing, and cost receipt discipline.",
+      "status": "pending",
+      "source": "operator_directive",
+      "notes": "Professional differentiator."
+    },
+    {
+      "id": "2026-04-06-05",
+      "task": "Define active projects and create the matching project channels/structure instead of leaving the project layer generic.",
+      "status": "pending",
+      "source": "operator_directive",
+      "notes": "Organisational cleanup after capabilities are online."
+    }
+  ],
+  "completed_today": [
+    "Created private repo collab-mem as the shared daily operational memory spine.",
+    "Wrote OVERVIEW.md defining repo purpose, rules, and JSON schema.",
+    "Confirmed current HANDOVER.md is stale in places relative to yesterday/today's real system state.",
+    "Upgraded main non-macOS tools: gh, cloudflared, redis, himalaya, codex, mcporter, tavily-mcp, Playwright MCP, gemini CLI, and gws tooling."
+  ],
+  "current_status": {
+    "overall": "Rae is operational across WhatsApp/Telegram/Discord, can use gws across multiple accounts in principle, has expanded memory context, and now has a dedicated cross-surface daily memory repo. NotebookLM skill exists but auth still needs doing. Rae gws auth for the rae profile is currently broken because credential/token files are missing from ~/.config/gws/accounts/rae.",
+    "blockers": [
+      "NotebookLM requires local auth before real use.",
+      "Rae gws profile missing credentials.enc and token_cache.json.",
+      "Hermes main install should not be blindly updated because it is pinned and locally modified."
+    ],
+    "active_focus": [
+      "daily shared memory discipline",
+      "NotebookLM auth",
+      "memory stack clarity",
+      "subagent bring-up",
+      "voice output for local M4 workflow"
+    ]
+  },
+  "tomorrow_candidates": [
+    "Switch Rae TTS to a British voice and test local spoken replies with Wispr Flow handling input.",
+    "Fix PATH ordering if Brew git should override Apple git in interactive shell.",
+    "Expand email watch later to selected non-rae gws accounts once auth is stable.",
+    "Patch NotebookLM skill wording after auth/testing if docs still drift from reality."
+  ],
+  "ai_handoff": {
+    "message": "If another AI/model takes over any todo items, use this file plus my-hermes/HANDOVER.md as the daily source of truth. Do not duplicate active todos. Preserve IDs. Update completed_today and current_status instead of rewriting history. Prefer simple, verifiable changes over speculative architecture. Treat Tony as highly technical and do not pad or patronise.",
+    "tasks_best_done_by_other_ai": [
+      "Model/provider reconfiguration that Rae cannot hot-swap from inside a live chat session.",
+      "GUI/browser-auth flows requiring direct interactive browser control outside current tool reach.",
+      "Large-scale repo refactors or bench-driven model-routing experiments better suited to a dedicated coding agent.",
+      "Any work that needs a different execution surface, fresh runtime, or privileged local operator context."
+    ],
+    "constraints": [
+      "Do not exceed 5 active todos without explicit approval.",
+      "Do not create duplicate todos for unresolved work.",
+      "Respect trash-over-rm and other safety conventions from my-hermes.",
+      "Never guess command syntax; read docs first."
+    ]
+  },
+  "operator_required": {
+    "message": "These items require Tony, Janet, local machine presence, GUI auth, credentials, OS-level changes, or another execution surface Rae cannot complete alone from this chat.",
+    "items": [
+      "NotebookLM browser/session auth as agenticemails@gmail.com.",
+      "Restore or reauthenticate rae gws credentials in ~/.config/gws/accounts/rae.",
+      "macOS system update and reboot.",
+      "Any future model-default switch for the live chat surface itself.",
+      "Janet-dependent tasks once guardian/VPS/Zero-Trust-side execution is needed."
+    ]
+  }
+}
