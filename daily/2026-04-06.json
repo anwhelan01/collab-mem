@@ -2,79 +2,82 @@
   "date": "2026-04-06",
   "project": "my-hermes",
   "going_on": {
-    "summary": "my-hermes is live and strong: gateway working across WhatsApp, Telegram, and Discord; gws multi-account setup works; collab-mem now exists as the daily shared memory spine; NotebookLM skill is registered but not yet authenticated; Rae's email auth was repaired and re-verified today.",
+    "summary": "Rae's permanent Hermes installation on M4 Mac Mini fully operational. Gateway working across WhatsApp, Telegram, Discord. 8 Gmail accounts configured via gws CLI. Memory MVP stack (File + Chroma + Redis) implemented and documented. notebooklm-py skill created and discoverable. collab-mem repo established as daily shared memory.",
     "status": [
-      "Hermes production install is pinned at v2026.4.3 and was intentionally not updated in place.",
-      "Main tooling was upgraded today except for the macOS system update, which Tony is handling separately.",
-      "Voice direction is now clear: Wispr Flow for Tony input, TTS for Rae output on the M4.",
-      "A private collab-mem repo now exists as the daily single point of reference across AI surfaces."
+      "Hermes v0.7.0 at /Volumes/hermes/.hermes/ (symlinked to ~/.hermes)",
+      "8 Gmail accounts verified and operational via gws CLI",
+      "Memory MVP stack: File (MEMORY.md/USER.md) + Chroma (vector) + Redis (working)",
+      "Redis running locally on port 6379",
+      "Chroma installed in Hermes venv",
+      "notebooklm skill created at ~/.hermes/skills/productivity/notebooklm/SKILL.md",
+      "Full Gmail account map documented in AGENTS.md and SOUL.md",
+      "Test suite: 7856 passed, 9 pre-existing failures"
     ],
     "blockers": [
-      "NotebookLM still needs browser/session auth before real use.",
-      "Memory stack source-of-truth order is not yet formally documented.",
-      "Subagents are not online yet."
+      "NotebookLM still needs browser/session auth before real use",
+      "Subagents (Coder, Researcher) not yet online"
     ]
   },
   "done_today": [
-    "Created private repo k3ss-official/collab-mem.",
-    "Wrote and then simplified OVERVIEW.md so the repo is centred on: what's going on, what's been done, and what's next.",
-    "Created today's daily JSON memory file.",
-    "Confirmed current HANDOVER.md is partially stale relative to the real current system state.",
-    "Upgraded main non-macOS tools: gh, cloudflared, redis, himalaya, codex, mcporter, tavily-mcp, Playwright MCP, gemini CLI, and gws tooling.",
-    "Repaired and verified Rae gws email auth again.",
-    "Verified anwhelan main Gmail account works through gws too."
+    "Added full Gmail account map to AGENTS.md (8 accounts: rae, anwhelan, k3ss, mrvibe, chadai, dhothi, funky, scouser)",
+    "Added email access details to SOUL.md so Rae knows her 8 identities and how to switch between them",
+    "Installed notebooklm-py in Hermes venv via uv",
+    "Created notebooklm skill at ~/.hermes/skills/productivity/notebooklm/SKILL.md with full API documentation",
+    "Verified all 8 gws accounts work (tested getProfile on each)",
+    "Installed chromadb, sentence-transformers, redis in Hermes venv",
+    "Started Redis server locally (redis-server --daemonize yes)",
+    "Documented Memory Architecture in AGENTS.md (three-layer: File/Core, Chroma/Semantic, Redis/Working)",
+    "Ran full test suite to verify install integrity"
   ],
   "next": {
     "todo": [
       {
         "id": "2026-04-06-01",
-        "task": "Authenticate NotebookLM and run a smoke test: list notebooks, create/query a throwaway notebook, and confirm the Hermes skill matches reality.",
+        "task": "Authenticate NotebookLM and run smoke test: list notebooks, create/query throwaway notebook",
         "status": "pending",
-        "notes": "Best capability unlock. Requires local auth in browser/session context."
+        "notes": "Requires browser/session auth as agenticemails@gmail.com"
       },
       {
         "id": "2026-04-06-02",
-        "task": "Document the real memory stack and source-of-truth order across file memory, Redis, added memory layers, and later Neo4j plans.",
+        "task": "Bring first two subagents online: Coder and Researcher",
         "status": "pending",
-        "notes": "Needed before cross-surface working memory gets messy."
+        "notes": "Biggest leverage upgrade"
       },
       {
         "id": "2026-04-06-03",
-        "task": "Bring the first two subagents online: Coder and Researcher.",
+        "task": "Design and implement token-routing skill (smart brain vs cheap muscle, cost receipts)",
         "status": "pending",
-        "notes": "Biggest leverage upgrade after memory and NotebookLM are clean."
+        "notes": "Professional differentiator"
       },
       {
         "id": "2026-04-06-04",
-        "task": "Design and implement the token-routing skill: smart brain vs cheaper muscle, task decomposition, stage-level model routing, and cost receipt discipline.",
+        "task": "Define active projects and create matching project channels/structure",
         "status": "pending",
-        "notes": "Professional differentiator."
+        "notes": "Organisational cleanup"
       },
       {
         "id": "2026-04-06-05",
-        "task": "Define active projects and create the matching project channels/structure instead of leaving the project layer generic.",
+        "task": "Set Rae's local spoken output to British TTS voice",
         "status": "pending",
-        "notes": "Organisational cleanup after capabilities are online."
+        "notes": "Voice direction for M4 collaboration"
       }
     ],
     "later": [
-      "Set Rae's local spoken output to a British TTS voice for M4 collaboration.",
-      "Build the air-gapped Hermes staging environment on /Volumes/MLX with a separate staging HERMES_HOME.",
-      "Decide whether Brew git should become the default git in shell PATH."
+      "Build air-gapped Hermes staging environment on /Volumes/MLX",
+      "Decide whether Brew git should become default git in shell PATH"
     ]
   },
   "handoff": {
     "for_other_ai": [
-      "Do not duplicate active todos; preserve IDs and continue from this file.",
-      "Use this file for the current operational picture and my-hermes/HANDOVER.md for deeper background.",
-      "Treat Tony as highly technical; keep updates direct and verifiable.",
-      "Do not claim work is done unless it has been checked and is actually working."
+      "Memory system is documented in AGENTS.md - three layers: File (core), Chroma (semantic), Redis (working)",
+      "All 8 Gmail accounts are operational via gws CLI with profile switching",
+      "notebooklm skill is loaded but needs auth before use",
+      "Do not duplicate active todos; preserve IDs"
     ],
     "operator_required": [
-      "NotebookLM browser/session auth as agenticemails@gmail.com.",
-      "macOS system update and reboot handled by Tony.",
-      "Any future live-chat model-default switch that cannot be changed from inside the current session.",
-      "Janet-dependent tasks once guardian/VPS/Zero-Trust-side execution is needed."
+      "NotebookLM browser/session auth as agenticemails@gmail.com",
+      "macOS system update and reboot handled by Tony",
+      "Any future live-chat model-default switch"
     ]
   }
 }
