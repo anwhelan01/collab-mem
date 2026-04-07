@@ -55,8 +55,8 @@
       {
         "id": "2026-04-07-01",
         "task": "Run deploy-profiles.sh on host to activate agent profiles in ~/.hermes/profiles/ and write ~/.zshrc aliases",
-        "status": "pending",
-        "notes": "Pre-req before any agent profile can be invoked. Command: bash /Volumes/hermes/.hermes/hermes-agent/scripts/deploy-profiles.sh"
+        "status": "complete",
+        "notes": "deploy-profiles.sh run successfully. All 5 agent profiles deployed: researcher, coder, devops, bizadmin, content. Core skills deployed. zshrc aliases written. Script bug fixed (bash/zsh exec issue) by OpenCode and pushed back to repo. Repo cloned to /Volumes/hermes/my-hermes on host."
       },
       {
         "id": "2026-04-07-02",
