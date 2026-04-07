@@ -50,7 +50,7 @@
         "task": "Reset all three Rae comms channels \u2014 WhatsApp \u2192 Telegram \u2192 Discord. Each: configure \u2192 link \u2192 test before moving to next.",
         "status": "complete",
         "priority": "IMMEDIATE \u2014 do before anything else",
-        "notes": "WhatsApp broke when Tony reorganised SIM numbers. Check OpenCode findings before starting. Telegram: @Hot_Rae_Bot, token in 1Password hermes-agent vault. Discord: server 1473342600844017867, home channel 1473346779092226191, channel ID must be in .env NOT config.yaml. [OC task marked complete \u2014 Tony handling channel reset directly with Computer (Perplexity). Do not re-open.]"
+        "notes": "All three channels live and tested. WhatsApp + Telegram + Discord all responding. Cascade rebuilt: gpt-4o primary (Codex OAuth), custom Ollama fallback (rae-gemma4 Modelfile with SOUL.md + 32k context), four free OpenRouter fallbacks, Nous Portal last resort. Anthropic removed (bad token). Config committed."
       },
       {
         "id": "2026-04-07-01",
