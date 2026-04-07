@@ -81,6 +81,18 @@
         "task": "Set Rae TTS to British voice",
         "status": "pending",
         "notes": "Voice direction for M4"
+      },
+      {
+        "id": "2026-04-07-30",
+        "task": "Review Opus 4.6 audit suggestions and decide which to adopt",
+        "status": "pending",
+        "notes": "PR #1 findings: token telemetry, health alerting, backup automation, confidence-based escalation. Discuss and prioritise."
+      },
+      {
+        "id": "2026-04-07-31",
+        "task": "Trim all docs for brevity \u2014 start with HANDOVER.md and collab-mem files",
+        "status": "pending",
+        "notes": "Raised by previous session. Less wordy, more operational. Keep the signal, cut the prose."
       }
     ],
     "later": [
