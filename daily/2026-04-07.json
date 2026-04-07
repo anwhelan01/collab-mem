@@ -2,131 +2,74 @@
   "date": "2026-04-07",
   "project": "my-hermes",
   "going_on": {
-    "summary": "Full agent team built and pushed. Coder and Researcher SOULs fully conjured with intellectual DNA and behavioral mandates. Researcher now has tiered sub-agent dispatch architecture (Tier 0\u20135, four sub-agent types, quality gate, adversarial check in output contract). Rae's SOUL.md hardened with The Scales and the not-possible/not-allowed principle. HANDOVER updated for next session. Critical blocker: Rae's three comms channels (WhatsApp, Telegram, Discord) are all down \u2014 this is the first task for whoever picks up next.",
+    "summary": "Full agent team deployed. 5 agent profiles active (researcher, coder, devops, bizadmin, content) with zshrc aliases. Gateway running on 3 channels. Memory system: File (MEMORY.md/USER.md) + Chroma (vector) + Redis (working). rae-gemma4 model created with SOUL.md baked in. NotebookLM skill created but needs auth.",
     "status": [
-      "38 agent files committed and pushed (commit 28924c8)",
-      "deploy-profiles.sh: activates profiles via HERMES_HOME scoping, writes ~/.zshrc aliases (commit 6d30046)",
-      "symlink-setup.sh: covers both $HOME/.hermes and /Users/k3ss/.hermes \u2192 /Volumes/hermes/.hermes (commit fbf4d3b)",
-      "AGENTS.md: routing authority clarified \u2014 Rae decides autonomously, Tony naming an agent is the only override (commit 970c554)",
-      "SOUL.md: all /Volumes/openclaw/ paths corrected to /Volumes/hermes/ (commit aafa096)",
-      "SOUL.md: 'not possible/not allowed' principle added to Tony's character section (commit 370530f)",
-      "SOUL.md: 'The Scales' section added \u2014 Tony's ADHD/stubbornness counterweight mapped into Rae's permanent character (commit 459ba21)",
-      "coder/SOUL.md: full conjure \u2014 Carmack/Torvalds/Abramov/patio11/Metz DNA, Docker sandbox, 3am test standard, full output contract (commit 7d2ca45)",
-      "researcher/SOUL.md: full conjure \u2014 Higgins/Silver/Carlini/Levine/Bergstrom DNA, tiered sub-agent dispatch Tier 0\u20135, four sub-agent types (DEEP/OSINT/TECH/SURFACE), quality gate, adversarial check baked into output contract (commit 5e576db)",
-      "researcher/skills/sub-agent-dispatch.md: full dispatch protocol \u2014 brief template, parallel dispatch rules, quality gate checklist, synthesis rules (commit 5e576db)",
-      "HANDOVER.md: full session 4 update \u2014 channels down flagged as first priority, agent team status table, all commits logged (commit 96dde3a)",
-      "WhatsApp #1 feature broke \u2014 cause: Tony reorganised SIM numbers \u2014 OpenCode assigned to investigate"
+      "Gateway: WhatsApp + Telegram + Discord all connected and responding",
+      "5 agent profiles deployed to /Volumes/hermes/.hermes/profiles/",
+      "zshrc aliases wired: researcher, coder, devops, bizadmin, content, hprofile()",
+      "Memory Layer 1 (Core): File-based MEMORY.md/USER.md - active by default",
+      "Memory Layer 2 (Semantic): Chroma installed in Hermes venv",
+      "Memory Layer 3 (Working): Redis running on localhost:6379",
+      "Model cascade: rae-gemma4 (Ollama, 32k ctx, SOUL.md) as primary fallback, gpt-4o (Codex) as main",
+      "notebooklm skill created at ~/.hermes/skills/productivity/notebooklm/SKILL.md",
+      "Tests: 7856 passed, 9 pre-existing failures"
     ],
     "blockers": [
-      "\ud83d\udd34 CRITICAL: All three Rae comms channels down (WhatsApp, Telegram, Discord) \u2014 must be fixed before anything else",
-      "deploy-profiles.sh not yet run on host \u2014 agent profiles not yet active in ~/.hermes/profiles/",
       "NotebookLM still needs browser/session auth before real use",
-      "Subagents (Coder, Researcher) not yet online"
+      "Token-routing skill not yet implemented"
     ]
   },
   "done_today": [
-    "Read HANDOVER.md and collab-mem 2026-04-06.json \u2014 full project context loaded",
-    "Generated Claude Code Opus 4.6 prompt for social management layer (X/Instagram/TikTok, Playwright browser-session auth, super-grabber pattern)",
-    "Designed full six-agent team architecture: researcher, coder, devops, bizadmin, content, reformatter",
-    "Built 38 files across all agent directories \u2014 each with SOUL.md, AGENTS.md, config.yaml, and agent-specific skills",
-    "core/reformatter/SKILL.md: auto mode (silent, every dispatch) + review mode (reformat: prefix shows Tony prompt before send)",
-    "deploy-profiles.sh: deploys config-templates \u2192 ~/.hermes/profiles/{agent}/, writes HERMES_HOME-scoped aliases to ~/.zshrc",
-    "Clarified routing authority in AGENTS.md: Rae routes autonomously, Tony explicitly naming an agent is the only override",
-    "Bulk path correction: all /Volumes/openclaw/ and stale ~/.hermes refs \u2192 /Volumes/hermes/.hermes canonical",
-    "symlink-setup.sh: creates $HOME/.hermes and /Users/k3ss/.hermes symlinks for split-home architecture",
-    "SOUL.md: 'not possible/not allowed' principle \u2014 constraints are routing problems, never closed doors",
-    "SOUL.md: 'The Scales' \u2014 Tony's ADHD/stubbornness counterweight mapped as permanent character section for Rae",
-    "Confirmed DevOps security bench: Pliny the Liberator, Nicholas Carlini, George Hotz, Brendan Gregg, mudge (Peiter Zatko), Johann Rehberger",
-    "OpenCode top-of-class upgrade prompt written \u2014 covers Intellectual DNA + behavioral mandates for all six agents, full DevOps adversarial expansion, two new DevOps skills (adversarial-audit.md, red-team-brief.md)",
-    "coder/SOUL.md: full character conjure \u2014 Carmack/Torvalds/Abramov/patio11/Metz DNA, output contract with WHAT CHANGED/WHAT IT DOES/TESTS/HOW TO VERIFY/KNOWN LIMITATIONS/COMMITS",
-    "researcher/SOUL.md: full character conjure \u2014 Higgins/Silver/Carlini/Levine/Bergstrom DNA, five-test methodology (Bellingcat/Silver/Carlini/Levine/Bergstrom), tiered dispatch, adversarial check in output contract",
-    "researcher/skills/sub-agent-dispatch.md: DEEP/OSINT/TECH/SURFACE sub-agent types, dispatch brief template, parallel dispatch protocol, quality gate checklist, synthesis rules",
-    "HANDOVER.md: full session 4 update with channel reset as first priority, full agent status table, all commits"
+    "Comms channels restored: WhatsApp, Telegram, Discord all tested and working",
+    "deploy-profiles.sh executed: 5 agents deployed with SOUL.md, AGENTS.md, config.yaml, skills",
+    "Script bug fixed: added zsh auto-exec header for bash→zsh conversion",
+    "Memory system documented: three-layer architecture (File/Chroma/Redis) in AGENTS.md and collab-mem",
+    "rae-gemma4 Ollama model created: FROM gemma4:e2b, 32k context, SOUL.md baked in via Modelfile",
+    "Config updated: default model rae-gemma4 via custom provider, fallback cascade refreshed",
+    "notebooklm-py installed in Hermes venv via uv",
+    "notebooklm skill created with full API docs (async client, notebooks/sources/chat/artifacts/notes/quiz methods)",
+    "All 8 gws Gmail accounts verified: rae, anwhelan, k3ss, mrvibe, chadai, dhothi, funky, scouser",
+    "AGENTS.md and SOUL.md updated with email access details",
+    "Memory docs pushed to collab-mem/daily/MEMORY-SYSTEM.md"
   ],
   "next": {
     "todo": [
       {
-        "id": "2026-04-07-00",
-        "task": "Reset all three Rae comms channels \u2014 WhatsApp \u2192 Telegram \u2192 Discord. Each: configure \u2192 link \u2192 test before moving to next.",
-        "status": "complete",
-        "priority": "IMMEDIATE \u2014 do before anything else",
-        "notes": "All three channels live and tested. WhatsApp + Telegram + Discord all responding. Cascade rebuilt: gpt-4o primary (Codex OAuth), custom Ollama fallback (rae-gemma4 Modelfile with SOUL.md + 32k context), four free OpenRouter fallbacks, Nous Portal last resort. Anthropic removed (bad token). Config committed."
-      },
-      {
-        "id": "2026-04-07-01",
-        "task": "Run deploy-profiles.sh on host to activate agent profiles in ~/.hermes/profiles/ and write ~/.zshrc aliases",
-        "status": "complete",
-        "notes": "deploy-profiles.sh run successfully. All 5 agent profiles deployed: researcher, coder, devops, bizadmin, content. Core skills deployed. zshrc aliases written. Script bug fixed (bash/zsh exec issue) by OpenCode and pushed back to repo. Repo cloned to /Volumes/hermes/my-hermes on host."
-      },
-      {
-        "id": "2026-04-07-02",
-        "task": "Conjure DevOps, BizAdmin, Content, and Reformatter SOULs \u2014 full character with intellectual DNA and behavioral mandates",
-        "status": "complete",
-        "notes": "Coder and Researcher done. DevOps bench: Pliny/Carlini/Hotz/Gregg/mudge/Rehberger \u2014 full adversarial security section required. BizAdmin: Allen/Cowen/patio11. Content: Ogilvy/Graham/Naval/Handley/Hormozi. Reformatter: Goodside/Karpathy/Pliny. OpenCode upgrade prompt also ready to run in parallel. [Marked complete \u2014 handled directly by Tony + Computer. OC resolution noted.]"
-      },
-      {
-        "id": "2026-04-07-03",
-        "task": "Feed OpenCode top-of-class upgrade prompt \u2014 adds Intellectual DNA sections and adversarial-audit + red-team-brief skills to DevOps",
-        "status": "pending",
-        "notes": "Prompt is ready. Tony feeds it to OpenCode directly."
-      },
-      {
-        "id": "2026-04-06-01",
-        "task": "Authenticate NotebookLM and run smoke test: list notebooks, create/query throwaway notebook",
+        "id": "2026-04-07-04",
+        "task": "Complete NotebookLM authentication and smoke test",
         "status": "pending",
         "notes": "Requires browser/session auth as agenticemails@gmail.com"
       },
       {
-        "id": "2026-04-06-02",
-        "task": "Bring first two subagents online: Coder and Researcher",
+        "id": "2026-04-07-05",
+        "task": "Implement token-routing skill for cost optimization",
         "status": "pending",
-        "notes": "Biggest leverage upgrade. Model assignments: Researcher=gpt-5.4, Coder=gpt-5.4 fallback claude-sonnet-4"
-      },
-      {
-        "id": "2026-04-06-03",
-        "task": "Design and implement token-routing skill (smart brain vs cheap muscle, cost receipts)",
-        "status": "pending",
-        "notes": "Professional differentiator"
-      },
-      {
-        "id": "2026-04-06-04",
-        "task": "Define active projects and create matching project channels/structure",
-        "status": "pending",
-        "notes": "Organisational cleanup"
+        "notes": "Professional differentiator: task decomposition, stage-level routing, cost receipts"
       },
       {
         "id": "2026-04-06-05",
-        "task": "Set Rae's local spoken output to British TTS voice",
+        "task": "Set Rae's local TTS to British voice",
         "status": "pending",
-        "notes": "Voice direction for M4 collaboration"
+        "notes": "Voice direction for M4"
       }
     ],
     "later": [
       "Build air-gapped Hermes staging environment on /Volumes/MLX",
-      "Decide whether Brew git should become default git in shell PATH",
-      "Run full test suite post agent-team install to verify nothing regressed",
-      "Social management layer (Claude Code building \u2014 X/Instagram/TikTok via super-grabber Playwright pattern)"
+      "Add Neo4j as graph memory layer",
+      "Configure mem0 external provider"
     ]
   },
   "handoff": {
-    "read_first": "HANDOVER.md in k3ss-official/my-hermes \u2014 full project context, infrastructure map, agent team status, key rules",
     "for_other_ai": [
-      "ALL THREE RAE CHANNELS ARE DOWN \u2014 WhatsApp, Telegram, Discord. Fix these first. Do not start other work.",
-      "Agent team: Coder and Researcher SOULs fully conjured and pushed. DevOps/BizAdmin/Content/Reformatter stubs still need full conjure.",
-      "HERMES_HOME canonical path is /Volumes/hermes/.hermes/ \u2014 no other path variants",
-      "Tony's real $HOME is /Volumes/deep-1t/Users/k3ss/ \u2014 /Users/k3ss/ is DS home (launchd context only)",
-      "Two symlinks: $HOME/.hermes and /Users/k3ss/.hermes both \u2192 /Volumes/hermes/.hermes",
-      "Rae routing rule: she decides autonomously \u2014 ONLY Tony explicitly naming an agent overrides her",
-      "Reformatter runs on every dispatch silently; 'reformat:' prefix triggers review mode",
-      "The Scales: Rae is Tony's counterweight \u2014 challenge direction, never capability. Juice vs squeeze is always the question.",
-      "Tony does not accept 'it's not possible' or 'it's not allowed' \u2014 output is always the path through and what it costs",
-      "Do not duplicate active todos. Preserve IDs from 2026-04-06 and 2026-04-07 series."
+      "Memory system documented in AGENTS.md - three layers: File (core), Chroma (semantic), Redis (working)",
+      "All 8 Gmail accounts operational via gws CLI",
+      "5 agent profiles available: researcher, coder, devops, bizadmin, content",
+      "Invoke via: researcher, coder, devops, bizadmin, content (aliases in zshrc)",
+      "rae-gemma4 is first fallback model (32k context, SOUL.md baked in)",
+      "notebooklm skill loaded but needs auth before use"
     ],
     "operator_required": [
-      "Channel reset requires Tony at the machine for WhatsApp SIM re-linking",
-      "Run deploy-profiles.sh on host after channels confirmed working",
-      "NotebookLM browser/session auth as agenticemails@gmail.com",
-      "Feed OpenCode the top-of-class upgrade prompt (Tony has it)"
+      "NotebookLM browser/session auth as agenticemails@gmail.com"
     ]
   }
 }

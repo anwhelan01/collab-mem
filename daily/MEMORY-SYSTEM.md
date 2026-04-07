@@ -175,6 +175,46 @@ As long as plugins implement this, backends can be swapped without touching the 
 
 ---
 
+## Rae's Memory Toolkit
+
+| Tool | Layer | Purpose |
+|------|-------|---------|
+| `memory_add` | Core (File) | Add entry to MEMORY.md |
+| `memory_replace` | Core (File) | Update existing entry |
+| `memory_remove` | Core (File) | Delete entry |
+| `memory_view` | Core (File) | Show current memory |
+| `mem0_search` | External | Semantic search (if mem0 configured) |
+| `mem0_profile` | External | Full user profile |
+| `mem0_conclude` | External | Store durable fact |
+
+---
+
+## Ollama Integration — rae-gemma4
+
+Rae has a custom Ollama model with her personality baked in:
+
+**Model:** `rae-gemma4`  
+**Created:** 2026-04-07  
+**Context:** 32k tokens  
+**Base:** gemma4:e2b  
+**System prompt:** SOUL.md injected via Modelfile
+
+**Config:**
+```yaml
+model:
+  default: rae-gemma4
+  provider: custom
+  base_url: http://localhost:11434/v1
+fallback_providers:
+- provider: custom
+  model: rae-gemma4
+  context_length: 32768
+```
+
+**Usage:** This is the first fallback in the cascade — when main model fails, Rae responds with her own voice (SOUL.md baked in).
+
+---
+
 ## Key Points for Rae
 
 1. **File memory is always on** — no config needed, used by default
