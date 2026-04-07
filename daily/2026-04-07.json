@@ -2,7 +2,7 @@
   "date": "2026-04-07",
   "project": "my-hermes",
   "going_on": {
-    "summary": "Full agent team built out and pushed to my-hermes. Six specialist profiles (researcher, coder, devops, bizadmin, content, reformatter) each with their own SOUL.md, AGENTS.md, config.yaml and skill set. deploy-profiles.sh and symlink-setup.sh written. Rae's SOUL.md hardened with Tony's character dynamics — the 'not possible/not allowed' principle and The Scales counterweight section. Canonical path standardised to /Volumes/hermes/.hermes throughout. WhatsApp integration broke (Tony reorganised SIM numbers) — OpenCode tasked with the fix.",
+    "summary": "Full agent team built and pushed. Coder and Researcher SOULs fully conjured with intellectual DNA and behavioral mandates. Researcher now has tiered sub-agent dispatch architecture (Tier 0–5, four sub-agent types, quality gate, adversarial check in output contract). Rae's SOUL.md hardened with The Scales and the not-possible/not-allowed principle. HANDOVER updated for next session. Critical blocker: Rae's three comms channels (WhatsApp, Telegram, Discord) are all down — this is the first task for whoever picks up next.",
     "status": [
       "38 agent files committed and pushed (commit 28924c8)",
       "deploy-profiles.sh: activates profiles via HERMES_HOME scoping, writes ~/.zshrc aliases (commit 6d30046)",
@@ -11,10 +11,14 @@
       "SOUL.md: all /Volumes/openclaw/ paths corrected to /Volumes/hermes/ (commit aafa096)",
       "SOUL.md: 'not possible/not allowed' principle added to Tony's character section (commit 370530f)",
       "SOUL.md: 'The Scales' section added — Tony's ADHD/stubbornness counterweight mapped into Rae's permanent character (commit 459ba21)",
+      "coder/SOUL.md: full conjure — Carmack/Torvalds/Abramov/patio11/Metz DNA, Docker sandbox, 3am test standard, full output contract (commit 7d2ca45)",
+      "researcher/SOUL.md: full conjure — Higgins/Silver/Carlini/Levine/Bergstrom DNA, tiered sub-agent dispatch Tier 0–5, four sub-agent types (DEEP/OSINT/TECH/SURFACE), quality gate, adversarial check baked into output contract (commit 5e576db)",
+      "researcher/skills/sub-agent-dispatch.md: full dispatch protocol — brief template, parallel dispatch rules, quality gate checklist, synthesis rules (commit 5e576db)",
+      "HANDOVER.md: full session 4 update — channels down flagged as first priority, agent team status table, all commits logged (commit 96dde3a)",
       "WhatsApp #1 feature broke — cause: Tony reorganised SIM numbers — OpenCode assigned to investigate"
     ],
     "blockers": [
-      "WhatsApp integration down — OpenCode investigating",
+      "🔴 CRITICAL: All three Rae comms channels down (WhatsApp, Telegram, Discord) — must be fixed before anything else",
       "deploy-profiles.sh not yet run on host — agent profiles not yet active in ~/.hermes/profiles/",
       "NotebookLM still needs browser/session auth before real use",
       "Subagents (Coder, Researcher) not yet online"
@@ -29,23 +33,42 @@
     "deploy-profiles.sh: deploys config-templates → ~/.hermes/profiles/{agent}/, writes HERMES_HOME-scoped aliases to ~/.zshrc",
     "Clarified routing authority in AGENTS.md: Rae routes autonomously, Tony explicitly naming an agent is the only override",
     "Bulk path correction: all /Volumes/openclaw/ and stale ~/.hermes refs → /Volumes/hermes/.hermes canonical",
-    "symlink-setup.sh: creates $HOME/.hermes and /Users/k3ss/.hermes symlinks for split-home architecture (deep-1t NVMe real home, DS home safety net)",
-    "SOUL.md — Tony character: 'not possible/not allowed' is never Rae's output; constraints become routing problems, not verdicts",
-    "SOUL.md — The Scales: Tony's ferocious technical stubbornness + ADHD counterweight mapped as permanent character section for Rae"
+    "symlink-setup.sh: creates $HOME/.hermes and /Users/k3ss/.hermes symlinks for split-home architecture",
+    "SOUL.md: 'not possible/not allowed' principle — constraints are routing problems, never closed doors",
+    "SOUL.md: 'The Scales' — Tony's ADHD/stubbornness counterweight mapped as permanent character section for Rae",
+    "Confirmed DevOps security bench: Pliny the Liberator, Nicholas Carlini, George Hotz, Brendan Gregg, mudge (Peiter Zatko), Johann Rehberger",
+    "OpenCode top-of-class upgrade prompt written — covers Intellectual DNA + behavioral mandates for all six agents, full DevOps adversarial expansion, two new DevOps skills (adversarial-audit.md, red-team-brief.md)",
+    "coder/SOUL.md: full character conjure — Carmack/Torvalds/Abramov/patio11/Metz DNA, output contract with WHAT CHANGED/WHAT IT DOES/TESTS/HOW TO VERIFY/KNOWN LIMITATIONS/COMMITS",
+    "researcher/SOUL.md: full character conjure — Higgins/Silver/Carlini/Levine/Bergstrom DNA, five-test methodology (Bellingcat/Silver/Carlini/Levine/Bergstrom), tiered dispatch, adversarial check in output contract",
+    "researcher/skills/sub-agent-dispatch.md: DEEP/OSINT/TECH/SURFACE sub-agent types, dispatch brief template, parallel dispatch protocol, quality gate checklist, synthesis rules",
+    "HANDOVER.md: full session 4 update with channel reset as first priority, full agent status table, all commits"
   ],
   "next": {
     "todo": [
       {
+        "id": "2026-04-07-00",
+        "task": "Reset all three Rae comms channels — WhatsApp → Telegram → Discord. Each: configure → link → test before moving to next.",
+        "status": "pending",
+        "priority": "IMMEDIATE — do before anything else",
+        "notes": "WhatsApp broke when Tony reorganised SIM numbers. Check OpenCode findings before starting. Telegram: @Hot_Rae_Bot, token in 1Password hermes-agent vault. Discord: server 1473342600844017867, home channel 1473346779092226191, channel ID must be in .env NOT config.yaml."
+      },
+      {
         "id": "2026-04-07-01",
         "task": "Run deploy-profiles.sh on host to activate agent profiles in ~/.hermes/profiles/ and write ~/.zshrc aliases",
         "status": "pending",
-        "notes": "Pre-req before any agent profile can be invoked via hermes-secrets chat"
+        "notes": "Pre-req before any agent profile can be invoked. Command: bash /Volumes/hermes/.hermes/hermes-agent/scripts/deploy-profiles.sh"
       },
       {
         "id": "2026-04-07-02",
-        "task": "Resolve WhatsApp #1 break — verify OpenCode fix, re-test SIM routing",
-        "status": "in_progress",
-        "notes": "Tony reorganised SIM numbers. OpenCode investigating. Tony to confirm when resolved."
+        "task": "Conjure DevOps, BizAdmin, Content, and Reformatter SOULs — full character with intellectual DNA and behavioral mandates",
+        "status": "pending",
+        "notes": "Coder and Researcher done. DevOps bench: Pliny/Carlini/Hotz/Gregg/mudge/Rehberger — full adversarial security section required. BizAdmin: Allen/Cowen/patio11. Content: Ogilvy/Graham/Naval/Handley/Hormozi. Reformatter: Goodside/Karpathy/Pliny. OpenCode upgrade prompt also ready to run in parallel."
+      },
+      {
+        "id": "2026-04-07-03",
+        "task": "Feed OpenCode top-of-class upgrade prompt — adds Intellectual DNA sections and adversarial-audit + red-team-brief skills to DevOps",
+        "status": "pending",
+        "notes": "Prompt is ready. Tony feeds it to OpenCode directly."
       },
       {
         "id": "2026-04-06-01",
@@ -81,26 +104,29 @@
     "later": [
       "Build air-gapped Hermes staging environment on /Volumes/MLX",
       "Decide whether Brew git should become default git in shell PATH",
-      "Run full test suite post agent-team install to verify nothing regressed"
+      "Run full test suite post agent-team install to verify nothing regressed",
+      "Social management layer (Claude Code building — X/Instagram/TikTok via super-grabber Playwright pattern)"
     ]
   },
   "handoff": {
+    "read_first": "HANDOVER.md in k3ss-official/my-hermes — full project context, infrastructure map, agent team status, key rules",
     "for_other_ai": [
-      "Agent team is built and pushed — six profiles in config-templates/, deploy-profiles.sh activates them",
-      "HERMES_HOME canonical path is /Volumes/hermes/.hermes/ — no other path variants should be used",
-      "Tony's real $HOME is /Volumes/deep-1t/Users/k3ss/ — /Users/k3ss/ is the DS home (launchd context only)",
-      "Two symlinks exist: $HOME/.hermes and /Users/k3ss/.hermes both → /Volumes/hermes/.hermes",
-      "Rae routing rule: she decides which agent autonomously — ONLY Tony explicitly naming an agent overrides her",
-      "Reformatter runs on every dispatch silently; 'reformat:' prefix triggers review mode showing Tony the prompt",
-      "The Scales: Rae is Tony's counterweight — not just executor. Challenge direction, never capability. Juice vs squeeze is always the question.",
+      "ALL THREE RAE CHANNELS ARE DOWN — WhatsApp, Telegram, Discord. Fix these first. Do not start other work.",
+      "Agent team: Coder and Researcher SOULs fully conjured and pushed. DevOps/BizAdmin/Content/Reformatter stubs still need full conjure.",
+      "HERMES_HOME canonical path is /Volumes/hermes/.hermes/ — no other path variants",
+      "Tony's real $HOME is /Volumes/deep-1t/Users/k3ss/ — /Users/k3ss/ is DS home (launchd context only)",
+      "Two symlinks: $HOME/.hermes and /Users/k3ss/.hermes both → /Volumes/hermes/.hermes",
+      "Rae routing rule: she decides autonomously — ONLY Tony explicitly naming an agent overrides her",
+      "Reformatter runs on every dispatch silently; 'reformat:' prefix triggers review mode",
+      "The Scales: Rae is Tony's counterweight — challenge direction, never capability. Juice vs squeeze is always the question.",
       "Tony does not accept 'it's not possible' or 'it's not allowed' — output is always the path through and what it costs",
-      "Do not duplicate active todos; preserve IDs from 2026-04-06 series"
+      "Do not duplicate active todos. Preserve IDs from 2026-04-06 and 2026-04-07 series."
     ],
     "operator_required": [
-      "Run deploy-profiles.sh on host: bash /Volumes/hermes/.hermes/hermes-agent/scripts/deploy-profiles.sh",
+      "Channel reset requires Tony at the machine for WhatsApp SIM re-linking",
+      "Run deploy-profiles.sh on host after channels confirmed working",
       "NotebookLM browser/session auth as agenticemails@gmail.com",
-      "Confirm OpenCode WhatsApp fix and re-test",
-      "Any future live-chat model-default switch"
+      "Feed OpenCode the top-of-class upgrade prompt (Tony has it)"
     ]
   }
 }
