@@ -2,38 +2,56 @@
   "date": "2026-04-07",
   "project": "my-hermes",
   "going_on": {
-    "summary": "Full agent team deployed. 5 agent profiles active (researcher, coder, devops, bizadmin, content) with zshrc aliases. Gateway running on 3 channels. Memory system: File (MEMORY.md/USER.md) + Chroma (vector) + Redis (working). rae-gemma4 model created with SOUL.md baked in. NotebookLM skill created but needs auth.",
+    "summary": "Full agent team deployed. 5 agent profiles active. Gateway running on all 3 channels (WhatsApp/Telegram/Discord). MiMo-V2-Pro set as primary model via Nous Portal (free 2-week trial). Model cascade rebuilt from scratch. rae-gemma4 Modelfile created with SOUL.md baked in. Memory system: File + Chroma + Redis.",
     "status": [
-      "Gateway: WhatsApp + Telegram + Discord all connected and responding",
-      "5 agent profiles deployed to /Volumes/hermes/.hermes/profiles/",
-      "zshrc aliases wired: researcher, coder, devops, bizadmin, content, hprofile()",
-      "Memory Layer 1 (Core): File-based MEMORY.md/USER.md - active by default",
+      "Gateway: WhatsApp + Telegram + Discord all connected and tested",
+      "5 agent profiles deployed to /Volumes/hermes/.hermes/profiles/ with zshrc aliases",
+      "PRIMARY MODEL: xiaomi/mimo-v2-pro via Nous Portal (free trial, 1M context, 1T params, agentic-optimised)",
+      "FALLBACK CASCADE: rae-gemma4 (local Ollama, 32k ctx, SOUL.md) -> minimax/minimax-m2.5:free -> stepfun/step-3.5-flash:free -> qwen/qwen3.6-plus:free -> google/gemini-3.1-flash-lite-preview -> nousresearch/hermes-3-llama-3.1-70b",
+      "rae-gemma4 Modelfile: FROM gemma4:e2b, num_ctx 32768, SYSTEM from SOUL.md",
+      "Memory Layer 1 (Core): File-based MEMORY.md/USER.md",
       "Memory Layer 2 (Semantic): Chroma installed in Hermes venv",
       "Memory Layer 3 (Working): Redis running on localhost:6379",
-      "Model cascade: rae-gemma4 (Ollama, 32k ctx, SOUL.md) as primary fallback, gpt-4o (Codex) as main",
-      "notebooklm skill created at ~/.hermes/skills/productivity/notebooklm/SKILL.md",
+      "Subscriptions: Nous Research $20/mo, Perplexity $20/mo, Claude Pro $20/mo (API token broken), Google One, ChatGPT Plus (Codex OAuth)",
+      "Anthropic removed from cascade - free eval plan, bad token, covered by OpenRouter/Nous if needed",
       "Tests: 7856 passed, 9 pre-existing failures"
     ],
     "blockers": [
-      "NotebookLM still needs browser/session auth before real use",
-      "Token-routing skill not yet implemented"
+      "Anthropic API token invalid (free eval plan on scousercheekly account) - low priority, covered by other providers",
+      "Codex (gpt-4o) was on cooldown during testing - currently secondary to MiMo-V2-Pro",
+      "Janet SSH accounts (k3ss/rae) - dscl creation issue, parked for now",
+      "NotebookLM still needs browser/session auth"
     ]
   },
   "done_today": [
-    "Comms channels restored: WhatsApp, Telegram, Discord all tested and working",
-    "deploy-profiles.sh executed: 5 agents deployed with SOUL.md, AGENTS.md, config.yaml, skills",
-    "Script bug fixed: added zsh auto-exec header for bash→zsh conversion",
-    "Memory system documented: three-layer architecture (File/Chroma/Redis) in AGENTS.md and collab-mem",
-    "rae-gemma4 Ollama model created: FROM gemma4:e2b, 32k context, SOUL.md baked in via Modelfile",
-    "Config updated: default model rae-gemma4 via custom provider, fallback cascade refreshed",
-    "notebooklm-py installed in Hermes venv via uv",
-    "notebooklm skill created with full API docs (async client, notebooks/sources/chat/artifacts/notes/quiz methods)",
-    "All 8 gws Gmail accounts verified: rae, anwhelan, k3ss, mrvibe, chadai, dhothi, funky, scouser",
-    "AGENTS.md and SOUL.md updated with email access details",
-    "Memory docs pushed to collab-mem/daily/MEMORY-SYSTEM.md"
+    "All 3 comms channels restored and tested: WhatsApp, Telegram, Discord",
+    "Model cascade rebuilt from scratch - removed broken providers, corrected model IDs",
+    "deploy-profiles.sh run: 5 agents (researcher, coder, devops, bizadmin, content) with aliases",
+    "Script bug fixed by OC: added zsh auto-exec for bash invocation",
+    "rae-gemma4 Ollama Modelfile created: FROM gemma4:e2b, 32k context, SOUL.md baked in",
+    "Ollama fallback tested and confirmed working - Rae identifies herself correctly on local model",
+    "MiMo-V2-Pro (Xiaomi) set as primary via Nous Portal - free 2-week trial, 1T params, 1M context",
+    "Subscription and API audit started - mapped all active subs and provider status",
+    "Anthropic removed from cascade (bad token, free eval plan)",
+    "OpenRouter model IDs corrected: minimax/minimax-m2.5:free, stepfun/step-3.5-flash:free",
+    "collab-mem system feedback delivered: recommended STATE.md single-file approach",
+    "notebooklm-py installed, skill created, 8 Gmail accounts verified (earlier OC session)",
+    "Memory docs pushed to collab-mem (earlier OC session)"
   ],
   "next": {
     "todo": [
+      {
+        "id": "2026-04-07-10",
+        "task": "Wire up smart_model_routing in config.yaml",
+        "status": "pending",
+        "notes": "Route simple turns to rae-gemma4 or gemini-flash, keep MiMo-V2-Pro for complex work"
+      },
+      {
+        "id": "2026-04-07-11",
+        "task": "Restore Codex gpt-4o as primary when cooldown ends",
+        "status": "pending",
+        "notes": "MiMo-V2-Pro free trial = temporary primary. Codex should be default primary long term."
+      },
       {
         "id": "2026-04-07-04",
         "task": "Complete NotebookLM authentication and smoke test",
@@ -48,25 +66,31 @@
       },
       {
         "id": "2026-04-06-05",
-        "task": "Set Rae's local TTS to British voice",
+        "task": "Set Rae TTS to British voice",
         "status": "pending",
         "notes": "Voice direction for M4"
       }
     ],
     "later": [
+      "Janet SSH accounts (k3ss/rae) - dscl issue needs manual fix on Janet",
+      "Implement STATE.md in collab-mem to replace HANDOVER.md + daily JSON duplication",
       "Build air-gapped Hermes staging environment on /Volumes/MLX",
       "Add Neo4j as graph memory layer",
-      "Configure mem0 external provider"
+      "Configure mem0 external provider",
+      "MoA (Mixture of Agents) tuning - when it fires, which models participate",
+      "GitHub Copilot as provider - evaluate gpt-5.4/Claude/Gemini via Copilot OAuth"
     ]
   },
   "handoff": {
     "for_other_ai": [
-      "Memory system documented in AGENTS.md - three layers: File (core), Chroma (semantic), Redis (working)",
-      "All 8 Gmail accounts operational via gws CLI",
-      "5 agent profiles available: researcher, coder, devops, bizadmin, content",
-      "Invoke via: researcher, coder, devops, bizadmin, content (aliases in zshrc)",
-      "rae-gemma4 is first fallback model (32k context, SOUL.md baked in)",
-      "notebooklm skill loaded but needs auth before use"
+      "PRIMARY: xiaomi/mimo-v2-pro via Nous Portal (free trial). OpenRouter ID: xiaomi/mimo-v2-pro",
+      "FALLBACK: rae-gemma4 (Ollama local) -> 4x free OpenRouter -> nous hermes-3-70b",
+      "Anthropic is OUT of cascade - token broken, not worth fixing",
+      "All 3 channels live: WhatsApp (+447424378985), Telegram (@Hot_Rae_Bot), Discord (server 1473342600844017867)",
+      "5 agent profiles: researcher, coder, devops, bizadmin, content (aliases in zshrc)",
+      "Memory: File + Chroma + Redis",
+      "Config lives at /Volumes/hermes/.hermes/config.yaml - NOT in git repo",
+      "Modelfile at /Volumes/hermes/.hermes/Modelfile - creates rae-gemma4 with SOUL.md + 32k ctx"
     ],
     "operator_required": [
       "NotebookLM browser/session auth as agenticemails@gmail.com"
