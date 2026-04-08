@@ -50,7 +50,7 @@
         "id": "2026-04-08-01",
         "task": "Tally up all branches in my-hermes and collab-mem — document what's in each and current status",
         "status": "pending",
-        "notes": "my-hermes: main + claude/social-management-layer-EfqKm (social) + claude/hermes-full-audit-refactor-6oIju (janet). collab-mem: main. One consolidated view needed."
+        "notes": "my-hermes: main + 2 claude/* remote branches (social, janet-build). collab-mem: main only."
       },
       {
         "id": "2026-04-07-20",
