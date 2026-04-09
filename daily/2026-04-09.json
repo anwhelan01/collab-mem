@@ -3,15 +3,15 @@
   "project": "my-hermes",
   "going_on": {
     "summary": "Janet staged and ready. Hermes/Rae fully operational on Telegram + Discord (WhatsApp reconnected). Memory stack (File + Chroma + Redis) working. Gateway running clean with 2 platforms.",
-    "status": [
+"status": [
       "Rae responding on Telegram and Discord",
       "WhatsApp reconnected - Tony rescanned QR",
-      "Gateway running with Telegram + Discord (WhatsApp disabled to fix loop)",
+      "Gateway running with Telegram + Discord (WhatsApp disabled to stop loop)",
       "Chroma running on port 8050, Redis on 6379",
-      "Janet staged: brew, xcode deps, ollama, gemma4-2b, opencode CLI installed",
-      "SSH keys configured: ssh janet and ssh janet-k3ss working both ways",
-      "Shared SSL keys set up across k3ss@janet and janet@janet",
-      "nopasswd sudo configured for all 3 accounts on janet"
+      "Janet INSTALLED: Hermes Agent v0.8.0, config deployed, skills deployed, baselines captured",
+      "SSH: m4-rae alias working (k3ss user)",
+      "Janet smoke test: all checks passed",
+      "Gateway .env created with placeholder tokens for Discord/Telegram/WhatsApp"
     ],
     "blockers": []
   },
@@ -27,14 +27,15 @@
     "Redid ~/.ssh/config with new keys, tested ssh janet and ssh janet-k3ss",
     "Tested reverse config in janet - works",
     "Staged janet with brew, xcode, ollama, gemma4-2b, opencode CLI",
-    "Updated collab-mem with all progress"
+    "Updated collab-mem with all progress",
+    "INSTALLED Janet: Phase 1-9 complete (Hermes Agent v0.8.0, config, skills, baselines, smoke test passed)"
   ],
   "next": {
     "todo": [
       {
         "id": "2026-04-09-01",
         "task": "Install Hermes Agent on Janet - follow the install plan in hermes-janet repo",
-        "status": "pending",
+        "status": "completed",
         "notes": "Requires: brew, xcode, ollama running, gemma4-2b model loaded, opencode CLI available"
       },
       {
@@ -71,9 +72,11 @@
       "Janet SSH access: ssh janet (uses id_ed25519_lan key)"
     ],
     "operator_required": [
-      "Install Hermes Agent on Janet using hermes-janet repo install plan",
       "Verify WhatsApp is fully reconnected by sending a test message",
-      "Confirm SSH access works: ssh janet-k3ss from janet machine"
+      "Confirm SSH access works: ssh janet-k3ss from janet machine",
+      "Sign in to op CLI: op signin (1Password session needed)",
+      "Configure Janet gateway tokens in .env or 1Password vault",
+      "Run: hermes gateway install (set up as persistent service)"
     ]
   }
 }
