@@ -2,66 +2,54 @@
   "date": "2026-04-09",
   "project": "my-hermes",
   "going_on": {
-    "summary": "Janet fully staged. OC (Prak) deployed and verified. Both hermes and janet operational. Repo split complete.",
+    "summary": "Gateway fully operational on m4-rae with Telegram + WhatsApp + Discord. Two-layer watchdog system running (local on m4 + Janet backup). Janet cron jobs configured for heartbeat/watchtower. Config separation verified - Janet knows to SSH to m4-rae as k3ss user. Janet (Prak) also deployed and verified on MBP.",
     "status": [
-      "hermes: Telegram + Discord gateway running",
-      "janet: OC (Prak) deployed and verified - first words: perimeter secure",
-      "SSH config: ssh janet and ssh janet-k3ss both working",
-      "janet user janet: /Users/janet - main account",
-      "janet user k3ss: /Users/k3ss - secondary",
-      "OC bootstrap: /Users/janet/OC/ with BOOTSTRAP.md",
-      "Session files copied for full context"
+      "Gateway running on m4-rae with all 3 platforms connected",
+      "Local watchdog on m4-rae (rae-watchdog-local.sh) - 2 min poll, escalates to Janet after 3 failures",
+      "Janet runs rae-watchdog.sh - polls m4-rae every 5 min",
+      "Janet has janet-heartbeat.sh - checks both Hermes systems every 5 min",
+      "Janet cron jobs: heartbeat (5min), watchtower (10min), CVE check (daily 3:30am)",
+      "Discord token refreshed - now connected",
+      "WhatsApp bridge running in bot mode",
+      "Stale launchd services (exit code 78) cleaned up",
+      "Config separation verified - Janet SSH to m4-rae as k3ss",
+      "Janet (Prak): OC deployed at /Users/janet/OC/, verified working"
     ],
     "blockers": []
   },
   "done_today": [
-    "Separated GH repos: hermes-rae and hermes-janet fresh TLD repos",
-    "Created install plan for janet in hermes-janet repo",
-    "Merged PR on old my-hermes audit branch, brought up to date",
-    "Cleaned up and separated repos, nuked unused branches",
-    "Fixed WhatsApp gateway loop - disabled in config",
-    "Set up shared SSL keys across k3ss@janet and janet@janet",
-    "Fixed nopasswd sudo on M4, configured for all 3 accounts on janet",
-    "Redid ~/.ssh/config with new keys, tested ssh janet and ssh janet-k3ss",
-    "Tested reverse config in janet:~/.ssh/config - works",
-    "Staged janet: brew, xcode, ollama, gemma4:2b, opencode CLI",
-    "COPIED OC TO JANET: /Users/janet/OC/ with adjusted paths",
-    "Created ~/.config/opencode/opencode.json on janet pointing to /Users/janet/OC/BOOTSTRAP.md",
-    "Copied session files to janet for full context",
-    "Verified OC on janet: opencode --version = 1.3.10",
-    "First boot on janet: OC identified correctly, perimeter secure"
+    "Fixed gateway exit code 78 - root cause was watchdog using wrong Python (uv vs venv)",
+    "Killed multiple ghost gateway processes on m4-rae",
+    "Created rae-watchdog-local.sh on m4-rae - first line defense, 2 min poll",
+    "Created rae-watchdog.sh on Janet - backup watchdog, 5 min poll to m4-rae",
+    "Unloaded stale launchd services",
+    "Refreshed Discord token",
+    "Restarted gateway - all platforms connected",
+    "Created janet-heartbeat.sh on Janet",
+    "Configured Janet crontab: heartbeat/watchtower/CVE",
+    "Verified config separation",
+    "Separated GH repos: hermes-rae and hermes-janet",
+    "Set up shared SSL keys",
+    "Copied OC to janet at /Users/janet/OC/",
+    "Updated collab-mem"
   ],
   "next": {
     "todo": [
-      {
-        "id": "2026-04-09-05",
-        "task": "Set up chat delivery targets (cron jobs to Telegram/Discord)",
-        "status": "pending",
-        "notes": "WhatsApp disabled, change delivery to Telegram or Discord"
-      },
-      {
-        "id": "2026-04-09-06",
-        "task": "Test OC on janet via gateway surface",
-        "status": "pending",
-        "notes": " titan_crawler_bot DM relay running but needs Hermes integration"
-      }
+      {"id": "2026-04-09-05", "task": "Set up cron job delivery to Telegram/Discord", "status": "pending"}
     ],
     "later": [
-      "Wire up task-router and reformatter skills for auto-invocation",
-      "Set up Chroma RAG with collections for janet"
+      "Add evening/midday cron pulses",
+      "Set up Chroma RAG collections",
+      "Permanent WhatsApp session backup"
     ]
   },
   "handoff": {
     "for_other_ai": [
-      "janet is LIVE: opencode CLI deployed and working",
-      "SSH: ssh janet (user janet, /Users/janet) or ssh janet-k3ss (user k3ss)",
-      "OC files: /Users/janet/OC/",
-      "Config: ~/.config/opencode/opencode.json on janet",
-      "hermes: Gateway running on Telegram + Discord"
+      "Gateway: Telegram @Hot_Rae_Bot, Discord rae-hermes#0464, WhatsApp",
+      "Watchdog: m4-rae local -> Janet backup -> Janet heartbeat",
+      "Janet cron: */5 heartbeat, */10 watchtower, 30 3 * * CVE",
+      "ssh janet (MBP), ssh m4-rae (M4 as k3ss)"
     ],
-    "operator_required": [
-      "Verify WhatsApp fully reconnected",
-      "Configure janet gateway tokens in .env or 1Password"
-    ]
+    "operator_required": []
   }
 }
