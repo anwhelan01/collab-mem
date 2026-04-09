@@ -2,81 +2,66 @@
   "date": "2026-04-09",
   "project": "my-hermes",
   "going_on": {
-    "summary": "Janet staged and ready. Hermes/Rae fully operational on Telegram + Discord (WhatsApp reconnected). Memory stack (File + Chroma + Redis) working. Gateway running clean with 2 platforms.",
-"status": [
-      "Rae responding on Telegram and Discord",
-      "WhatsApp reconnected - Tony rescanned QR",
-      "Gateway running with Telegram + Discord (WhatsApp disabled to stop loop)",
-      "Chroma running on port 8050, Redis on 6379",
-      "Janet INSTALLED: Hermes Agent v0.8.0, config deployed, skills deployed, baselines captured",
-      "SSH: m4-rae alias working (k3ss user)",
-      "Janet smoke test: all checks passed",
-      "Gateway .env created with placeholder tokens for Discord/Telegram/WhatsApp"
+    "summary": "Janet fully staged. OC (Prak) deployed and verified. Both hermes and janet operational. Repo split complete.",
+    "status": [
+      "hermes: Telegram + Discord gateway running",
+      "janet: OC (Prak) deployed and verified - first words: perimeter secure",
+      "SSH config: ssh janet and ssh janet-k3ss both working",
+      "janet user janet: /Users/janet - main account",
+      "janet user k3ss: /Users/k3ss - secondary",
+      "OC bootstrap: /Users/janet/OC/ with BOOTSTRAP.md",
+      "Session files copied for full context"
     ],
     "blockers": []
   },
   "done_today": [
-    "Separated GH repos: created hermes-rae and hermes-janet (fresh TLD repos)",
-    "Created install plan for Janet in hermes-janet repo",
+    "Separated GH repos: hermes-rae and hermes-janet fresh TLD repos",
+    "Created install plan for janet in hermes-janet repo",
     "Merged PR on old my-hermes audit branch, brought up to date",
-    "Cleaned up and separated the 2 repos completely, nuked unused branches",
-    "Nuked staging gits on /Volumes/MLX, cloned new cleaned repos (hermes-rae and janet)",
-    "Fixed WhatsApp gateway loop - disabled WhatsApp in config to stop reconnect spam",
-    "Set up shared SSL keys across k3ss@janet and janet@janet (janet as primary)",
+    "Cleaned up and separated repos, nuked unused branches",
+    "Fixed WhatsApp gateway loop - disabled in config",
+    "Set up shared SSL keys across k3ss@janet and janet@janet",
     "Fixed nopasswd sudo on M4, configured for all 3 accounts on janet",
     "Redid ~/.ssh/config with new keys, tested ssh janet and ssh janet-k3ss",
-    "Tested reverse config in janet - works",
-    "Staged janet with brew, xcode, ollama, gemma4-2b, opencode CLI",
-    "Updated collab-mem with all progress",
-    "INSTALLED Janet: Phase 1-9 complete (Hermes Agent v0.8.0, config, skills, baselines, smoke test passed)"
+    "Tested reverse config in janet:~/.ssh/config - works",
+    "Staged janet: brew, xcode, ollama, gemma4:2b, opencode CLI",
+    "COPIED OC TO JANET: /Users/janet/OC/ with adjusted paths",
+    "Created ~/.config/opencode/opencode.json on janet pointing to /Users/janet/OC/BOOTSTRAP.md",
+    "Copied session files to janet for full context",
+    "Verified OC on janet: opencode --version = 1.3.10",
+    "First boot on janet: OC identified correctly, perimeter secure"
   ],
   "next": {
     "todo": [
       {
-        "id": "2026-04-09-01",
-        "task": "Install Hermes Agent on Janet - follow the install plan in hermes-janet repo",
-        "status": "completed",
-        "notes": "Requires: brew, xcode, ollama running, gemma4-2b model loaded, opencode CLI available"
+        "id": "2026-04-09-05",
+        "task": "Set up chat delivery targets (cron jobs to Telegram/Discord)",
+        "status": "pending",
+        "notes": "WhatsApp disabled, change delivery to Telegram or Discord"
       },
       {
-        "id": "2026-04-09-02",
-        "task": "Update cron job delivery targets - currently deliver to WhatsApp which is disabled",
+        "id": "2026-04-09-06",
+        "task": "Test OC on janet via gateway surface",
         "status": "pending",
-        "notes": "Change daily-briefing-6am and other cron jobs to deliver to Telegram or Discord instead"
-      },
-      {
-        "id": "2026-04-09-03",
-        "task": "Test Prak (OpenCode) on Janet - verify I can access and test through the new bot surface",
-        "status": "pending",
-        "notes": " titan_crawler_bot DM relay is running but needs proper Hermes integration"
-      },
-      {
-        "id": "2026-04-09-04",
-        "task": "Wire up task-router and reformatter skills for auto-invocation",
-        "status": "pending",
-        "notes": "Skills are deployed but not auto-triggering - need to integrate into agent loop"
+        "notes": " titan_crawler_bot DM relay running but needs Hermes integration"
       }
     ],
     "later": [
-      "Set up Chroma RAG with actual collections for semantic memory",
-      "Add more cron jobs (evening wrap, midday pulse) - decide on delivery platform",
-      "Configure Discord/Telegram as proper bot surfaces for testing"
+      "Wire up task-router and reformatter skills for auto-invocation",
+      "Set up Chroma RAG with collections for janet"
     ]
   },
   "handoff": {
     "for_other_ai": [
-      "Gateway is running: Telegram @Hot_Rae_Bot and Discord rae-hermes#0464 are live",
-      "WhatsApp was disconnected - Tony rescanned QR, should be back online",
-      "Chroma running on 127.0.0.1:8050, Redis on 6379",
-      "All configs are in /Volumes/hermes/.hermes/ - check config.yaml and .env",
-      "Janet SSH access: ssh janet (uses id_ed25519_lan key)"
+      "janet is LIVE: opencode CLI deployed and working",
+      "SSH: ssh janet (user janet, /Users/janet) or ssh janet-k3ss (user k3ss)",
+      "OC files: /Users/janet/OC/",
+      "Config: ~/.config/opencode/opencode.json on janet",
+      "hermes: Gateway running on Telegram + Discord"
     ],
     "operator_required": [
-      "Verify WhatsApp is fully reconnected by sending a test message",
-      "Confirm SSH access works: ssh janet-k3ss from janet machine",
-      "Sign in to op CLI: op signin (1Password session needed)",
-      "Configure Janet gateway tokens in .env or 1Password vault",
-      "Run: hermes gateway install (set up as persistent service)"
+      "Verify WhatsApp fully reconnected",
+      "Configure janet gateway tokens in .env or 1Password"
     ]
   }
 }
