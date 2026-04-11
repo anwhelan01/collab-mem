@@ -1,14 +1,16 @@
 {
   "date": "2026-04-11",
   "day": "Friday",
-  "summary": "Gateway launchd fix - macOS /proc compatibility issue resolved",
+  "summary": "Gateway launchd fix - macOS /proc compatibility issue resolved. Full upgrade sweep completed on both machines - node, npm, git, python all updated. Fix pushed to both local repos.",
   "going_on": {
-    "summary": "Both gateways running via launchd with --replace flag. Janet pulled 177 upstream commits. Both machines need full upgrade sweep.",
+    "summary": "Both gateways running via launchd with --replace flag. Full upgrade sweep done on both machines. All platforms connected.",
     "status": [
       "M4 (Rae): Gateway via launchd, all 3 platforms connected",
       "Janet: Gateway via launchd, all 3 platforms connected",
       "Both running with macOS-compatible lock detection (ps commands)",
-      "Janet pulled 177 upstream commits from NousResearch/hermes-agent"
+      "M4: Node v25.9.0, npm 11.12.1, pulled latest git",
+      "Janet: Pulled 177 upstream commits, node v25.9.0",
+      "npm audit fix run, python packages up to date"
     ],
     "blockers": []
   },
@@ -29,6 +31,16 @@
       "area": "infrastructure",
       "description": "Updated collab-mem with daily log",
       "status": "complete"
+    },
+    {
+      "area": "infrastructure",
+      "description": "Full system upgrade sweep M4 - node v25.9.0, npm updated, git pulled",
+      "status": "complete"
+    },
+    {
+      "area": "infrastructure",
+      "description": "Full system upgrade sweep Janet - pulled 177 commits, node v25.9.0",
+      "status": "complete"
     }
   ],
   "tech_notes": [
@@ -41,8 +53,8 @@
   "next": {
     "todo": [
       {"id": "2026-04-09-05", "task": "Set up cron job delivery to Telegram/Discord", "status": "pending"},
-      {"id": "2026-04-11-01", "task": "Full system upgrade sweep on M4 (Rae)", "status": "pending"},
-      {"id": "2026-04-11-02", "task": "Full system upgrade sweep on Janet (MBP)", "status": "pending"}
+      {"id": "2026-04-11-01", "task": "Full system upgrade sweep on M4 (Rae)", "status": "completed"},
+      {"id": "2026-04-11-02", "task": "Full system upgrade sweep on Janet (MBP)", "status": "completed"}
     ],
     "later": [
       "Add evening/midday cron pulses",
