@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-11",
+  "day": "Friday",
+  "summary": "Gateway launchd fix - macOS /proc compatibility issue resolved",
+  "accomplishments": [
+    {
+      "area": "infrastructure",
+      "description": "Fixed Hermes Gateway launchd service on M4 (Rae) - was failing with ghost PID lock errors",
+      "details": "Root cause: gateway/status.py used Linux-only /proc filesystem calls that silently return None on macOS, breaking stale lock detection. Opus fixed with macOS-specific ps commands.",
+      "status": "complete"
+    },
+    {
+      "area": "infrastructure", 
+      "description": "Verified Janet gateway - already running correctly with --replace in plist",
+      "details": "All 3 platforms connected: Discord (hermes-janet#9359), Telegram (polling), WhatsApp (bridge)",
+      "status": "complete"
+    }
+  ],
+  "tech_notes": [
+    "launchctl LastExitStatus 19968 = EX_CONFIG (exit code 78)",
+    "Lock files in ~/.local/state/hermes/gateway-locks/",
+    "Fix required: ps -p {pid} -o lstart=, ps -p {pid} -o command=, ps -p {pid} -o state=",
+    "Both machines now running via launchd with --replace flag"
+  ],
+  "next_steps": [
+    "Full system upgrade sweep for both machines"
+  ]
+}
