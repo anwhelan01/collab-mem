@@ -3,14 +3,14 @@
   "day": "Friday",
   "summary": "Gateway launchd fix - macOS /proc compatibility issue resolved. Full upgrade sweep completed on both machines - node, npm, git, python all updated. Fix pushed to both local repos.",
   "going_on": {
-    "summary": "Both gateways running via launchd with --replace flag. Full upgrade sweep done on both machines. All platforms connected.",
+    "summary": "Full infrastructure overhaul. Both gateways running via launchd with --replace. Both Discord bots rebuilt with fresh credentials and admin permissions. Node, npm, git updated on both machines. macOS lock detection fixed. Full todo list documented.",
     "status": [
       "M4 (Rae): Gateway via launchd, all 3 platforms connected",
       "Janet: Gateway via launchd, all 3 platforms connected",
-      "Both running with macOS-compatible lock detection (ps commands)",
+      "Both Discord bots rebuilt with new tokens and admin perms",
       "M4: Node v25.9.0, npm 11.12.1, pulled latest git",
       "Janet: Pulled 177 upstream commits, node v25.9.0",
-      "npm audit fix run, python packages up to date"
+      "Both running with macOS-compatible lock detection (ps commands)"
     ],
     "blockers": []
   },
@@ -29,17 +29,34 @@
     },
     {
       "area": "infrastructure",
-      "description": "Updated collab-mem with daily log",
+      "description": "Full system upgrade sweep M4 - node v25.9.0, npm updated, git pulled, npm audit fix run",
       "status": "complete"
     },
     {
       "area": "infrastructure",
-      "description": "Full system upgrade sweep M4 - node v25.9.0, npm updated, git pulled",
+      "description": "Full system upgrade sweep Janet - pulled 177 upstream commits, node v25.9.0",
+      "status": "complete"
+    },
+    {
+      "area": "platforms",
+      "description": "Created Discord bot for Janet - new credentials, full admin permissions, added to server",
+      "details": "Bot: hermes-janet#9359, created new app in Discord developer portal, generated new token, added to server with admin role",
+      "status": "complete"
+    },
+    {
+      "area": "platforms",
+      "description": "Updated Discord bot for Rae - new credentials, full admin permissions",
+      "details": "Bot: rae-hermes#0464, refreshed token in .env, re-added to server with admin role",
       "status": "complete"
     },
     {
       "area": "infrastructure",
-      "description": "Full system upgrade sweep Janet - pulled 177 commits, node v25.9.0",
+      "description": "Resolved Janet merge conflict - gateway/status.py macOS fix preserved during 177 commit pull",
+      "status": "complete"
+    },
+    {
+      "area": "documentation",
+      "description": "Updated collab-mem with daily log and full work/play todo list from Apr 10 conversation",
       "status": "complete"
     }
   ],
@@ -48,7 +65,10 @@
     "Lock files in ~/.local/state/hermes/gateway-locks/",
     "Fix required: ps -p {pid} -o lstart=, ps -p {pid} -o command=, ps -p {pid} -o state=",
     "Both machines now running via launchd with --replace flag",
-    "Janet node: v25.9.0, npm: 11.12.1, M4 node: v25.8.1, npm: 11.12.0"
+    "Janet node: v25.9.0, npm: 11.12.1, M4 node: v25.9.0 (upgraded from 25.8.1)",
+    "Discord bot Rae: rae-hermes#0464, fresh token, admin perms",
+    "Discord bot Janet: hermes-janet#9359, new app, admin perms, added to server",
+    "Escalated to Opus (Claude) for macOS /proc fix - swift resolution"
   ],
   "next": {
     "todo": {
