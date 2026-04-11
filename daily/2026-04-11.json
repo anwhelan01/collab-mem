@@ -2,6 +2,16 @@
   "date": "2026-04-11",
   "day": "Friday",
   "summary": "Gateway launchd fix - macOS /proc compatibility issue resolved",
+  "going_on": {
+    "summary": "Both gateways running via launchd with --replace flag. Janet pulled 177 upstream commits. Both machines need full upgrade sweep.",
+    "status": [
+      "M4 (Rae): Gateway via launchd, all 3 platforms connected",
+      "Janet: Gateway via launchd, all 3 platforms connected",
+      "Both running with macOS-compatible lock detection (ps commands)",
+      "Janet pulled 177 upstream commits from NousResearch/hermes-agent"
+    ],
+    "blockers": []
+  },
   "accomplishments": [
     {
       "area": "infrastructure",
@@ -10,9 +20,14 @@
       "status": "complete"
     },
     {
-      "area": "infrastructure", 
+      "area": "infrastructure",
       "description": "Verified Janet gateway - already running correctly with --replace in plist",
       "details": "All 3 platforms connected: Discord (hermes-janet#9359), Telegram (polling), WhatsApp (bridge)",
+      "status": "complete"
+    },
+    {
+      "area": "infrastructure",
+      "description": "Updated collab-mem with daily log",
       "status": "complete"
     }
   ],
@@ -20,9 +35,30 @@
     "launchctl LastExitStatus 19968 = EX_CONFIG (exit code 78)",
     "Lock files in ~/.local/state/hermes/gateway-locks/",
     "Fix required: ps -p {pid} -o lstart=, ps -p {pid} -o command=, ps -p {pid} -o state=",
-    "Both machines now running via launchd with --replace flag"
+    "Both machines now running via launchd with --replace flag",
+    "Janet node: v25.9.0, npm: 11.12.1, M4 node: v25.8.1, npm: 11.12.0"
   ],
-  "next_steps": [
-    "Full system upgrade sweep for both machines"
-  ]
+  "next": {
+    "todo": [
+      {"id": "2026-04-09-05", "task": "Set up cron job delivery to Telegram/Discord", "status": "pending"},
+      {"id": "2026-04-11-01", "task": "Full system upgrade sweep on M4 (Rae)", "status": "pending"},
+      {"id": "2026-04-11-02", "task": "Full system upgrade sweep on Janet (MBP)", "status": "pending"}
+    ],
+    "later": [
+      "Add evening/midday cron pulses",
+      "Set up Chroma RAG collections",
+      "Permanent WhatsApp session backup"
+    ]
+  },
+  "handoff": {
+    "for_other_ai": [
+      "Gateway M4: Telegram @Hot_Rae_Bot, Discord rae-hermes#0464, WhatsApp",
+      "Gateway Janet: Telegram (different bot), Discord hermes-janet#9359, WhatsApp",
+      "Watchdog: m4-rae local -> Janet backup -> Janet heartbeat",
+      "Janet cron: */5 heartbeat, */10 watchtower, 30 3 * * CVE",
+      "ssh janet (MBP), ssh m4-rae (M4 as k3ss)",
+      "Fix in gateway/status.py: macOS uses ps commands instead of /proc"
+    ],
+    "operator_required": []
+  }
 }
