@@ -51,22 +51,27 @@
     "Janet node: v25.9.0, npm: 11.12.1, M4 node: v25.8.1, npm: 11.12.0"
   ],
   "next": {
-    "todo": [
-      {"id": "2026-04-09-05", "task": "Set up cron job delivery to Telegram/Discord", "status": "pending"},
-      {"id": "2026-04-11-01", "task": "Full system upgrade sweep on M4 (Rae)", "status": "completed"},
-      {"id": "2026-04-11-02", "task": "Full system upgrade sweep on Janet (MBP)", "status": "completed"},
-      {"id": "2026-04-11-03", "task": "Janet WhatsApp number", "status": "completed"},
-      {"id": "2026-04-10-01", "task": "Janet email address (gws + policy)", "status": "pending"},
-      {"id": "2026-04-10-02", "task": "Super scraper auth logic", "status": "pending"},
-      {"id": "2026-04-10-03", "task": "Skills for Rae (OAuth)", "status": "pending"},
-      {"id": "2026-04-10-04", "task": "Janet scouting (things to watch)", "status": "pending"},
-      {"id": "2026-04-10-05", "task": "Cron jobs (Rae + Janet)", "status": "pending"},
-      {"id": "2026-04-10-06", "task": "OpenCode", "status": "pending"},
-      {"id": "2026-04-10-07", "task": "Document memory stack / source-of-truth order", "status": "pending"},
-      {"id": "2026-04-10-08", "task": "Token-routing skill design", "status": "pending"},
-      {"id": "2026-04-10-09", "task": "Define active projects / channel structure", "status": "pending"},
-      {"id": "2026-04-10-10", "task": "NotebookLM auth", "status": "pending"}
-    ],
+    "todo": {
+      "work": [
+        {"id": "2026-04-09-05", "task": "Set up cron job delivery to Telegram/Discord", "status": "pending"},
+        {"id": "2026-04-11-01", "task": "Full system upgrade sweep on M4 (Rae)", "status": "completed"},
+        {"id": "2026-04-11-02", "task": "Full system upgrade sweep on Janet (MBP)", "status": "completed"},
+        {"id": "2026-04-11-03", "task": "Janet WhatsApp number", "status": "completed"},
+        {"id": "2026-04-10-01", "task": "Janet email address (gws + policy)", "status": "pending"},
+        {"id": "2026-04-10-02", "task": "Super scraper auth logic", "status": "pending"},
+        {"id": "2026-04-10-03", "task": "Skills for Rae (OAuth)", "status": "pending"},
+        {"id": "2026-04-10-04", "task": "Janet scouting (things to watch)", "status": "pending"},
+        {"id": "2026-04-10-05", "task": "Cron jobs (Rae + Janet)", "status": "pending"},
+        {"id": "2026-04-10-06", "task": "OpenCode", "status": "pending"},
+        {"id": "2026-04-10-07", "task": "Document memory stack / source-of-truth order", "status": "pending"},
+        {"id": "2026-04-10-08", "task": "Token-routing skill design", "status": "pending"},
+        {"id": "2026-04-10-09", "task": "Define active projects / channel structure", "status": "pending"},
+        {"id": "2026-04-10-10", "task": "NotebookLM auth", "status": "pending"}
+      ],
+      "play": [
+        {"id": "2026-04-10-play-01", "task": "Substack article - memory, Omega-3, Sudoku journey", "status": "pending", "note": "Tony to add more detail"}
+      ]
+    },
     "later": [
       "Add evening/midday cron pulses",
       "Set up Chroma RAG collections",
