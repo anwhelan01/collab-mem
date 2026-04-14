@@ -1,0 +1,72 @@
+{
+  "date": "2026-04-14",
+  "project": "my-hermes",
+  "summary": "Tuesday session. Started with Janet Telegram token refresh (token revoked by Telegram, new token applied). Rebuilt M4 to v0.9.0 (v2026.4.13) — rebased Mac-specific commit cleanly. Verified Items 1 and 2 (backup/snapshot + debug/share) on both systems. Janet briefed on Items 3 and 4. AGENTS.md audited and updated on both systems. Collab-mem updated.",
+  "going_on": {
+    "summary": "Janet is healthy — all 3 platforms connected. M4 is on v0.9.0 after clean rebase. Janet is working Items 3 (watch_patterns) and 4 (Web Dashboard). Janet's Discord slash commands are stale but `hermes update` was confirmed current — slash command drift is normal and requires Discord API re-registration to fix.",
+    "status": [
+      "Janet: Telegram token refreshed (new: 7933677559:AAEY3kUna5eRRO1ibC_aMPkzmQUibkc_Kws), all platforms connected",
+      "Janet: Gateway PID 9816, state running, Telegram/WhatsApp/Discord all connected",
+      "M4 (Rae): Updated to v0.9.0 (v2026.4.13) via rebase — Mac lock detection commit cleanly preserved",
+      "Janet AGENTS.md: Updated — primary model corrected to minimax/m2.7 via Nous, gemma4:e2b noted as local fallback",
+      "Rae AGENTS.md: Updated — version to v0.9.0, Build Status section removed, Memory architecture corrected"
+    ],
+    "blockers": []
+  },
+  "done_today": [
+    "Janet Telegram: token 7933677559:AAEhqU7RiCdg9OE5iKLdWn-k1Kk was revoked by Telegram — applied new token 7933677559:AAEY3kUna5eRRO1ibC_aMPkzmQUibkc_Kws, restarted gateway, confirmed connected",
+    "M4 Hermes: Updated from v2026.4.8 to v2026.4.13 via git rebase — one merge conflict in gateway/status.py resolved cleanly (signal + platform imports both kept)",
+    "Item 1 verified — hermes backup --quick + /snapshot: Both systems tested. M4: 14MB snapshot captures state.db, config.yaml, .env, auth.json, gateway_state.json, cron/jobs.json. Janet: 8MB snapshot. Restore via /snapshot restore <id> works.",
+    "Item 2 verified — /debug + hermmes debug share: Both systems confirmed. M4 pastebin upload tested: https://paste.rs/ULA0a. /debug slash command registered in-session. hermes debug share --local generates full system dump.",
+    "Janet briefed on Items 3 + 4 via Discord DM (hermes-janet bot) — watch_patterns and Web Dashboard OAuth management",
+    "Janet AGENTS.md updated on MBP — primary model fixed (was gemma4:e2b local, now minimax/m2.7 Nous primary)",
+    "Rae AGENTS.md updated on M4 — v0.8.0→v0.9.0, Build Status removed, Memory architecture corrected (Rae=holographic, Janet=mem0)"
+  ],
+  "next": {
+    "todo": [
+      {
+        "id": "2026-04-14-01",
+        "task": "Janet Item 3 — watch_patterns: understand config, test on MBP, verify alert fires on process death",
+        "status": "in_progress",
+        "notes": "Janet's task"
+      },
+      {
+        "id": "2026-04-14-02",
+        "task": "Janet Item 4 — Web Dashboard OAuth provider management: test end-to-end on MBP",
+        "status": "pending",
+        "notes": "Janet's task"
+      },
+      {
+        "id": "2026-04-14-03",
+        "task": "collab-mem push to GitHub — GitHub auth is broken on M4 (gh token invalid), needs re-auth or PAT fix",
+        "status": "pending",
+        "notes": "Needs Tony to run gh auth login or provide PAT"
+      },
+      {
+        "id": "2026-04-14-04",
+        "task": "Janet Discord slash commands sync — stale vs running code, needs investigation",
+        "status": "pending",
+        "notes": "hermes-janet running v0.9.0 but registered commands list is missing items like debug, snapshot — Tony approved hermes update"
+      }
+    ],
+    "later": [
+      "Token routing skill (MVP IN THREE first)",
+      "Permanent WhatsApp session backup",
+      "Janet standalone Discord bot authentication flow"
+    ]
+  },
+  "handoff": {
+    "for_other_ai": [
+      "M4 SSH: ssh -i ~/.ssh/id_ed25519_lan k3ss@10.252.225.60 (M4 is 10.252.225.60, key at ~/.ssh/id_ed25519_lan)",
+      "Janet SSH: ssh janet (from any machine that has Janet's SSH config)",
+      "Janet's Telegram token is the new one: 7933677559:AAEY3kUna5eRRO1ibC_aMPkzmQUibkc_Kws",
+      "hermes debug share tested on M4 — paste.rs upload works, URLs: https://paste.rs/ULA0a (report), https://paste.rs/R9s9P (agent.log), https://paste.rs/xOmGu (gateway.log)",
+      "GitHub push for collab-mem is blocked — auth issue on M4, needs Tony to fix"
+    ],
+    "operator_required": [
+      "GitHub collab-mem push: gh auth login needed on M4 (k3ss-official token invalid)",
+      "Janet Discord slash commands: Running v0.9.0 code but registered commands drifting — Tony approved hermes update but it was already current. Slash command sync may need Discord API re-registration.",
+      "Janet Items 3 + 4: Awaiting Janet to report completion"
+    ]
+  }
+}
