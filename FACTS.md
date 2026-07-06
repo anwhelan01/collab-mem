@@ -1,16 +1,24 @@
 # FACTS — durable truths (state once; update when they change; never re-paste into daily/LOG)
 
 ## Access
-- **Chad VPS:** `ssh alwyzon` → `anwhelan@46.102.156.75`, **port 42**, key `~/.ssh/old/cmh-master-2026`.
+- **alwyzon VPS (staging):** `ssh alwyzon` → `anwhelan@46.102.156.75`, **port 42**, key `~/.ssh/old/cmh-master-2026`.
+  **sudo is NOPASSWD.** HestiaCP box: also runs nginx/mail/DNS (socialite) — treat as shared.
   Always wrap remote commands in **`bash -lc`** (so `~/.local/bin`/`hermes` is on PATH).
-  Interactive Hermes CLI (e.g. `hermes tools --summary`) needs a TTY: **`ssh -tt`**.
-- **Hermes venv python** (has PyYAML etc.): `~/.hermes/hermes-agent/venv/bin/python`
-- **Gateway:** `systemctl --user restart hermes-gateway.service` (user service, linger on).
-- **Telegram allowlist** (`~/.hermes/.env` → `TELEGRAM_ALLOWED_USERS`): Tony `7288169467`, Rae `7933677559`, Janet `8671002174`.
+  Interactive Hermes CLI needs a TTY: **`ssh -tt`**.
+- **⚠ SUPERSEDED 2026-07-06:** `~/.hermes` on alwyzon is **no longer Chad — it is Ebbi**
+  (Ask Ebbi ops agent; see `projects/ask-ebbi-2.md`). Chad's entire runtime is preserved at
+  `alwyzon:~/quarantine/` (chad-hermes-20260706, 9.3GB + gateway unit + wrapper) — restorable by `mv`.
+  Chad's new home = open decision (MASTER M19). The Telegram allowlist / gateway facts below
+  belong to the quarantined Chad install.
+- (Chad-era, quarantined) Gateway: `systemctl --user restart hermes-gateway.service`;
+  Telegram allowlist Tony `7288169467`, Rae `7933677559`, Janet `8671002174`.
 
-## Isolation wall (GDPR — non-negotiable)
-- `~/.hermes` on the VPS **is Chad** — sealed + hold-nothing. The backend/Grok user must **NOT**
-  read or modify it. Control plane stays out of the data plane.
+## Agent isolation (non-negotiable — two layers)
+1. **One agent = one Hermes install = one home** (Tony, 2026-07-06). Profiles are for an agent's
+   OWN sub-agents only. Never create/configure an agent inside another agent's `~/.hermes`
+   (Rae on the M4; Ebbi on alwyzon). Check whose SOUL.md it is before touching any `~/.hermes`.
+2. **GDPR wall (Chad):** wherever Chad runs, his install is sealed + hold-nothing; the backend
+   crew operates from outside it. Control plane stays out of the data plane.
 
 ## Architecture (locked 2026-05-31)
 - **Chad** = isolated, hold-nothing Hermes box (the PRODUCT). No memory between user sessions, by design.

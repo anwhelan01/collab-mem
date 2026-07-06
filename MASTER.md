@@ -22,6 +22,10 @@
 | M15 | **3to5er operator-pack #2 — UK vertical** — dental (Chorley) or planning consultants (Lancaster), decided on warmer first-five-calls list. Pack v1 compiler must produce it with ≤50% manual work | Rae + Tony | backlog | Tuesday–Wednesday (Day 4–5). Sprint readiness gate. |
 | M16 | **ScamAlert Trinity wiring** — Machine Phase 2 → Dashboard → Chad. Activate as the next sprint AFTER Socialite is paying AND Tony unblocks ChadAI M3. Background ingest only this sprint | Rae | later | Date dropped — depends on Tony's M3 decisions, not a calendar date. Tony has been pushing to scam-alertuk-chad branch tonight; real timeline is in his head. |
 | M17 | **`chadai` repo triage** — Tony imported "The AI Guy" (Nate's Substack curation: 39 prompts + Adversarial Assistant / Workflow Architect / Content Engine kit) into a new private repo 2026-06-05 23:06 UTC. Decide: stash-only, feed into Chad v6 prompt when M3 reopens, or stand up as standalone product | Tony | needs-decision | Three-option question is on 2026-06-06 daily. Rae assumes stash-only until told otherwise. |
+| M18 | **Ask Ebbi 2 — the Planning Oracle** — Hermes-native (Ebbi + 4 sub-profiles on alwyzon), Library MCP, 91k appeals. Card: `projects/ask-ebbi-2.md` | Tony / Fable | **active** | Live on alwyzon :8001 (loopback). Next = appeal decision letters ingest (card item 1). |
+| M19 | **Decide Chad's new home** — alwyzon was swept for Ebbi (2026-07-06); Chad quarantined at `alwyzon:~/quarantine/`. Restore where? | Tony | blocked on Tony | Until decided, M3–M8 are on hold. Card: `projects/chadai.md`. |
+
+> **2026-07-06 note:** M3–M8 (Chad build) are **on hold** pending M19 — Chad's runtime is quarantined, not lost.
 
 ## ChadAI build roadmap
 1. Hermes install — ✅ done

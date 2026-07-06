@@ -13,10 +13,13 @@ relay baton and continue seamlessly.
 ## Picking this up? Read in this order
 1. **[daily/](daily/) → today's file** (`daily/YYYY-MM-DD.md`) — the current task, its status, the
    next step, today's list. **This is where you start.**
-2. **[MASTER.md](MASTER.md)** — the master todo list (the durable backlog every daily hangs off).
-3. **[FACTS.md](FACTS.md)** — durable where/why: access, the isolation wall, architecture, models.
-4. **[ROSTER.md](ROSTER.md)** — who's who and who owns what.
-5. **[LOG.md](LOG.md)** — what's been done so far (history, newest on top; rarely needed).
+2. **[projects/](projects/) → the project you were sent for** (`projects/<name>.md`) — one card per
+   project: what · where · done · outstanding · **next**. "Go look in collab-mem for `<name>` and
+   tell me what's next" resolves here.
+3. **[MASTER.md](MASTER.md)** — the master todo list (the durable backlog every daily hangs off).
+4. **[FACTS.md](FACTS.md)** — durable where/why: access, the isolation walls, architecture, models.
+5. **[ROSTER.md](ROSTER.md)** — who's who and who owns what.
+6. **[LOG.md](LOG.md)** — what's been done so far (history, newest on top; rarely needed).
 
 ## The daily ritual (this is the engine)
 - **EOD** — when Tony calls it, or **03:00 local (whichever is sooner)** — the active AI generates

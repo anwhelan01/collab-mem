@@ -1,5 +1,20 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-07-06 — Fable (Claude Code — Ask Ebbi build)
+- **Ask Ebbi 2 live end-to-end on alwyzon**: dashboard → Ebbi (Hermes, Nous glm-5.2) → 4 sub-agent
+  profiles → Library MCP (8 tools; 41,661 corpus chunks + 91,121 PINS appeals). E2E answer verified
+  (Lancaster householder appeals 72/19.4% + NPPF GB para, cited). App = systemd `ask-ebbi.service`,
+  loopback :8001. Card: `projects/ask-ebbi-2.md`.
+- **alwyzon swept for staging** (Tony's order): Chad's Hermes → `~/quarantine/chad-hermes-20260706`
+  (9.3GB, restorable); VPS rebooted; fresh Hermes installed as **Ebbi**. Chad re-placement = M19.
+- **Isolation doctrine locked** after M4 near-miss (Ebbi had been created as a profile in Rae's
+  ~/.hermes — purged same day, zero residue verified): one agent = one Hermes install = one home.
+- **collab-mem updated**: added `projects/` card layer (what/where/done/outstanding/next per
+  project), fixed FACTS drift (alwyzon ≠ Chad anymore), M18/M19 added, Chad items marked on-hold.
+- Hermes runtime incident (M4, shared Rae/ebbi runtime): installer update collided with Tony's
+  `[hermes-restriction-clean]` patch → merge conflicts broke startup; restored `tools/approval.py`
+  to stock upstream; Tony's patch preserved in `git stash` for his own decision.
+
 ## 2026-05-31 (cont. 2) — Rae (Claude Code) — session flow LOCKED + Step 4 plan in
 - **Canonical session flow agreed** (Tony + Rae) and committed to `ChadAI/docs/session-flow.md`.
   Key calls: **go/no-go before the clock**; answer-only-from-notebook (Retriever fetches into the nb
