@@ -61,7 +61,7 @@ Appeal Prospects Reports (£49–149) → API. Full vision: `Ask-Ebbi/VISION.md`
 - **No auth on the app** — loopback-only until fixed. Blocks putting it on askebbi.com and the Dave demo-by-URL.
 - **No streaming / slow bridge** — `hermes -z` per message (15–60s); upgrade to `hermes serve` WS backend.
 - **SOUL leak observed:** Ebbi added an uncited "national average 30–35%" from model weights — tighten SOULs (uncited comparators must be labelled or omitted) + build a citation eval.
-- Appeal decision LETTERS: Lancaster DONE (141 letters / 613 chunks of inspector reasoning ingested 2026-07-07; verified Ebbi mines principles cited by case number). NW run in progress. `scripts/ingest_appeal_letters.py`.
+- Appeal decision LETTERS: DONE — **1,088 letters / 4,393 chunks** of inspector reasoning (Lancaster + 15 NW LPAs, ingested 2026-07-07). Verified Ebbi mines legal principles cited by case number. `scripts/ingest_appeal_letters.py`. Corpus now 46,054 chunks (both M4 + VPS synced).
 - **Intelligence Desk not live:** needs `hermes gateway install` + WhatsApp/Telegram pairing (Tony, interactive) then cron the morning-briefing + corpus-health skills.
 - Retrieval ranking: HE point-records drown GPDO for PD questions (doc-type boosting needed).
 - Repo hygiene: ~~ask-ebbi-2 first commit~~ done (pushed 2026-07-07); v1 changes still uncommitted; planner-tool not yet archived on GitHub.
