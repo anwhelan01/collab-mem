@@ -61,7 +61,7 @@ Appeal Prospects Reports (£49–149) → API. Full vision: `Ask-Ebbi/VISION.md`
 - **No auth on the app** — loopback-only until fixed. Blocks putting it on askebbi.com and the Dave demo-by-URL.
 - **No streaming / slow bridge** — `hermes -z` per message (15–60s); upgrade to `hermes serve` WS backend.
 - **SOUL leak observed:** Ebbi added an uncited "national average 30–35%" from model weights — tighten SOULs (uncited comparators must be labelled or omitted) + build a citation eval.
-- **Appeal decision LETTERS not ingested** (metadata + ACP links only) — the fetcher is the biggest product-value item open.
+- Appeal decision LETTERS: Lancaster DONE (141 letters / 613 chunks of inspector reasoning ingested 2026-07-07; verified Ebbi mines principles cited by case number). NW run in progress. `scripts/ingest_appeal_letters.py`.
 - **Intelligence Desk not live:** needs `hermes gateway install` + WhatsApp/Telegram pairing (Tony, interactive) then cron the morning-briefing + corpus-health skills.
 - Retrieval ranking: HE point-records drown GPDO for PD questions (doc-type boosting needed).
 - Repo hygiene: ~~ask-ebbi-2 first commit~~ done (pushed 2026-07-07); v1 changes still uncommitted; planner-tool not yet archived on GitHub.
@@ -69,10 +69,7 @@ Appeal Prospects Reports (£49–149) → API. Full vision: `Ask-Ebbi/VISION.md`
 
 ## Next (ordered)
 
-1. **Ingest appeal decision letters** (Lancaster + NW first) into the corpus as `appeal_decision`
-   chunks — unlocks real precedent reasoning in casefiles and the paid Appeal Prospects Report.
-   Owner: any AI, no Tony input needed.
-2. **Gateway + WhatsApp pairing** on alwyzon → schedule morning-briefing + corpus-health crons.
+1. **Gateway + WhatsApp pairing** on alwyzon → schedule morning-briefing + corpus-health crons.
    Owner: Tony (interactive pairing), 10 min, then AI finishes.
 3. **Tighten sub-agent/Ebbi SOULs** re uncited claims + spot-check 20 answers for citation integrity.
 4. **Repo hygiene (rest)**: v1 fixes commit, archive planner-tool (Tony go-ahead). ~~ask-ebbi-2 initial push~~ done 2026-07-07.
