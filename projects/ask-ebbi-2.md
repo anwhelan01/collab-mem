@@ -1,6 +1,6 @@
 # ask-ebbi-2 — the Planning Oracle (LexisNexis for UK planning, Hermes-native)
 
-STATUS: active        UPDATED: 2026-07-06 by Fable (Claude Code — Ask Ebbi build)
+STATUS: active        UPDATED: 2026-07-07 by Fable (Claude Code — Ask Ebbi build)
 
 ## What
 
@@ -19,7 +19,7 @@ Appeal Prospects Reports (£49–149) → API. Full vision: `Ask-Ebbi/VISION.md`
 ## Where
 
 - **Repos (M4):** `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi/`
-  - `ask-ebbi-2/` — THE product (git init'd, **no commits yet**). README + `hermes/RUNBOOK.md` inside.
+  - `ask-ebbi-2/` — THE product → **GitHub: `k3ss-official/ask-ebbi-2` (private, pushed 2026-07-07)**. README + `hermes/RUNBOOK.md` inside.
   - `Ask-Ebbi/` — v1, source-of-truth docs (`VISION.md`, `REPO_AUDIT.md`, `PAID_PILOT_PLAN.md`, `DEMO_SCRIPT.md`); v1 code changes uncommitted.
   - GitHub `k3ss-official/askebbi-planner-tool` — scaffold, recommended ARCHIVE (nothing worth porting).
 - **VPS (staging):** `ssh alwyzon` (port 42, sudo NOPASSWD; HestiaCP box — also runs nginx/mail/DNS for socialite).
@@ -64,7 +64,7 @@ Appeal Prospects Reports (£49–149) → API. Full vision: `Ask-Ebbi/VISION.md`
 - **Appeal decision LETTERS not ingested** (metadata + ACP links only) — the fetcher is the biggest product-value item open.
 - **Intelligence Desk not live:** needs `hermes gateway install` + WhatsApp/Telegram pairing (Tony, interactive) then cron the morning-briefing + corpus-health skills.
 - Retrieval ranking: HE point-records drown GPDO for PD questions (doc-type boosting needed).
-- Repo hygiene: ask-ebbi-2 has no first commit; v1 changes uncommitted; planner-tool not yet archived on GitHub.
+- Repo hygiene: ~~ask-ebbi-2 first commit~~ done (pushed 2026-07-07); v1 changes still uncommitted; planner-tool not yet archived on GitHub.
 - Markdown renders as plain text in chat bubbles (cosmetic).
 
 ## Next (ordered)
@@ -75,7 +75,7 @@ Appeal Prospects Reports (£49–149) → API. Full vision: `Ask-Ebbi/VISION.md`
 2. **Gateway + WhatsApp pairing** on alwyzon → schedule morning-briefing + corpus-health crons.
    Owner: Tony (interactive pairing), 10 min, then AI finishes.
 3. **Tighten sub-agent/Ebbi SOULs** re uncited claims + spot-check 20 answers for citation integrity.
-4. **First commits**: ask-ebbi-2 initial commit, v1 fixes commit, archive planner-tool (Tony go-ahead).
+4. **Repo hygiene (rest)**: v1 fixes commit, archive planner-tool (Tony go-ahead). ~~ask-ebbi-2 initial push~~ done 2026-07-07.
 5. **Auth + askebbi.com exposure** (Hestia nginx + basic auth minimum) → then book the Dave demo
    (`Ask-Ebbi/DEMO_SCRIPT.md` is written and pre-verified).
 6. Stage-2 bridge: `hermes serve` WebSocket for streaming + native sessions.
