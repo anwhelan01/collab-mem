@@ -1,14 +1,24 @@
 # FACTS — durable truths (state once; update when they change; never re-paste into daily/LOG)
 
+## Current as of 2026-07-17
+- **Shared VPS boundary:** `ssh alwyz-01-dock` → `anwhelan@203.34.137.49`, port **42**. This host is intentionally limited to two isolated Docker installations: ChadAI and Ask Ebbi.
+- **ChadAI tenant:** `/home/anwhelan/apps/chadai-prod`, owned by the separate ChadAI Codex lane. Its healthy Compose project includes the internal Open Notebook service and Factbox/SurrealDB resources. Current private networks are `chadai_core`, `chadai_edge`, and `chadai_admin_egress`; persistent resources are ChadAI-owned `chadai-*` volumes. Do not attach Ask Ebbi to them.
+- **Ask Ebbi tenant:** not deployed to this VPS yet. Its future Compose project will have its own project name, private networks, persistent volumes, Hermes home, secrets and resource limits. It must not reuse ChadAI's Open Notebook, databases, networks or credentials.
+- **Ask Ebbi M4 staging:** local primary container `ebbi` on `127.0.0.1:8051`; UI demo `ebbi-rae` on `127.0.0.1:8052`. Public `https://askebbi.com` currently returns the health endpoint successfully. Canonical local repo: `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi-3`; canonical GitHub repo: `k3ss-official/ask-ebbi-3` (private).
+- **Ask Ebbi ownership:** this Ask Ebbi Codex lane owns `ask-ebbi-3`, its M4 containers and its future VPS deployment. The separate ChadAI Codex lane owns ChadAI only. Neither lane changes the other tenant's Compose project, volumes, networks or secrets.
+- **SOT boundary:** ChadAI's internal Open Notebook is not an Ask Ebbi source-of-truth vault. Any future legacy-citation vault must preserve source URL/publisher, retrieval timestamp, SHA-256, case number and page/span provenance, with append-only corrections.
+
+Older entries below are retained as historical provenance; when they conflict with this dated section, this section wins.
+
 ## Access
-- **alwyzon VPS (staging):** `ssh alwyzon` → `anwhelan@46.102.156.75`, **port 42**, key `~/.ssh/old/cmh-master-2026`.
+- **Historical alwyzon access:** `ssh alwyzon` → `anwhelan@46.102.156.75`, **port 42**, key `~/.ssh/old/cmh-master-2026`.
   **sudo is NOPASSWD.** HestiaCP box: also runs nginx/mail/DNS (socialite) — treat as shared.
   Always wrap remote commands in **`bash -lc`** (so `~/.local/bin`/`hermes` is on PATH).
   Interactive Hermes CLI needs a TTY: **`ssh -tt`**.
-- **⚠ SUPERSEDED 2026-07-06:** `~/.hermes` on alwyzon is **no longer Chad — it is Ebbi**
+- **⚠ SUPERSEDED 2026-07-06:** the old `~/.hermes` arrangement on alwyzon is historical and must not be treated as the current two-tenant deployment.
   (Ask Ebbi ops agent; see `projects/ask-ebbi-2.md`). Chad's entire runtime is preserved at
   `alwyzon:~/quarantine/` (chad-hermes-20260706, 9.3GB + gateway unit + wrapper) — restorable by `mv`.
-  Chad's new home = open decision (MASTER M19). The Telegram allowlist / gateway facts below
+  The Telegram allowlist / gateway facts below
   belong to the quarantined Chad install.
 - (Chad-era, quarantined) Gateway: `systemctl --user restart hermes-gateway.service`;
   Telegram allowlist Tony `7288169467`, Rae `7933677559`, Janet `8671002174`.
