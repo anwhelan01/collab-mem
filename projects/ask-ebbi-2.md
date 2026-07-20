@@ -1,6 +1,12 @@
 # ask-ebbi-2 — the Planning Oracle (LexisNexis for UK planning, Hermes-native)
 
-STATUS: active        UPDATED: 2026-07-07 by Fable (Claude Code — Ask Ebbi build)
+STATUS: **done — superseded by [ask-ebbi-3](ask-ebbi-3.md)**    UPDATED: 2026-07-20 by Rae (Claude Code)
+
+> **2026-07-20 note:** repo consolidated 2026-07-12 into `k3ss-official/ask-ebbi-3` (the canonical
+> repo going forward, plus assets recovered from production). Build history below preserved as-is;
+> new work happens on ask-ebbi-3, not here.
+
+_Card as of 2026-07-07, by Fable (Claude Code — Ask Ebbi build):_
 
 ## What
 
