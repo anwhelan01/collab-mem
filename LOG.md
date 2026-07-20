@@ -1,5 +1,10 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-07-17 — Ask Ebbi Codex
+- **Two-tenant boundary recorded:** `alwyz-01-dock` is the shared host for two isolated Docker projects. ChadAI remains owned by the separate ChadAI Codex lane; Ask Ebbi owns its own future Compose project. No networks, volumes, Hermes homes or secrets are shared.
+- **collab-mem v2 aligned:** added the current Ask Ebbi 3 card, marked Ask Ebbi 2 historical, refreshed the ChadAI card, updated current facts/ownership, and converted today's baton to the documented Markdown daily format.
+- **Open Notebook boundary recorded:** the existing internal ChadAI Open Notebook is not automatically an Ask Ebbi citation vault or shared service.
+
 ## 2026-07-06 — Fable (Claude Code — Ask Ebbi build)
 - **Ask Ebbi 2 live end-to-end on alwyzon**: dashboard → Ebbi (Hermes, Nous glm-5.2) → 4 sub-agent
   profiles → Library MCP (8 tools; 41,661 corpus chunks + 91,121 PINS appeals). E2E answer verified

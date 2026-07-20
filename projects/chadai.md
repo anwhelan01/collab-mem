@@ -1,33 +1,35 @@
 # chadai — UK consumer-rights fact-finder (sealed, hold-nothing Hermes product)
 
-STATUS: **paused — runtime quarantined**        UPDATED: 2026-07-06 by Fable (Claude Code — Ask Ebbi build)
+STATUS: active        UPDATED: 2026-07-17 by ChadAI Codex
 
 ## What
 
-Chad: hold-nothing consumer-rights agent (orchestrator + Retriever + Auditor workers) for end
-users, GDPR-sealed by design. Build detail: MASTER M3–M8 + `ChadAI/HANDOFF.md` (M4) +
-`ChadAI/docs/` (session-flow.md, step4-plan.md, x-suspension-sar.md).
+Chad is the sealed, hold-nothing UK consumer-rights product. Its orchestrator and Retriever/Auditor
+workers are operated by the separate ChadAI Codex lane. It is a distinct tenant from Ask Ebbi; the
+shared coordination layer is this Git ledger, not shared runtime memory or data.
 
 ## Where
 
-- Deep cursor: `/Volumes/deep-1t/Users/k3ss/k3ss-official/ChadAI/HANDOFF.md`
-- **Runtime: QUARANTINED 2026-07-06.** Tony declared alwyzon a staging box and ordered it swept
-  for the Ask Ebbi build. Chad's entire `~/.hermes` (9.3GB), his gateway unit, and wrapper are
-  preserved at `alwyzon:~/quarantine/` — restorable with a `mv`, nothing deleted. alwyzon's
-  `~/.hermes` now belongs to **Ebbi** (see [ask-ebbi-2](ask-ebbi-2.md)); FACTS.md updated.
+- **Runtime host:** `ssh alwyz-01-dock`
+- **Compose project:** `/home/anwhelan/apps/chadai-prod`
+- **Current stack:** healthy ChadAI web, Hermes, admin, Caddy, internal Open Notebook and Factbox/SurrealDB services.
+- **Private networks:** `chadai_core`, `chadai_edge`, `chadai_admin_egress`
+- **Persistent resources:** ChadAI-owned `chadai-*` volumes and secrets; do not attach Ask Ebbi.
+- **Deep cursor:** `/Volumes/deep-1t/Users/k3ss/k3ss-official/ChadAI/HANDOFF.md`
 
 ## Done
 
-- Through Step 3 (Hermes install, hold-nothing verified, agents-as-skills validated on the real
-  X-SAR case). Step 4 plan + session flow written; 5 decisions were awaiting Tony (M3). See LOG 2026-05-31.
+- ChadAI has a dedicated Docker tenant on the new two-tenant VPS boundary.
+- Its internal Open Notebook remains private to ChadAI and is pinned/configured as part of that stack.
+- Existing hold-nothing and isolation requirements remain the ChadAI Codex's responsibility.
 
 ## Outstanding
 
-- **Where does Chad live now?** (M19) — restore on alwyzon under a separate user, or a new box.
-  Until decided, M3–M8 are on hold.
-- The five Step-4 decisions (daily/2026-05-31.md) — still unanswered.
+- ChadAI Codex maintains its own build roadmap and verifies its own health, source and GDPR controls.
+- Any shared-source or cross-product integration requires an explicit Tony-approved boundary; no implicit
+  sharing with Ask Ebbi is permitted.
 
-## Next (ordered)
+## Next
 
-1. Tony decides Chad's new home (M19) → restore from quarantine there.
-2. Tony answers the 5 Step-4 decisions → Step 4 wiring proceeds per `docs/step4-plan.md`.
+1. ChadAI Codex continues its current roadmap from `ChadAI/HANDOFF.md`.
+2. Keep the ChadAI Compose project, Hermes state, databases, Open Notebook and secrets isolated from Ask Ebbi.
