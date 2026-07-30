@@ -1,5 +1,8 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-07-30 — Tony / Rae
+- **Grok Build onboarding completed:** Tony trialled Grok Build on the M4, then installed it on the Chad VPS under its own non-privileged user with no access to `~/.hermes`; Tony completed `grok-build login` using the confirmed SuperGrok subscription.
+
 ## 2026-07-30 — Codex
 - **Hermes-native KSM accepted and KRP retired:** passed two additional cold
   boots with distinct boot IDs; all five services/timers returned active, exact

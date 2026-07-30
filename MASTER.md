@@ -5,7 +5,6 @@
 
 | id | Item | Owner | Status | Notes |
 |----|------|-------|--------|-------|
-| M1 | **Grok Build onboarding** — Tony trials on M4, then install on the Chad VPS as its OWN non-privileged user (no `~/.hermes` access); Tony runs `grok-build login` | Tony / Rae | active | SuperGrok confirmed. Trialing on M4 now. |
 | M2 | **Seat Grok in collab-mem** — add to ROSTER, agree the Rae/Grok ownership split + read/write protocol | Rae | active | v2 rebuild done; Grok seat + protocol still to finalise. |
 | M3 | **ChadAI Step 4 — data sources + channel** — legislation.gov.uk API + Scrapling MCP + NotebookLM MCP + FB frame; answer-only-from-notebook | Rae | **blocked on Tony** | Plan ready → `docs/step4-plan.md`. Flow locked → `docs/session-flow.md`. **5 decisions await Tony** (see 2026-05-31 daily). Also fixes the X-SAR ungrounded-citation gap. |
 | M4 | **ChadAI Step 5 — full hold-nothing purge** — wipe `state.db` rows + `sessions/` + `pairing/` + uploads + email address at session end; server-side, guaranteed | Rae | backlog | Spec'd in session-flow.md (the wipe never depends on the client). |
