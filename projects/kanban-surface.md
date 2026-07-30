@@ -85,11 +85,22 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
   scoped tokens were re-read directly from their concealed 1Password items,
   the mode-0600 config was rebuilt and validated, and the surface/watcher were
   restarted successfully. No token appeared in terminal output or logs.
+- 2026-07-30 — Accepted the Hermes-native stack across two further cold boots.
+  Each boot produced a distinct boot ID and returned all five native
+  services/timers active, exact `{"ok": true}` health, zero failed units,
+  27 blocked + 3 done cards, zero ready/running work, manual-only admission,
+  and SSH/42 as the only public application listener.
+- 2026-07-30 — Removed the superseded KRP rollback layer after proving no native
+  unit or open process used it: `ksm.service`, its app/config/state/log trees,
+  the 915 MiB retired Codex worker runtime, both retired homes, the `ksm` and
+  `ksm-worker` users, and their three groups. The temporary trash utility and
+  dependencies were purged after use. Final checks found no KRP identities,
+  paths or failed units; all five native units and the loopback UI remained
+  healthy.
 - 2026-07-30 — Stopped and disabled the superseded `ksm.service`; the five
   Hermes-native units remained active, health stayed exact and systemd reported
-  no failed units. KRP files and the unused `ksm`/`ksm-worker` identities remain
-  only as a recoverable rollback until the native service set passes two cold
-  boots.
+  no failed units. The KRP files and unused identities were retained only until
+  the two-cold-boot acceptance above passed.
 - 2026-07-30 — Completed the strict host residue pass and two-boot acceptance.
   Removed the empty Docker/containerd stack, Snap/LXD activation, cron,
   cloud/provisioning agents, PackageKit/Polkit, irrelevant device/storage
@@ -138,8 +149,6 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
 
 ## Outstanding
 
-- Reboot twice, verify timers/dispatcher/UI, then remove the disabled
-  `ksm.service` unit, KRP state and unused `ksm`/`ksm-worker` host identities.
 - With Tony watching, use one deliberate UI drag to prove the scoped audit
   identity and move permission path; keep every other card parked.
 - Define the smallest external-AI handshake after the surface is visible; do
@@ -149,7 +158,7 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
 
 1. ~~Codex: select this project's current card, start Hermes, and verify one
    native intake dispatch end to end.~~ Completed 2026-07-30.
-2. Codex: open and verify the loopback UI, then complete two-boot acceptance and
-   remove the superseded KRP host components.
+2. ~~Codex: open and verify the loopback UI, then complete two-boot acceptance
+   and remove the superseded KRP host components.~~ Completed 2026-07-30.
 3. Tony + Codex: watch one drag-to-dispatch run, then lock the minimal external
    AI announcement/intent contract.

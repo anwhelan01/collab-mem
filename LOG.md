@@ -1,6 +1,14 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
 ## 2026-07-30 — Codex
+- **Hermes-native KSM accepted and KRP retired:** passed two additional cold
+  boots with distinct boot IDs; all five services/timers returned active, exact
+  health passed, the board stayed 27 blocked + 3 done with zero ready/running,
+  and SSH/42 remained the only public application listener. Removed the
+  disabled `ksm.service`, all KRP config/app/state/log and retired worker
+  runtime paths, both legacy users and all legacy groups. Final audit found no
+  failed units or KRP residue; the local SSH tunnel again serves the UI on
+  `127.0.0.1:8742`.
 - **Hermes-native surface exercised live:** opened the authenticated loopback
   board through SSH in Chrome, verified full canonical collab-mem source and
   receipts, and ran one selected card Intake → Build. The run exposed and
