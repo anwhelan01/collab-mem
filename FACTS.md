@@ -1,12 +1,33 @@
 # FACTS — durable truths (state once; update when they change; never re-paste into daily/LOG)
 
-## Current as of 2026-07-17
-- **Shared VPS boundary:** `ssh alwyz-01-dock` → `anwhelan@203.34.137.49`, port **42**. This host is intentionally limited to two isolated Docker installations: ChadAI and Ask Ebbi.
-- **ChadAI tenant:** `/home/anwhelan/apps/chadai-prod`, owned by the separate ChadAI Codex lane. Its healthy Compose project includes the internal Open Notebook service and Factbox/SurrealDB resources. Current private networks are `chadai_core`, `chadai_edge`, and `chadai_admin_egress`; persistent resources are ChadAI-owned `chadai-*` volumes. Do not attach Ask Ebbi to them.
-- **Ask Ebbi tenant:** not deployed to this VPS yet. Its future Compose project will have its own project name, private networks, persistent volumes, Hermes home, secrets and resource limits. It must not reuse ChadAI's Open Notebook, databases, networks or credentials.
-- **Ask Ebbi M4 staging:** local primary container `ebbi` on `127.0.0.1:8051`; UI demo `ebbi-rae` on `127.0.0.1:8052`. Public `https://askebbi.com` currently returns the health endpoint successfully. Canonical local repo: `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi-3`; canonical GitHub repo: `k3ss-official/ask-ebbi-3` (private).
-- **Ask Ebbi ownership:** this Ask Ebbi Codex lane owns `ask-ebbi-3`, its M4 containers and its future VPS deployment. The separate ChadAI Codex lane owns ChadAI only. Neither lane changes the other tenant's Compose project, volumes, networks or secrets.
-- **SOT boundary:** ChadAI's internal Open Notebook is not an Ask Ebbi source-of-truth vault. Any future legacy-citation vault must preserve source URL/publisher, retrieval timestamp, SHA-256, case number and page/span provenance, with append-only corrections.
+## Current as of 2026-07-30
+- **KSM host boundary:** `ssh alwyzon-1` → `anwhelan@203.34.137.49`, port
+  **42**, live hostname `alwyz-dock-01`. Tony shelved Ask Ebbi and explicitly
+  approved removal of all Ask Ebbi/ChadAI/Cloudflare/Docker MVP residue from this
+  host. It is now the dedicated, dark Kanban Surface Manager MVP host.
+- **Recoverability:** the verified shelf archive is local at
+  `/Volumes/hotblack-2tb/.config-bak/server-shelves/alwyzon-1/2026-07-30/ask-ebbi-shelf-20260730.tar.zst`;
+  SHA-256 is
+  `9befda91a191a65418b5bfa2d9ffd179f114247808112bd6b3ccdff63b8f4fab`.
+  The purged VPS copies require that archive or another existing backup to
+  recover.
+- **KSM runtime:** `ksm.service` is enabled and active with no network address
+  family. Canonical state is `/var/lib/ksm/state/ksm.sqlite3`
+  (`0640 ksm:ksm`). Agent IPC is `/run/ksm/krp.sock`
+  (`0660 ksm:ksm-runtime`). Agents can use the socket only when KSM gives them
+  a run capability; they cannot read the database.
+- **Agent isolation:** `ksm`, `hermes`, and `ksm-worker` are separate locked
+  service identities and none belongs to the Docker group. Hermes and Codex
+  keep separate OAuth stores. Hermes is the planning runtime; Codex is the
+  coding runtime.
+- **Canonical implementation:** private GitHub repo
+  `k3ss-official/kanban-surface-manager`. KRP/1 is the management protocol; ACP
+  is a replaceable runtime adapter; MCP is deliberately outside the core loop.
+- **Ingress:** only SSH TCP 42 is externally listening. UFW default-deny,
+  Fail2ban, auditd and unattended security updates remain active.
+- **Superseded boundary:** the 2026-07-17 two-tenant ChadAI/Ask Ebbi plan for
+  this VPS is historical. Ask Ebbi is shelved; no ChadAI or Ask Ebbi workload
+  remains on `alwyzon-1`.
 
 Older entries below are retained as historical provenance; when they conflict with this dated section, this section wins.
 

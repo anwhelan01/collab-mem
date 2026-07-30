@@ -1,5 +1,23 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-07-30 — Codex
+- **KSM host established:** verified and archived the old `alwyzon-1` tenant
+  state, removed approved Ask Ebbi/ChadAI/Cloudflare/Docker residue, and retained
+  the hardened SSH/UFW/Fail2ban/audit baseline.
+- **KISS protocol proved:** built KRP/1 with one canonical writer, run-scoped
+  capabilities, optimistic revisions, idempotency and local Unix-socket IPC.
+  Deterministic coordination stays outside ACP/MCP/model context.
+- **Production-shaped daemon accepted:** installed separate `ksm`, `hermes` and
+  `ksm-worker` identities; deployed `ksm.service`; caught and fixed
+  worker-readable state; repeated lifecycle ended in `REVIEW` with direct
+  database access denied.
+- **Real agents accepted:** authenticated Hermes and Codex separately and ran
+  real ACP turns with unchanged workspaces. The measured 11.6k/16.5k bootstrap
+  inputs locked the rule that one ACP session covers one coherent plan/run.
+- **GitHub boundary established:** private
+  `k3ss-official/kanban-surface-manager`, repo-scoped deploy key, foundation PR
+  #1 merged. First Hermes→Codex pilot is at its reviewed approval gate.
+
 ## 2026-07-17 — Ask Ebbi Codex
 - **Two-tenant boundary recorded:** `alwyz-01-dock` is the shared host for two isolated Docker projects. ChadAI remains owned by the separate ChadAI Codex lane; Ask Ebbi owns its own future Compose project. No networks, volumes, Hermes homes or secrets are shared.
 - **collab-mem v2 aligned:** added the current Ask Ebbi 3 card, marked Ask Ebbi 2 historical, refreshed the ChadAI card, updated current facts/ownership, and converted today's baton to the documented Markdown daily format.

@@ -1,6 +1,6 @@
 # ask-ebbi-3 — Ask Ebbi planning intelligence product (the canonical repo)
 
-STATUS: active        UPDATED: 2026-07-20 by Rae (Claude Code)
+STATUS: paused        UPDATED: 2026-07-30 by Codex
 
 ## What
 
@@ -23,14 +23,18 @@ provenance only.
   (further alt demos on 8053–8099, `docs/operations/UI_DEMO_ENVIRONMENTS.md`).
 - **Public beta:** `https://askebbi.com` via a controlled **Cloudflare Tunnel** (health endpoint
   verified HTTP 200). Telegram gateway active.
-- **Future VPS:** `ssh alwyz-01-dock`; Ask Ebbi is not deployed there yet — will be its own
-  Compose project, isolated from ChadAI's (see [chadai](chadai.md) for the ChadAI-side tenant).
+- **VPS placement:** `alwyzon-1` is no longer an Ask Ebbi target. Tony shelved
+  Ask Ebbi on 2026-07-30 and dedicated that host to KSM.
 - **Stack:** FastAPI/Uvicorn + Docker; ChromaDB corpus (46,054 chunks) + 91,121 PINS appeals + 3
   style documents; MCP server (8 Library tools); xterm.js CLI; Hermes gateway; inference on the
   Nous `tencent/hy3:free` lane (OpenRouter/Ollama not part of the active architecture).
 
 ## Done (newest first)
 
+- **2026-07-30 — shelved by Tony.** The approved `alwyzon-1` cleanup removed
+  Ask Ebbi/ChadAI/Cloudflare/Docker residue from that host after a verified
+  archive was copied to the local 2 TB backup volume. No Ask Ebbi VPS deployment
+  is active.
 - **2026-07-20 — overnight UI rebuild pushed.** `4c35c3f` (landing page rebuild + brand assets +
   ops docs + RAE review stack) + `2573361` (gitignore cleanup). Both on `ui-console-alt`, pushed.
 - **2026-07-17 (Ask Ebbi Codex)** — canonical repo confirmed as future source of truth; primary
@@ -46,6 +50,8 @@ provenance only.
 
 ## Outstanding
 
+- **Paused:** do not resume build, deployment, Cloudflare or runtime work until
+  Tony explicitly reopens the project.
 - **Responsiveness fix in progress** — horizontal overflow + iPad portrait layout broken; fix is
   being committed now. Working tree was clean/pushed as of this update — confirm it landed before
   assuming fixed.
@@ -66,13 +72,7 @@ provenance only.
 
 ## Next (ordered)
 
-1. **Land + verify the responsiveness fix** (horizontal overflow + iPad portrait) on
-   `ui-console-alt`, push, confirm `askebbi.com` renders correctly on mobile + iPad portrait.
-2. Claim and reconcile the ask-ebbi-3 branch/worktree state; preserve all UI/research provenance.
-   **Owner: Ask Ebbi Codex; Tony approves destructive archival.**
-3. Draft the isolated `ask-ebbi-prod` Compose project for `alwyz-01-dock` (private networks,
-   volumes, secrets, health checks, resource limits). **Owner: Ask Ebbi Codex.**
-4. Run a local-to-container Hermes gateway proof before adding further agents/tools. **Owner:
-   Ask Ebbi Codex.**
-5. Agree the citation-vault contract and source acquisition registry. **Owner: Tony + Ask Ebbi
-   Codex.**
+1. **Tony:** explicitly reopen Ask Ebbi and select its new runtime target.
+2. On reopening, verify local/GitHub/container/Cloudflare state before trusting
+   the 2026-07-20 status above; then resume from the responsiveness and branch
+   reconciliation work without targeting `alwyzon-1`.
