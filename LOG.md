@@ -16,7 +16,12 @@
   inputs locked the rule that one ACP session covers one coherent plan/run.
 - **GitHub boundary established:** private
   `k3ss-official/kanban-surface-manager`, repo-scoped deploy key, foundation PR
-  #1 merged. First Hermes→Codex pilot is at its reviewed approval gate.
+  #1 merged.
+- **First complete relay accepted:** Hermes planned `KSM-PILOT-1`; Codex
+  proposed the patch; KSM/human gates rejected malformed metadata and a missing
+  test import before mutation; 15 tests passed; PR #2 merged; release `9b98356`
+  deployed; live health left the database unchanged; KSM closed revision 15 as
+  `DONE`.
 
 ## 2026-07-17 — Ask Ebbi Codex
 - **Two-tenant boundary recorded:** `alwyz-01-dock` is the shared host for two isolated Docker projects. ChadAI remains owned by the separate ChadAI Codex lane; Ask Ebbi owns its own future Compose project. No networks, volumes, Hermes homes or secrets are shared.

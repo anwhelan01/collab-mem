@@ -28,6 +28,13 @@ heartbeats and state changes never consume model tokens.
 
 ## Done
 
+- 2026-07-30 — Completed the first full production-shaped vertical slice.
+  `KSM-PILOT-1` flowed through Hermes planning, KSM plan validation, Codex patch
+  proposal, two explicit rejection gates, human correction, 15 passing tests,
+  GitHub PR #2, merge, immutable deployment, and deterministic verification.
+  Release `9b98356249e4fbdd0c447e7e0930abb0e6d70df5` returned
+  `{"ok":true,"quick_check":"ok","schema":"ready"}` without changing the
+  database hash or mtime. KSM closed the card `DONE` at revision 15.
 - 2026-07-30 — Shelved Ask Ebbi/ChadAI from `alwyzon-1` under Tony's explicit
   approval. Verified the local archive before purging the VPS copy:
   `/Volumes/hotblack-2tb/.config-bak/server-shelves/alwyzon-1/2026-07-30/ask-ebbi-shelf-20260730.tar.zst`,
@@ -57,10 +64,6 @@ heartbeats and state changes never consume model tokens.
 
 ## Outstanding
 
-- `KSM-PILOT-1` is back at `READY`; the reviewed one-line correction is not yet
-  applied. The isolated coding worktree remains clean.
-- The current vertical slice still needs tests, commit, push, PR and final KSM
-  transition to `REVIEW`.
 - collab-mem projection is manual today. KSM needs a read/write projection that
   preserves this Git repo as the durable cross-surface source while avoiding
   duplicate writers and token-heavy polling.
@@ -72,10 +75,9 @@ heartbeats and state changes never consume model tokens.
 
 ## Next
 
-1. Codex: resume `KSM-PILOT-1`, apply the reviewed corrected patch through the
-   explicit approval gate, run the full suite, push the worker branch, open a PR,
-   and verify the KSM card ends in `REVIEW`.
-2. Codex: implement and test the collab-mem projection against this project card;
+1. Codex: implement and test the collab-mem projection against this project card;
    do not add a public endpoint or MCP server.
-3. Tony + Codex: review the first real PR and decide the smallest useful surface
+2. Codex: prove in-flight lease recovery across a KSM restart and add the narrow
+   coding-worktree command/egress policy.
+3. Tony + Codex: decide the smallest useful surface
    UI after the projection and restart-recovery tests pass.

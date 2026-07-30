@@ -23,6 +23,9 @@
 - **Canonical implementation:** private GitHub repo
   `k3ss-official/kanban-surface-manager`. KRP/1 is the management protocol; ACP
   is a replaceable runtime adapter; MCP is deliberately outside the core loop.
+- **Accepted release:** `9b98356249e4fbdd0c447e7e0930abb0e6d70df5`
+  from merged PR #2. The live deterministic health check is read-only and
+  returns `{"ok":true,"quick_check":"ok","schema":"ready"}`.
 - **Ingress:** only SSH TCP 42 is externally listening. UFW default-deny,
   Fail2ban, auditd and unattended security updates remain active.
 - **Superseded boundary:** the 2026-07-17 two-tenant ChadAI/Ask Ebbi plan for
