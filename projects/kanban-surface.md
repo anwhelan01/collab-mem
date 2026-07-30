@@ -85,6 +85,11 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
   scoped tokens were re-read directly from their concealed 1Password items,
   the mode-0600 config was rebuilt and validated, and the surface/watcher were
   restarted successfully. No token appeared in terminal output or logs.
+- 2026-07-30 — Stopped and disabled the superseded `ksm.service`; the five
+  Hermes-native units remained active, health stayed exact and systemd reported
+  no failed units. KRP files and the unused `ksm`/`ksm-worker` identities remain
+  only as a recoverable rollback until the native service set passes two cold
+  boots.
 - 2026-07-30 — Completed the strict host residue pass and two-boot acceptance.
   Removed the empty Docker/containerd stack, Snap/LXD activation, cron,
   cloud/provisioning agents, PackageKit/Polkit, irrelevant device/storage
@@ -133,8 +138,8 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
 
 ## Outstanding
 
-- Reboot twice, verify timers/dispatcher/UI, then retire the superseded
-  `ksm.service`, KRP state and unused `ksm`/`ksm-worker` host identities.
+- Reboot twice, verify timers/dispatcher/UI, then remove the disabled
+  `ksm.service` unit, KRP state and unused `ksm`/`ksm-worker` host identities.
 - With Tony watching, use one deliberate UI drag to prove the scoped audit
   identity and move permission path; keep every other card parked.
 - Define the smallest external-AI handshake after the surface is visible; do
