@@ -129,8 +129,9 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
 
 ## Next
 
-1. Codex: complete two-boot acceptance and remove the superseded KRP host
-   components.
-2. Tony + Codex: watch one deliberate UI drag-to-dispatch run.
-3. Tony + Codex: lock the minimal external
+1. ~~Codex: select this project's current card, start Hermes, and verify one
+   native intake dispatch end to end.~~ Completed 2026-07-30.
+2. Codex: open and verify the loopback UI, then complete two-boot acceptance and
+   remove the superseded KRP host components.
+3. Tony + Codex: watch one drag-to-dispatch run, then lock the minimal external
    AI announcement/intent contract.
