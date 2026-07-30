@@ -7,8 +7,10 @@
   rejected two real integration faults: archived history counted as a
   duplicate and prose-only station handoffs. `kanban-surface` PRs #4–#5 fixed
   both plus the profile installer; all local, CI and on-box suites passed.
-  Hermes is now capped at one global worker with auto-decompose disabled; all
-  five native services/timers are active with no ready/running cards.
+  PRs #6–#7 then made project `next-N` identities permanent and ledger sync
+  projection-only. Hermes is capped at one global worker, auto-decompose is
+  disabled, and manual admission is required; all five native services/timers
+  are active with no ready/running cards.
 - **Hermes-native Kanban Surface deployed:** restored Tony's original
   architecture after the KRP detour; merged `kanban-surface` PRs #1–#3,
   installed the dedicated KSM identity and five resident profiles, projected

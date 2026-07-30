@@ -72,6 +72,19 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
   `auto_decompose=false`, and a 60-second dispatcher tick. Final live state:
   all five units active, no ready/running cards, no failed units, UI loopback
   only, public listener still SSH/42 only.
+- 2026-07-30 — Closed two canonical-control gaps before leaving the timers
+  enabled. Project `next-N` references are now permanent: completed entries
+  are struck in place and never renumbered or reused (PR #6). Ledger sync is
+  projection-only by default with `sync.wip_limit=null`; a timer proof that
+  admitted one unselected ChadAI card was stopped before dispatch and re-parked,
+  then manual-only admission was merged/deployed in PR #7. The repeated live
+  sync returned 27 cardable, 0 created, 27 existing and 0 admitted.
+- 2026-07-30 — Recovered one deployment error without secret exposure: an
+  unavailable `jq` binary caused a config rewrite attempt to install an empty
+  `config.json`. The already-running surface remained healthy; its three
+  scoped tokens were re-read directly from their concealed 1Password items,
+  the mode-0600 config was rebuilt and validated, and the surface/watcher were
+  restarted successfully. No token appeared in terminal output or logs.
 - 2026-07-30 — Completed the strict host residue pass and two-boot acceptance.
   Removed the empty Docker/containerd stack, Snap/LXD activation, cron,
   cloud/provisioning agents, PackageKit/Polkit, irrelevant device/storage
