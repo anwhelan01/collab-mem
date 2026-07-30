@@ -46,6 +46,32 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
   version drift briefly reported the imported cards ready, so all 28 were
   parked before any worker ran. The second sync proved 0 duplicates and
   admitted exactly one card at WIP 1.
+- 2026-07-30 — Opened the authenticated loopback surface in a real Chrome
+  session through the SSH tunnel. The selected card displayed its full
+  canonical `projects/kanban-surface.md` source, GitHub backlink and native
+  receipt history; the UI was not serving a copied project summary.
+- 2026-07-30 — Ran the first bounded native intake dispatch. It claimed,
+  heartbeated and left receipts correctly, but treated an archived predecessor
+  as a live duplicate. Rejected that routing result, fixed intake to ignore
+  `done`/`archived` history, fixed the installer to create complete native
+  profiles, and merged/deployed `kanban-surface` PR #4
+  (`43b8561992ebc4f43e4f2bc7ba35727e0159af7f`).
+- 2026-07-30 — Replayed the same canonical work. `kba-intake` proved there was
+  no live duplicate and routed the card Intake → Build with
+  `mutated_external_state: false`; `kba-build` independently verified the
+  claim/spawn/receipt/handoff ledger. The abstract profile wording then caused
+  Build to complete rather than hand off. Proved Hermes'
+  `reassign --reclaim` and active-run archive primitives without a model,
+  encoded exact terminal commands in all five profiles, and merged/deployed
+  PR #5 (`0f25a53b322c6bdae6f897f86af011234d49900a`).
+- 2026-07-30 — Activated the native gateway, UI, watcher and both timers. The
+  first activation also exposed Hermes' upstream defaults: auto-decompose
+  consumed one unselected Socialite triage card while the selected Build card
+  ran; that run made no external mutation. Locked the KSM to
+  `max_in_progress=1`, `max_spawn=1`, one worker per profile,
+  `auto_decompose=false`, and a 60-second dispatcher tick. Final live state:
+  all five units active, no ready/running cards, no failed units, UI loopback
+  only, public listener still SSH/42 only.
 - 2026-07-30 — Completed the strict host residue pass and two-boot acceptance.
   Removed the empty Docker/containerd stack, Snap/LXD activation, cron,
   cloud/provisioning agents, PackageKit/Polkit, irrelevant device/storage
@@ -94,22 +120,17 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
 
 ## Outstanding
 
-- Start the Hermes dispatcher against one deliberately selected KSM card and
-  verify the resident intake worker leaves valid receipts and routes once.
-- Open the loopback surface through an SSH tunnel and verify card list, full
-  canonical source view, audit identity and drag permissions in a real browser.
-- Fix the source-controlled installer to create full Hermes profiles through
-  `hermes profile create --clone`; the old SOUL-only copy path is not runnable.
 - Reboot twice, verify timers/dispatcher/UI, then retire the superseded
   `ksm.service`, KRP state and unused `ksm`/`ksm-worker` host identities.
+- With Tony watching, use one deliberate UI drag to prove the scoped audit
+  identity and move permission path; keep every other card parked.
 - Define the smallest external-AI handshake after the surface is visible; do
   not deploy the optional MCP shim merely because it exists.
 
 ## Next
 
-1. Codex: select this project's current card, start Hermes, and verify one
-   native intake dispatch end to end.
-2. Codex: open and verify the loopback UI, then complete two-boot acceptance and
-   remove the superseded KRP host components.
-3. Tony + Codex: watch one drag-to-dispatch run, then lock the minimal external
+1. Codex: complete two-boot acceptance and remove the superseded KRP host
+   components.
+2. Tony + Codex: watch one deliberate UI drag-to-dispatch run.
+3. Tony + Codex: lock the minimal external
    AI announcement/intent contract.

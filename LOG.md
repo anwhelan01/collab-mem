@@ -1,6 +1,14 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
 ## 2026-07-30 — Codex
+- **Hermes-native surface exercised live:** opened the authenticated loopback
+  board through SSH in Chrome, verified full canonical collab-mem source and
+  receipts, and ran one selected card Intake → Build. The run exposed and
+  rejected two real integration faults: archived history counted as a
+  duplicate and prose-only station handoffs. `kanban-surface` PRs #4–#5 fixed
+  both plus the profile installer; all local, CI and on-box suites passed.
+  Hermes is now capped at one global worker with auto-decompose disabled; all
+  five native services/timers are active with no ready/running cards.
 - **Hermes-native Kanban Surface deployed:** restored Tony's original
   architecture after the KRP detour; merged `kanban-surface` PRs #1–#3,
   installed the dedicated KSM identity and five resident profiles, projected
