@@ -1,33 +1,51 @@
-# Kanban Surface Manager — KISS execution layer over collab-mem
+# Kanban Surface Manager — Hermes-native execution surface over collab-mem
 STATUS: active        UPDATED: 2026-07-30 by Codex
 
 ## What
 
-KSM makes collab-mem's project catalog executable without replacing the
-surface-agnostic Git ledger. KSM is the single control-plane writer: it grants one
-run-scoped capability, owns task revisions and transitions, and records useful
-events. Workers never negotiate ownership conversationally.
+The dedicated Hermes Agent installation is the KSM. Hermes native Kanban owns the
+live execution projection: boards, cards, atomic claims, resident worker profiles,
+dependencies, dispatch and event history. The thin Kanban Surface layer adds
+collab-mem sync, scoped identities, receipts and the drag-to-dispatch UI.
 
-KRP/1 is the tiny local management contract (`task`, `event`, `finish`, plus
-KSM-owned control). ACP is only the replaceable boundary used to start a real AI
-runtime. MCP is not in the core loop. Deterministic ACKs, leases, retries,
-heartbeats and state changes never consume model tokens.
+collab-mem remains the canonical source for project facts, priorities, history and
+ordered next actions. Every executable card carries a `cm_ref` and `source` link
+back to this Git ledger; opening a card shows the full linked source file. Routing,
+WIP admission, ACKs and state transitions are deterministic and consume no model
+tokens. The separate KRP daemon was a useful validated detour, not the final MVP.
 
 ## Where
 
-- Canonical GitHub repo: `k3ss-official/kanban-surface-manager` (private)
-- Current local build checkout:
-  `/Volumes/deep-1t/Users/k3ss/Documents/Codex/2026-07-30/tell-me-all-about-higgsfield-apps-2/outputs/ksm-krp-sandbox`
-- Deep evidence: `README.md`, `TEST_REPORT.md`, and `VPS_ACCEPTANCE.md` in that repo
+- Active GitHub repo: `k3ss-official/kanban-surface` (private)
+- Historical protocol spike: `k3ss-official/kanban-surface-manager` (private)
 - Control host: `ssh alwyzon-1` → `alwyz-dock-01`, SSH port 42
-- Service: `ksm.service`; store: `/var/lib/ksm/state/ksm.sqlite3`;
-  IPC: `/run/ksm/krp.sock`
-- Planner identity: `hermes`; coding identity: `ksm-worker`
-- The earlier `k3ss-official/kanban-surface` native-board/UI/MCP build is a
-  retained design spike, not the active MVP control loop.
+- Hermes/KSM home: `/var/lib/hermes`; source: `/var/lib/hermes/kanban-surface`;
+  ledger checkout: `/var/lib/hermes/collab-mem`
+- Native board: `kanban-surface`; database:
+  `/var/lib/hermes/.hermes/kanban/boards/kanban-surface/kanban.db`
+- Loopback UI/gateway: `127.0.0.1:8742` (view through an SSH tunnel)
+- Boot services: `hermes-ksm.service`, `kanban-surface.service`,
+  `kanban-watcher.service`, `kanban-intake.timer`, `kanban-snapshot.timer`
+- Resident profiles: `kba-intake`, `kba-build`, `kba-input`, `kba-verify`,
+  `kba-done`
+- Scoped Tony, Rae and Grok gateway credentials are concealed in 1Password.
 
 ## Done
 
+- 2026-07-30 — Restored the original architecture after Tony corrected the KRP
+  detour: Hermes native Kanban is the KSM, `kanban-surface` is active, and
+  collab-mem remains project truth. PRs #1–#3 adapted Hermes v0.19, added the
+  source-linked card panel, defined the KSM identity and added boot-safe units;
+  all GitHub CI passed.
+- 2026-07-30 — Deployed the exact merged `kanban-surface` release to
+  `alwyzon-1`, created the named native board/project, installed five real
+  cloned Hermes profiles, configured repo-scoped deploy keys, and passed all
+  on-box offline suites against the real collab-mem schema.
+- 2026-07-30 — Projected 28 live collab-mem objects into native cards with
+  stable idempotency keys. The dispatcher remained off during import; a live
+  version drift briefly reported the imported cards ready, so all 28 were
+  parked before any worker ran. The second sync proved 0 duplicates and
+  admitted exactly one card at WIP 1.
 - 2026-07-30 — Completed the strict host residue pass and two-boot acceptance.
   Removed the empty Docker/containerd stack, Snap/LXD activation, cron,
   cloud/provisioning agents, PackageKit/Polkit, irrelevant device/storage
@@ -76,20 +94,22 @@ heartbeats and state changes never consume model tokens.
 
 ## Outstanding
 
-- collab-mem projection is manual today. KSM needs a read/write projection that
-  preserves this Git repo as the durable cross-surface source while avoiding
-  duplicate writers and token-heavy polling.
-- Prove in-flight lease recovery across a KSM restart.
-- Add the execution policy around coding worktrees: explicit writable paths,
-  command policy and default-deny egress.
-- Decide whether to archive or selectively reuse the earlier
-  `kanban-surface` UI/MCP spike after this vertical slice is accepted.
+- Start the Hermes dispatcher against one deliberately selected KSM card and
+  verify the resident intake worker leaves valid receipts and routes once.
+- Open the loopback surface through an SSH tunnel and verify card list, full
+  canonical source view, audit identity and drag permissions in a real browser.
+- Fix the source-controlled installer to create full Hermes profiles through
+  `hermes profile create --clone`; the old SOUL-only copy path is not runnable.
+- Reboot twice, verify timers/dispatcher/UI, then retire the superseded
+  `ksm.service`, KRP state and unused `ksm`/`ksm-worker` host identities.
+- Define the smallest external-AI handshake after the surface is visible; do
+  not deploy the optional MCP shim merely because it exists.
 
 ## Next
 
-1. Codex: implement and test the collab-mem projection against this project card;
-   do not add a public endpoint or MCP server.
-2. Codex: prove in-flight lease recovery across a KSM restart and add the narrow
-   coding-worktree command/egress policy.
-3. Tony + Codex: decide the smallest useful surface
-   UI after the projection and restart-recovery tests pass.
+1. Codex: select this project's current card, start Hermes, and verify one
+   native intake dispatch end to end.
+2. Codex: open and verify the loopback UI, then complete two-boot acceptance and
+   remove the superseded KRP host components.
+3. Tony + Codex: watch one drag-to-dispatch run, then lock the minimal external
+   AI announcement/intent contract.

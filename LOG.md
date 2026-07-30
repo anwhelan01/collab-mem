@@ -1,6 +1,12 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
 ## 2026-07-30 — Codex
+- **Hermes-native Kanban Surface deployed:** restored Tony's original
+  architecture after the KRP detour; merged `kanban-surface` PRs #1–#3,
+  installed the dedicated KSM identity and five resident profiles, projected
+  28 source-linked collab-mem cards, and started the loopback UI/watcher.
+  Import ran with the dispatcher gated; zero model runs occurred, the repeat
+  sync created zero duplicates, and automatic WIP was capped at one.
 - **Strict vanilla-host acceptance:** purged Docker/containerd, Snap/LXD, cron,
   cloud/provisioning agents, PackageKit/Polkit, irrelevant storage/device
   services, VMware tooling on KVM, stale identities, caches and completed pilot
