@@ -16,7 +16,7 @@
 - **`ksm-worker` identity** — Codex coding runtime with a repo-scoped GitHub
   deploy key. It uses isolated worktrees and cannot read KSM state directly.
 - **Isolation rule** — all three service identities are locked, have separate
-  homes/credentials, are outside the Docker group, and share only the
+  homes/credentials, run without any Docker runtime/group, and share only the
   `ksm-runtime` socket group where required.
 - **Ask Ebbi / ChadAI on this host** — shelved and removed under Tony's explicit
   approval. Their previous two-tenant ownership notes are historical only.

@@ -5,6 +5,13 @@
   **42**, live hostname `alwyz-dock-01`. Tony shelved Ask Ebbi and explicitly
   approved removal of all Ask Ebbi/ChadAI/Cloudflare/Docker MVP residue from this
   host. It is now the dedicated, dark Kanban Surface Manager MVP host.
+- **Strict host baseline accepted:** after two clean reboots on 2026-07-30, the
+  KVM VPS had no Docker/containerd, Snap/LXD, cron, cloud-init, Ubuntu Pro,
+  Landscape, Apport, PackageKit/Polkit, VMware tools, firmware/modem/multipath,
+  LVM/iSCSI/RAID/udisks or unused filesystem/appliance stack. APT reported no
+  orphan packages; `dpkg --audit`, `apt-get check` and systemd failed-unit
+  checks passed. The final snapshot used 367 MiB RAM and 8.2 GiB of the
+  232 GiB root disk.
 - **Recoverability:** the verified shelf archive is local at
   `/Volumes/hotblack-2tb/.config-bak/server-shelves/alwyzon-1/2026-07-30/ask-ebbi-shelf-20260730.tar.zst`;
   SHA-256 is
@@ -26,8 +33,14 @@
 - **Accepted release:** `9b98356249e4fbdd0c447e7e0930abb0e6d70df5`
   from merged PR #2. The live deterministic health check is read-only and
   returns `{"ok":true,"quick_check":"ok","schema":"ready"}`.
+- **Runtime acceptance:** real post-cleanup ACP turns returned exactly
+  `HERMES_ACP_SMOKE_OK` and `CODEX_ACP_SMOKE_OK`, ended `end_turn`, and left
+  their workspaces unchanged. Hermes v0.19.0, Node v22.23.2, Codex v0.146.0
+  and `codex-acp` v1.1.7 remain on-demand runtimes, not daemons.
 - **Ingress:** only SSH TCP 42 is externally listening. UFW default-deny,
-  Fail2ban, auditd and unattended security updates remain active.
+  Fail2ban, auditd and unattended security updates remain active. SSH
+  forwarding is disabled with `PermitOpen none`; the retired 8051 allowance is
+  gone.
 - **Superseded boundary:** the 2026-07-17 two-tenant ChadAI/Ask Ebbi plan for
   this VPS is historical. Ask Ebbi is shelved; no ChadAI or Ask Ebbi workload
   remains on `alwyzon-1`.

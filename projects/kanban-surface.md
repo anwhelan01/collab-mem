@@ -28,6 +28,18 @@ heartbeats and state changes never consume model tokens.
 
 ## Done
 
+- 2026-07-30 — Completed the strict host residue pass and two-boot acceptance.
+  Removed the empty Docker/containerd stack, Snap/LXD activation, cron,
+  cloud/provisioning agents, PackageKit/Polkit, irrelevant device/storage
+  daemons, VMware tools on KVM, pilot/rejected-release material and stale
+  identities/caches. The final host exposed only SSH/42, used 367 MiB RAM,
+  reported no failed units or orphan packages, and returned the exact KSM
+  health result after the second boot.
+- 2026-07-30 — Re-ran both real agent boundaries after cleanup. Hermes returned
+  `HERMES_ACP_SMOKE_OK`; Codex returned `CODEX_ACP_SMOKE_OK`; both ended
+  `end_turn` without workspace mutation. A local Codex smoke-harness timeout
+  was traced to buffered stdout plus `select()`, not to ACP or Codex, and the
+  corrected threaded reader completed normally.
 - 2026-07-30 — Completed the first full production-shaped vertical slice.
   `KSM-PILOT-1` flowed through Hermes planning, KSM plan validation, Codex patch
   proposal, two explicit rejection gates, human correction, 15 passing tests,
@@ -40,7 +52,7 @@ heartbeats and state changes never consume model tokens.
   `/Volumes/hotblack-2tb/.config-bak/server-shelves/alwyzon-1/2026-07-30/ask-ebbi-shelf-20260730.tar.zst`,
   SHA-256 `9befda91a191a65418b5bfa2d9ffd179f114247808112bd6b3ccdff63b8f4fab`.
 - 2026-07-30 — Re-established the host as a dark KSM MVP box: no application
-  listener, zero Docker workload residue, UFW default-deny, Fail2ban/auditd
+  listener, no installed container runtime, UFW default-deny, Fail2ban/auditd
   active, and separate locked `ksm`, `hermes`, and `ksm-worker` identities.
 - 2026-07-30 — Installed Hermes v0.19.0, Node v22.23.2, Codex CLI v0.146.0 and
   `codex-acp` v1.1.7. Hermes and Codex have separate ChatGPT OAuth stores.

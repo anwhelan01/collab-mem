@@ -1,6 +1,12 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
 ## 2026-07-30 — Codex
+- **Strict vanilla-host acceptance:** purged Docker/containerd, Snap/LXD, cron,
+  cloud/provisioning agents, PackageKit/Polkit, irrelevant storage/device
+  services, VMware tooling on KVM, stale identities, caches and completed pilot
+  material. Two cold boots returned SSH/42 and exact KSM health; no failed units
+  or orphan packages remained. Real Hermes and Codex ACP smoke turns both ended
+  normally without workspace mutation.
 - **KSM host established:** verified and archived the old `alwyzon-1` tenant
   state, removed approved Ask Ebbi/ChadAI/Cloudflare/Docker residue, and retained
   the hardened SSH/UFW/Fail2ban/audit baseline.
