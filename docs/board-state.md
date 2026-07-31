@@ -1,6 +1,6 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-07-31 00:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-07-31 01:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
 ## kba-intake  (26)
@@ -38,8 +38,8 @@ _In-flight state lives on the board; this file exists so a KS outage loses nothi
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
-| t_128b8509 | ready | M3 | ChadAI Step 4 — data sources + channel — legislation.gov.uk API + Scrapling MCP  |
-| t_8c8ecf17 | running | M12 | Socialite Field Closer Pack v0 → first paying Pokhara client — `pack.py` generat |
+| t_128b8509 | triage | M3 | ChadAI Step 4 — data sources + channel — legislation.gov.uk API + Scrapling MCP  |
+| t_8c8ecf17 | triage | M12 | Socialite Field Closer Pack v0 → first paying Pokhara client — `pack.py` generat |
 
 ## kba-verify  (1)
 
