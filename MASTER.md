@@ -1,17 +1,19 @@
 # MASTER — the backlog (durable; daily lists hang off this)
 
 > Each item has an id (M#), a one-line description, an owner, and a status.
-> Statuses: `backlog` · `active` · `blocked` · `done` · `later`. Done items drop to LOG.md.
+> Statuses used here include `backlog` · `active` · `blocked` · `blocked on Tony`
+> · `needs-decision` · `paused` · `done` · `superseded` · `later`. Done items
+> drop to LOG.md; combined labels such as `done / superseded` preserve history.
 
 | id | Item | Owner | Status | Notes |
 |----|------|-------|--------|-------|
 | M2 | **Seat Grok in collab-mem** — add to ROSTER, agree the Rae/Grok ownership split + read/write protocol | Rae | active | v2 rebuild done; Grok seat + protocol still to finalise. |
-| M3 | **ChadAI Step 4 — data sources + channel** — legislation.gov.uk API + Scrapling MCP + NotebookLM MCP + FB frame; answer-only-from-notebook | Rae | **blocked on Tony** | Plan ready → `docs/step4-plan.md`. Flow locked → `docs/session-flow.md`. **5 decisions await Tony** (see 2026-05-31 daily). Also fixes the X-SAR ungrounded-citation gap. |
-| M4 | **ChadAI Step 5 — full hold-nothing purge** — wipe `state.db` rows + `sessions/` + `pairing/` + uploads + email address at session end; server-side, guaranteed | Rae | backlog | Spec'd in session-flow.md (the wipe never depends on the client). |
-| M5 | **Wire collab-mem ↔ ChadAI/HANDOFF.md** — one canonical entry point, no drift | Rae | backlog | HANDOFF.md on M4 at `/Volumes/deep-1t/Users/k3ss/k3ss-official/ChadAI/`. |
+| M3 | **ChadAI Step 4 — data sources + channel** — legislation.gov.uk API + Scrapling MCP + NotebookLM MCP + FB frame; answer-only-from-notebook | Rae | **blocked on Tony** | Plan/flow are in the external ChadAI repository; see `projects/chadai.md` before resuming. **5 decisions await Tony** (see 2026-05-31 daily). Also fixes the X-SAR ungrounded-citation gap. |
+| M4 | **ChadAI Step 5 — full hold-nothing purge** — wipe `state.db` rows + `sessions/` + `pairing/` + uploads + email address at session end; server-side, guaranteed | Rae | backlog | The spec is in the external ChadAI repository; do not assume the former VPS path is live. |
+| M5 | **Wire collab-mem ↔ ChadAI/HANDOFF.md** — one canonical entry point, no drift | Rae | backlog | Deep cursor and current runtime boundary are recorded in `projects/chadai.md`; former host paths are historical until Tony reopens the project. |
 | M6 | **Top-tier model for Chad** — once a working inference key is on the box, move Chad off Nemotron | Tony | later | Blocked on a key; see FACTS → Models. |
 | M7 | **ChadAI Stage-2 — self-hosted grounded notebook** to close the NotebookLM third-party GDPR gap | Rae | later | Post-MVP hardening. |
-| M8 | **Chad instruction polish + paid-tier lines (from the X-SAR case)** — Art 22/15(1)(h) spearhead, export-rebuttal line, escalation ladder (s.165 DPA), dispute-letter drafting (paid). Pin the answer-walkthrough | Tony / Rae | backlog | Source: `ChadAI/docs/cases/x-suspension-sar.md`. Free = strategy; Paid = the counter-play. |
+| M8 | **Chad instruction polish + paid-tier lines (from the X-SAR case)** — Art 22/15(1)(h) spearhead, export-rebuttal line, escalation ladder (s.165 DPA), dispute-letter drafting (paid). Pin the answer-walkthrough | Tony / Rae | backlog | Source is external: `ChadAI/docs/cases/x-suspension-sar.md` in the ChadAI repository. Free = strategy; Paid = the counter-play. |
 | M9 | **GitHub estate audit + doctrine pick** — classify all 37 k3ss-official repos; pick 4–6 week lane (cash + strategic) on operator-doctrine terms (leverage / revenue path / reuse / distribution / mess cost / momentum). Park merch/music/DJ; consolidate AgentOS sprawl | Rae | done → drops to LOG | Output: 37-repo matrix + execution arc + last-30-min reconciliation in the Perplexity task at <https://www.perplexity.ai/computer/tasks/b74d4915-8608-4979-bb01-77e1221c9957>. Picks: Socialite (cash) + 3to5er (strategic) on M4 + VPS-1/2. |
 | M10 | **Repo hygiene (8 archives, 5 pins)** — archive 8 dead repos (thread-to-pdf, quiet-alpha-v2, social-machine, looper, soul_architecture, flowith-docs, quiet_alpha, stock_oracle); pin Socialite / 3to5er-agentos / scam-alertuk-chad / titan / tanks-hud | Rae | active | Hour-0–1 block, 2026-06-06. tanks-hud kept in pins after re-audit found Tony pushed real features at 19:48 UTC tonight. |
 | M11 | **AgentOS consolidation** — collapse the 5-repo sprawl into `3to5er-agentos/` as source of truth: `runtime/` ← hermes-agentos-starter-kit; `verticals/dental-uk/` ← vertical-experts-agentos; planning content folded later. Rule for the week: zero new `*-agentos` repos from Rae | Rae | active | Colocate, don't refactor. Compiler `scripts/compile_pack.py` ships in this MASTER item (D6). |
@@ -36,5 +38,7 @@
 5. Full hold-nothing purge + end-to-end test — ◐ M4
 ```
 
-Canonical specs now in `ChadAI/docs/`: `session-flow.md` (the session), `step4-plan.md` (the wiring),
-`cases/x-suspension-sar.md` (the validation fixture).
+Canonical specs are external to this repository in `ChadAI/docs/`:
+`session-flow.md` (the session), `step4-plan.md` (the wiring), and
+`cases/x-suspension-sar.md` (the validation fixture). See `projects/chadai.md`
+for the current boundary before using those paths.

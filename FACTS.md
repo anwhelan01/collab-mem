@@ -18,21 +18,28 @@
   `9befda91a191a65418b5bfa2d9ffd179f114247808112bd6b3ccdff63b8f4fab`.
   The purged VPS copies require that archive or another existing backup to
   recover.
-- **KSM runtime:** `ksm.service` is enabled and active with no network address
-  family. Canonical state is `/var/lib/ksm/state/ksm.sqlite3`
-  (`0640 ksm:ksm`). Agent IPC is `/run/ksm/krp.sock`
-  (`0660 ksm:ksm-runtime`). Agents can use the socket only when KSM gives them
-  a run capability; they cannot read the database.
+- **KSM runtime:** `hermes-ksm.service`, `kanban-surface.service` and
+  `kanban-watcher.service` are enabled and active; `kanban-intake.timer` and
+  `kanban-snapshot.timer` are active. Canonical state is
+  `/var/lib/hermes/.hermes/kanban/boards/kanban-surface/kanban.db`.
+  Agent IPC is `/run/ksm/krp.sock` (`0660 ksm:ksm-runtime`). Agents can use
+  the socket only when KSM gives them a run capability; they cannot read the
+  database.
 - **Agent isolation:** `ksm`, `hermes`, and `ksm-worker` are separate locked
   service identities and none belongs to the Docker group. Hermes and Codex
   keep separate OAuth stores. Hermes is the planning runtime; Codex is the
   coding runtime.
 - **Canonical implementation:** private GitHub repo
-  `k3ss-official/kanban-surface-manager`. KRP/1 is the management protocol; ACP
-  is a replaceable runtime adapter; MCP is deliberately outside the core loop.
-- **Accepted release:** `9b98356249e4fbdd0c447e7e0930abb0e6d70df5`
-  from merged PR #2. The live deterministic health check is read-only and
-  returns `{"ok":true,"quick_check":"ok","schema":"ready"}`.
+  `k3ss-official/kanban-surface`. The former
+  `k3ss-official/kanban-surface-manager` repo is the historical KRP protocol
+  spike. Hermes-native Kanban is the active execution surface; ACP is a
+  replaceable runtime adapter and MCP remains deliberately outside the core
+  loop.
+- **Accepted release:** `346b1e851169` from the active `kanban-surface` main
+  branch (manual admission controls, merged PR #7). The historical KRP pilot
+  release was `9b98356249e4fbdd0c447e7e0930abb0e6d70df5`. The live deterministic
+  health check is read-only and returns
+  `{"ok":true,"quick_check":"ok","schema":"ready"}`.
 - **Runtime acceptance:** real post-cleanup ACP turns returned exactly
   `HERMES_ACP_SMOKE_OK` and `CODEX_ACP_SMOKE_OK`, ended `end_turn`, and left
   their workspaces unchanged. Hermes v0.19.0, Node v22.23.2, Codex v0.146.0

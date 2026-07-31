@@ -7,7 +7,7 @@
 
 - **Tony** — final operator and architect; approves external auth, destructive
   cleanup, data-boundary decisions and public cutovers.
-- **KSM / Codex lane** — owns the active `kanban-surface-manager` MVP and the
+- **KSM / Codex lane** — owns the active `kanban-surface` MVP and the
   dedicated `alwyzon-1` control host.
 - **`ksm` identity** — deterministic control plane and only canonical SQLite
   writer. It grants, resumes and cancels work.
@@ -32,8 +32,8 @@ this ledger is Rae's persistence across sessions.
 - **Historical role:** ChadAI build and ledger upkeep. Current ChadAI runtime ownership is with the separate ChadAI Codex lane.
 
 ## Grok Build — xAI agentic CLI (SuperGrok)
-Backend builder, **peer to Rae**. Trialed on the M4 now; will run as a walled non-privileged user on
-the VPS once promoted.
+Backend builder, **peer to Rae**. Trialed on the M4 and onboarded under a
+walled non-privileged VPS user on 2026-07-30.
 - **Owns:** TBD — agree split with Rae (candidate: Grok = always-on monitoring/ops between Rae sessions;
   Rae = build sessions). Track under MASTER M2.
 
@@ -43,7 +43,9 @@ Guardian/support node: ISP ingress / Cloudflare Zero Trust. Future delegated sub
 
 ## Chad — the PRODUCT (not crew)
 UK consumer-rights fact-finder for end users. Orchestrator + 2 workers (Retriever, Auditor). Sealed,
-hold-nothing, on the ChadAI tenant of `alwyz-01-dock`. The ChadAI Codex operates it from outside the wall.
+hold-nothing, operated by the separate ChadAI Codex lane. The former
+`alwyz-01-dock` placement is historical: ChadAI was shelved/removed from that
+host on 2026-07-30, and no current runtime target is recorded here.
 
 ## Coordination rule
 One owner per item (claim it in the daily). Read today's daily before you start. Log when you finish.
