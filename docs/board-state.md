@@ -1,9 +1,9 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-07-31 03:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-07-31 04:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (26)
+## kba-intake  (27)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
@@ -21,6 +21,7 @@ _In-flight state lives on the board; this file exists so a KS outage loses nothi
 | t_761b0543 | blocked | M8 | Chad instruction polish + paid-tier lines (from the X-SAR case) — Art 22/15(1)(h |
 | t_8837c008 | blocked | projects/ask-ebbi-3.md#next-1 | Tony: explicitly reopen Ask Ebbi and select its new runtime target. |
 | t_8e4c60e3 | blocked | M13 | Ghost as Socialite Outreach session layer — drop Ghost in as FB Messenger backen |
+| t_90c7c938 | blocked | projects/chadai.md#next-3 | Keep ChadAI state, databases, Open Notebook and secrets isolated from Ask Ebbi. |
 | t_9b3633e2 | blocked | projects/stunning-2026.md#next-1 | Read the session handoff notes committed in `fdde913` for the actual live cursor |
 | t_9bd87657 | blocked | M2 | Seat Grok in collab-mem — add to ROSTER, agree the Rae/Grok ownership split + re |
 | t_9cc1378f | blocked | projects/scam-alertuk-chad.md#next-1 | Hold at background-ingest until MASTER M16's gates clear (Socialite paying AND C |
