@@ -1,6 +1,6 @@
 # stunning-2026 — Stunning: Hyper-Local Identity-as-a-Service
 
-STATUS: active        UPDATED: 2026-07-20 by Rae (Claude Code)
+STATUS: active        UPDATED: 2026-08-01 by overnight documentation sweep
 
 ## What
 
@@ -13,12 +13,13 @@ scroll-stopping video content and conversion. First client validation: Every Gen
 
 ## Where
 
-- **Repo:** `k3ss-official/stunning-2026`, branch **main** — latest `fdde913` "docs: add session
-  handoff notes".
+- **Repo:** `k3ss-official/stunning-2026`, branch **main** — latest `7d07cbda` "docs: keep handoff
+  runtime guidance current" (2026-07-21), which supersedes the previously recorded `fdde913`.
 
 ## Done (newest first)
 
 - **`fdde913`** — session handoff notes added.
+- **`7d07cbda`** — handoff runtime guidance kept current.
 - `b1454db` — first-client close pack, 48h POC plan, consolidated offer, repo map.
 - `8c9ff86` — curated mirror push: business model + creative plan + project principles (pruned
   clean version from an old folder).

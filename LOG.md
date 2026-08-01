@@ -1,5 +1,13 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-01 — Overnight documentation sweep
+- Audited `main` at `02b4097` and corrected four low-risk documentation defects:
+  restored the current daily handoff, removed an unmatched `MASTER.md` code fence,
+  and reconciled the Ask Ebbi 3 and Stunning project cards against their current
+  GitHub branch heads.
+- No runtime, gateway, launchd, main Hermes config, secret or irreversible changes
+  were made. Machine-rendered `docs/board-state.md` was left untouched.
+
 ## 2026-07-30 — Tony / Rae
 - **Grok Build onboarding completed:** Tony trialled Grok Build on the M4, then installed it on the Chad VPS under its own non-privileged user with no access to `~/.hermes`; Tony completed `grok-build login` using the confirmed SuperGrok subscription.
 

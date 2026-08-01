@@ -36,7 +36,6 @@
 3. Agents as skills (Chad / Retriever / Auditor) — ✅ done + smoke-tested + validated on a real case
 4. Data sources + channel — ◐ M3 (plan + flow ready; awaiting Tony's 5 decisions)
 5. Full hold-nothing purge + end-to-end test — ◐ M4
-```
 
 Canonical specs are external to this repository in `ChadAI/docs/`:
 `session-flow.md` (the session), `step4-plan.md` (the wiring), and

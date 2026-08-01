@@ -1,6 +1,6 @@
 # ask-ebbi-3 — Ask Ebbi planning intelligence product (the canonical repo)
 
-STATUS: paused        UPDATED: 2026-07-30 by Codex
+STATUS: paused        UPDATED: 2026-08-01 by overnight documentation sweep
 
 ## What
 
@@ -17,8 +17,10 @@ provenance only.
 
 - **Canonical local repo:** `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi-3/`
 - **Canonical GitHub repo:** `k3ss-official/ask-ebbi-3` (private) — branch **`ui-console-alt`**,
-  latest `2573361` (gitignore: skill package) on top of `4c35c3f` (overnight UI rebuild: landing
-  page, brand assets, ops docs, RAE review stack). Both pushed.
+  latest `323db65` (recover Hermes runtime on shadowed volumes), on top of the previously recorded
+  `2573361` (gitignore: skill package) and `4c35c3f` (overnight UI rebuild: landing page, brand
+  assets, ops docs, RAE review stack). The branch has diverged from `main`; verify before any
+  reopening or deployment.
 - **M4 staging:** container **`ebbi`** on `127.0.0.1:8051`; UI demo `ebbi-rae` on `127.0.0.1:8052`
   (further alt demos on 8053–8099, `docs/operations/UI_DEMO_ENVIRONMENTS.md`).
 - **Public beta:** `https://askebbi.com` via a controlled **Cloudflare Tunnel** (health endpoint
@@ -52,9 +54,9 @@ provenance only.
 
 - **Paused:** do not resume build, deployment, Cloudflare or runtime work until
   Tony explicitly reopens the project.
-- **Responsiveness fix in progress** — horizontal overflow + iPad portrait layout broken; fix is
-  being committed now. Working tree was clean/pushed as of this update — confirm it landed before
-  assuming fixed.
+- **Responsiveness status is unverified** — horizontal overflow + iPad portrait layout was reported
+  broken during the earlier UI work, but the project is paused and the fix has not been re-verified.
+  Do not assume it landed until the project is reopened and the current branch is checked.
 - Reconcile the canonical Git branch(es) and any uncommitted UI/research work before VPS
   deployment (`ui-console-alt` vs. whatever Ask Ebbi Codex is tracking — check for drift).
 - Build and verify the dedicated Ask Ebbi Compose project on `alwyz-01-dock` without touching
