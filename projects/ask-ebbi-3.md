@@ -59,8 +59,8 @@ provenance only.
   Do not assume it landed until the project is reopened and the current branch is checked.
 - Reconcile the canonical Git branch(es) and any uncommitted UI/research work before VPS
   deployment (`ui-console-alt` vs. whatever Ask Ebbi Codex is tracking — check for drift).
-- Build and verify the dedicated Ask Ebbi Compose project on `alwyz-01-dock` without touching
-  ChadAI's networks, volumes, or internal Open Notebook.
+- Defer the dedicated Ask Ebbi Compose build until Tony reopens the project and selects a new
+  runtime target; `alwyzon-1` is dedicated to KSM and must not be targeted.
 - Replace the beta CLI subprocess transport with an authenticated Hermes gateway boundary once
   the local beta is stable; finish app auth + operational hardening before wider public access.
 - Verify Telegram round-trip end-to-end; resolve the separate `rae.askebbi.com` DNS/demo record

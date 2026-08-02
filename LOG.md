@@ -1,5 +1,15 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-02 — Overnight documentation sweep
+- Audited `main` at `184e768`, current project branch heads, internal Markdown
+  links and the machine-rendered board projection. Added the current daily
+  handoff and corrected the stale Ask Ebbi instruction that still named the
+  dedicated KSM host as a future Compose target.
+- Left `docs/board-state.md` untouched because it is machine-rendered. No
+  runtime, gateway, launchd, main Hermes config, secret or irreversible changes
+  were made.
+
+
 ## 2026-08-01 — Overnight documentation sweep
 - Audited `main` at `02b4097` and corrected four low-risk documentation defects:
   restored the current daily handoff, removed an unmatched `MASTER.md` code fence,
