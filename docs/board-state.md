@@ -1,9 +1,9 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-08-02 03:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-08-02 04:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (29)
+## kba-intake  (28)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
@@ -32,7 +32,6 @@ _In-flight state lives on the board; this file exists so a KS outage loses nothi
 | t_d4150158 | done | projects/kanban-surface.md#next-1 | Codex: select this project's current card, start Hermes, and verify one |
 | t_dc30078d | blocked | 2026-07-30#D7 | Verify one native resident-worker dispatch and open the UI through SSH |
 | t_ea6a91e0 | blocked | projects/chadai.md#next-1 | ChadAI Codex continues its current roadmap from `ChadAI/HANDOFF.md`. |
-| t_eba4f785 | running | 2026-08-02#D4 | Watch one scoped UI drag-to-dispatch run |
 | t_f160469e | blocked | M15 | 3to5er operator-pack #2 — UK vertical — dental (Chorley) or planning consultants |
 | t_f4f1ae3f | blocked | projects/socialite.md#next-1 | Confirm MASTER M12–M14 status against current `main` and update this card + MAST |
 | t_f943cdec | blocked | M14 | Titan as intelligence service for downstream products — add Nepal SMB FB signals |
