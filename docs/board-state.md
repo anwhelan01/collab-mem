@@ -1,15 +1,16 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-08-02 04:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-08-02 05:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (28)
+## kba-intake  (29)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
 | t_021234c3 | done | — | Review Socialite MASTER M12–M14 and route the next card |
 | t_0530fb23 | blocked | projects/chadai.md#next-2 | Keep the ChadAI Compose project, Hermes state, databases, Open Notebook and secr |
 | t_0b25c297 | blocked | M4 | ChadAI Step 5 — full hold-nothing purge — wipe `state.db` rows + `sessions/` + ` |
+| t_0bdab70f | blocked | 2026-08-02#D4 | Watch one scoped UI drag-to-dispatch run |
 | t_0f36c6d9 | blocked | M5 | Wire collab-mem ↔ ChadAI/HANDOFF.md — one canonical entry point, no drift |
 | t_24940387 | blocked | M20 | Kanban Surface Manager — Hermes-native execution surface over collab-mem — dedic |
 | t_3c472536 | blocked | projects/ask-ebbi-3.md#next-2 | On reopening, verify local/GitHub/container/Cloudflare state before trusting |
