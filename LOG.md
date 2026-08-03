@@ -1,5 +1,16 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-03 — Overnight documentation sweep
+- **AUTO_SAFE / fixed-and-verified:** fast-forwarded the clean canonical
+  checkout to GitHub `main` at `f3e416d`, verified the machine-rendered board
+  projection, and recorded its current 27-blocked / 2-triage / 3-done state in
+  the KSM project card without editing `docs/board-state.md`.
+- **BLOCKED / investigation:** two read-only SSH attempts to `alwyzon-1`
+  exceeded their command timeouts. No host health, service, tenant or runtime
+  claim was changed or inferred from the timeout.
+- **REVIEW_REQUIRED / Tony decision:** three old collab-mem pull requests
+  remain open (#1, #2 and #3). No merge or close action was taken.
+
 ## 2026-08-02 — Overnight documentation sweep
 - Audited `main` at `184e768`, current project branch heads, internal Markdown
   links and the machine-rendered board projection. Added the current daily
