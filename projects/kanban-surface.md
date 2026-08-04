@@ -30,7 +30,7 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
   `kba-done`
 - Scoped Tony, Rae and Grok gateway credentials are concealed in 1Password.
 - **Current projection:** machine-rendered `docs/board-state.md` at `088c4d4`
-  (2026-08-04 02:00 UTC) shows 27 blocked, 2 triage and 3 done cards, with no
+  (2026-08-04 02:00 UTC) shows 28 blocked, 2 triage and 3 done cards, with no
   ready or running cards. This line is a snapshot; the generated board file is
   the source for the live projection.
 

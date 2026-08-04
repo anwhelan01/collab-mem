@@ -4,7 +4,7 @@
 - **AUTO_SAFE / fixed-and-verified:** audited the fetched GitHub `main` at
   `088c4d4`, created the missing current-day handoff, and updated the KSM
   project card from the prior `f3e416d` board snapshot to the live
-  2026-08-04 02:00 UTC projection. The board remains 27 blocked, 2 triage and
+  2026-08-04 02:00 UTC projection. The board contains 28 blocked, 2 triage and
   3 done, with no ready/running cards; the machine-rendered board file was not
   hand-edited.
 - **INFORMATIONAL / verified:** the active `kanban-surface` repo `main` remains
