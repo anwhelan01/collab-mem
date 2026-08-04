@@ -1,5 +1,21 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-04 — Overnight documentation sweep
+- **AUTO_SAFE / fixed-and-verified:** audited the fetched GitHub `main` at
+  `088c4d4`, created the missing current-day handoff, and updated the KSM
+  project card from the prior `f3e416d` board snapshot to the live
+  2026-08-04 02:00 UTC projection. The board remains 27 blocked, 2 triage and
+  3 done, with no ready/running cards; the machine-rendered board file was not
+  hand-edited.
+- **INFORMATIONAL / verified:** the active `kanban-surface` repo `main` remains
+  at `346b1e851169` (`fix: make dispatch explicitly manual (#7)`). The linked
+  Ask Ebbi card's `ui-console-alt` branch remains at `323db65`; the project is
+  paused and no runtime or deployment action was taken.
+- **REVIEW_REQUIRED / Tony decision:** old collab-mem pull requests #1, #2 and
+  #3 remain open. No merge or close action was taken.
+- No runtime, gateway, launchd, main Hermes config, secret or irreversible
+  operation was attempted.
+
 ## 2026-08-03 — Overnight documentation sweep
 - **AUTO_SAFE / fixed-and-verified:** fast-forwarded the clean canonical
   checkout to GitHub `main` at `f3e416d`, verified the machine-rendered board
