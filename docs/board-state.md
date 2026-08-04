@@ -1,9 +1,9 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-08-04 05:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-08-04 06:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (30)
+## kba-intake  (31)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
@@ -14,6 +14,7 @@ _In-flight state lives on the board; this file exists so a KS outage loses nothi
 | t_0f36c6d9 | blocked | M5 | Wire collab-mem ↔ ChadAI/HANDOFF.md — one canonical entry point, no drift |
 | t_18ecc46a | blocked | 2026-08-03#D5 | Decide the disposition of old collab-mem pull requests #1–#3 |
 | t_24940387 | blocked | M20 | Kanban Surface Manager — Hermes-native execution surface over collab-mem — dedic |
+| t_2bb8d96a | blocked | 2026-08-04#D4 | Decide the disposition of old collab-mem pull requests #1–#3 |
 | t_3c472536 | blocked | projects/ask-ebbi-3.md#next-2 | On reopening, verify local/GitHub/container/Cloudflare state before trusting |
 | t_54a493bf | blocked | projects/ask-ebbi-2.md#next-1 | Use this card only to trace provenance when Ask Ebbi 3 assets need review. |
 | t_569a04f8 | blocked | M10 | Repo hygiene (8 archives, 5 pins) — archive 8 dead repos (thread-to-pdf, quiet-a |
