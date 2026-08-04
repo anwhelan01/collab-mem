@@ -1,9 +1,9 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-08-04 04:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-08-04 05:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (31)
+## kba-intake  (30)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
@@ -37,7 +37,6 @@ _In-flight state lives on the board; this file exists so a KS outage loses nothi
 | t_f160469e | blocked | M15 | 3to5er operator-pack #2 — UK vertical — dental (Chorley) or planning consultants |
 | t_f4f1ae3f | blocked | projects/socialite.md#next-1 | Confirm MASTER M12–M14 status against current `main` and update this card + MAST |
 | t_f943cdec | blocked | M14 | Titan as intelligence service for downstream products — add Nepal SMB FB signals |
-| t_f9f87b93 | running | 2026-08-04#D4 | Decide the disposition of old collab-mem pull requests #1–#3 |
 
 ## kba-build  (2)
 
