@@ -1,5 +1,18 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-05 — Three genuine Ask Ebbi feedback rows recovered
+- Investigated Tony's report that a user's 2026-08-04 feedback was absent from
+  the iCloud inbox. Production and iCloud contained only Tony's later test row;
+  the five-minute sync job itself was healthy.
+- Found three genuine submissions from display name `d` in the preserved
+  `pre-feedback-clear-20260804T182846Z.db` snapshot. They had been included in a
+  seven-row inbox clear at 18:28 UTC, before the later mirror state captured
+  them; this was a data-clear incident, not a sync/provider failure.
+- Restored only the three genuine rows, excluding four obvious test rows.
+  Verified four live rows total, four generated iCloud item files, successful
+  scheduler execution, and File Provider state `isUploaded=1`, not uploading,
+  not paused and not excluded. UAT health/readiness remained green.
+
 ## 2026-08-05 — Ask Ebbi reduced to GitHub UAT plus live VPS lane
 - On Tony's explicit command, permanently deleted every identified local Ask
   Ebbi source checkout and source/data backup, including the local
