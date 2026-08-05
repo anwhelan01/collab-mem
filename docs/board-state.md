@@ -1,9 +1,9 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-08-05 08:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-08-05 09:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (32)
+## kba-intake  (34)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
@@ -16,11 +16,13 @@ _In-flight state lives on the board; this file exists so a KS outage loses nothi
 | t_24940387 | blocked | M20 | Kanban Surface Manager — Hermes-native execution surface over collab-mem — dedic |
 | t_2bb8d96a | blocked | 2026-08-04#D4 | Decide the disposition of old collab-mem pull requests #1–#3 |
 | t_3c472536 | blocked | projects/ask-ebbi-3.md#next-2 | On reopening, verify local/GitHub/container/Cloudflare state before trusting |
+| t_3d6b8a2a | blocked | M18 | Ask Ebbi 3 — the Planning Oracle — Hermes-native Ask Ebbi product, Library MCP a |
 | t_54a493bf | blocked | projects/ask-ebbi-2.md#next-1 | Use this card only to trace provenance when Ask Ebbi 3 assets need review. |
 | t_569a04f8 | blocked | M10 | Repo hygiene (8 archives, 5 pins) — archive 8 dead repos (thread-to-pdf, quiet-a |
 | t_5a8ef0e7 | blocked | 2026-08-01#D4 | Watch one scoped UI drag-to-dispatch run |
 | t_6472f1e6 | blocked | projects/scam-alertuk-chad.md#next-2 | When unblocked: wire Machine Phase 2 → Dashboard → Chad per M16. |
 | t_68e8b771 | blocked | projects/kanban-surface.md#next-3 | Tony + Codex: watch one drag-to-dispatch run, then lock the minimal external |
+| t_6a823c0c | blocked | projects/ask-ebbi-3.md#next-3 | Tony: after acceptance, approve branch promotion to `main` and the broader-beta  |
 | t_75401a15 | blocked | projects/stunning-2026.md#next-2 | Decide whether to add a MASTER backlog line for Stunning if it needs cross-proje |
 | t_761b0543 | blocked | M8 | Chad instruction polish + paid-tier lines (from the X-SAR case) — Art 22/15(1)(h |
 | t_8837c008 | blocked | projects/ask-ebbi-3.md#next-1 | Tony: explicitly reopen Ask Ebbi and select its new runtime target. |
