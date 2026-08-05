@@ -10,7 +10,8 @@ card as the current deployment, branch or source of truth.
 
 ## Where
 
-- Historical local collection: `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi/ask-ebbi-2/`
+- Historical local source copies and backups were deleted on Tony's command on
+  2026-08-05.
 - Historical GitHub repository `k3ss-official/ask-ebbi-2` was deleted on Tony's
   command on 2026-08-05; the remote now returns 404.
 - Historical deployment: the former `alwyzon` loopback service and Hermes home.
@@ -25,8 +26,7 @@ card as the current deployment, branch or source of truth.
 
 ## Outstanding
 
-- No active delivery work belongs here. Historical branches, data and runtime snapshots require
-  separate Tony-approved archival decisions.
+- No active delivery or archival work belongs here.
 
 ## Next
 

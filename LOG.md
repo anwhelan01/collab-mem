@@ -1,5 +1,17 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-05 — Ask Ebbi reduced to GitHub UAT plus live VPS lane
+- On Tony's explicit command, permanently deleted every identified local Ask
+  Ebbi source checkout and source/data backup, including the local
+  `ask-ebbi-uat` checkout, legacy clones, Hotblack archives and VPS backup tree.
+- Removed the stopped `ebbi-ui-uncle` container and all ten rollback/demo image
+  tags. Preserved the running healthy `ebbi` container, current `latest` image,
+  live source `/home/anwhelan/ask-ebbi`, deployment secrets and both named
+  volumes.
+- Verified the sole source lanes are private GitHub
+  `k3ss-official/ask-ebbi-uat/main` and the live VPS tree. Health and readiness
+  remained green after cleanup.
+
 ## 2026-08-05 — Superseded Ask Ebbi remotes deleted
 - On Tony's explicit command, deleted private GitHub repositories
   `k3ss-official/askebbi-planner-tool`, `k3ss-official/Ask-Ebbi`,

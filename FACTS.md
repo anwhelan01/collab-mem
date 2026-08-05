@@ -13,11 +13,12 @@
   `/etc/ask-ebbi/ask-ebbi.env`. Never print the environment file.
 - **Ask Ebbi source identity:** private repo `k3ss-official/ask-ebbi-uat`, branch
   `main`, reconciled snapshot `1c3d257ea35adaea2c6f8cd755fc330f0d00646b`.
-  GitHub, local checkout, all 182 host tracked files and the host
-  `DEPLOYED_COMMIT` marker agree. Tony ordered the remote historical repositories
+  GitHub, all 182 host tracked files and the host `DEPLOYED_COMMIT` marker agree.
+  Tony ordered the remote historical repositories
   `askebbi-planner-tool`, `Ask-Ebbi`, `ask-ebbi-2` and `ask-ebbi-3` deleted on
-  2026-08-05; verified GitHub API responses are now 404. Local checkouts were
-  outside that deletion order and remain untouched. The current recovery image
+  2026-08-05; verified GitHub API responses are now 404. Tony then ordered all
+  local Ask Ebbi source checkouts and backups deleted. The only source lanes are
+  GitHub `ask-ebbi-uat/main` and `/home/anwhelan/ask-ebbi` on the VPS. The current recovery image
   has no OCI revision label; the next deliberate
   build must restore machine-readable `APP_SOURCE_COMMIT` provenance.
 - **Ask Ebbi health/data:** current container is running and healthy.
@@ -37,12 +38,13 @@
   3.5 GB RAM, 2 CPUs and 512 PIDs, with Docker `local` logs at 10 MB × 3.
   Ebbi runs Hermes Agent v0.19.1 inside the container and never uses host KSM or
   Rae Hermes homes.
-- **Ask Ebbi source reconciliation:** all 182 tracked repository files match
+- **Ask Ebbi source reconciliation:** all 182 tracked GitHub repository files match
   `/home/anwhelan/ask-ebbi` byte-for-byte; all 64 application-bearing files
   match between host and running container. Runtime databases, named-volume
   state, credentials, logs, caches and `DEPLOYED_COMMIT` are deliberately
-  untracked. The reconciled suite passes 233 tests. Reversible pre-sync archive:
-  `/home/anwhelan/ask-ebbi-backups/source-before-uat-repo-20260805T125430Z.tar.gz`.
+  untracked. The reconciled suite passes 233 tests. All temporary local/VPS
+  source archives and rollback/demo images were deleted on Tony's order after
+  reconciliation; the current image and live named volumes remain.
 - **KSM runtime:** `hermes-ksm.service`, `kanban-surface.service` and
   `kanban-watcher.service` remain enabled and active. Canonical state is
   `/var/lib/hermes/.hermes/kanban/boards/kanban-surface/kanban.db`.
