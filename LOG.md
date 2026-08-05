@@ -14,9 +14,17 @@
   82 GB to 78 GB, leaving 154 GB free.
 - Routed the stale readiness corpus-count correction to engineering and gated
   the next controlled rebuild on all reviewed UAT fixes. That rebuild must
-  restore bundled `hermes/RUNBOOK.md` parity, stamp the OCI source revision,
-  and assess the 62.88 GB BuildKit cache plus a 4.02 GB dangling Hermes image
-  only after a verified candidate/rollback lane exists.
+  restore bundled `hermes/RUNBOOK.md` parity and stamp the OCI source revision.
+- After Codex attributed all reclaimable BuildKit state to Ask Ebbi, removed
+  54.121 GB of logical unused cache in two passes, deleted the unused 4.02 GB
+  standalone Hermes image, and removed ten exact `/tmp` source/script/log
+  residues. Physical root-disk use fell from 78 GB to 26 GB, leaving 207 GB
+  free; the remaining 8.762 GB BuildKit state is shared/active with zero
+  reclaimable bytes.
+- Final verification preserved the one healthy `ebbi` container, loopback-only
+  port, both named volumes, and `/var/lib/hermes` untouched. Health remained
+  59,902 chunks and readiness the known 59,294 startup snapshot pending the
+  reviewed code fix.
 
 ## 2026-08-05 — Three genuine Ask Ebbi feedback rows recovered
 - Investigated Tony's report that a user's 2026-08-04 feedback was absent from
