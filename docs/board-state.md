@@ -1,21 +1,24 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-08-05 13:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-08-05 14:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (34)
+## kba-intake  (37)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
 | t_021234c3 | done | — | Review Socialite MASTER M12–M14 and route the next card |
 | t_0530fb23 | blocked | projects/chadai.md#next-2 | Keep the ChadAI Compose project, Hermes state, databases, Open Notebook and secr |
+| t_08383af4 | blocked | projects/ask-ebbi-uat.md#next-1 | Tony + Rae: continue UAT and close verified feedback. |
 | t_0b25c297 | blocked | M4 | ChadAI Step 5 — full hold-nothing purge — wipe `state.db` rows + `sessions/` + ` |
 | t_0bdab70f | blocked | 2026-08-02#D4 | Watch one scoped UI drag-to-dispatch run |
 | t_0f36c6d9 | blocked | M5 | Wire collab-mem ↔ ChadAI/HANDOFF.md — one canonical entry point, no drift |
+| t_11545f32 | blocked | projects/ask-ebbi-uat.md#next-3 | Tony: approve broader-beta gates only after UAT acceptance. |
 | t_18ecc46a | blocked | 2026-08-03#D5 | Decide the disposition of old collab-mem pull requests #1–#3 |
 | t_24940387 | blocked | M20 | Kanban Surface Manager — Hermes-native execution surface over collab-mem — dedic |
 | t_2bb8d96a | blocked | 2026-08-04#D4 | Decide the disposition of old collab-mem pull requests #1–#3 |
 | t_3c472536 | blocked | projects/ask-ebbi-3.md#next-2 | On reopening, verify local/GitHub/container/Cloudflare state before trusting |
+| t_3d1297ed | blocked | projects/ask-ebbi-uat.md#next-2 | Automate release provenance checks across repository, host, and container |
 | t_3d6b8a2a | blocked | M18 | Ask Ebbi 3 — the Planning Oracle — Hermes-native Ask Ebbi product, Library MCP a |
 | t_54a493bf | blocked | projects/ask-ebbi-2.md#next-1 | Use this card only to trace provenance when Ask Ebbi 3 assets need review. |
 | t_569a04f8 | blocked | M10 | Repo hygiene (8 archives, 5 pins) — archive 8 dead repos (thread-to-pdf, quiet-a |
