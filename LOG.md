@@ -1,5 +1,21 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-05 — Overnight documentation sweep
+- **AUTO_SAFE / fixed-and-verified:** audited GitHub `main` at `5ffdfdd`, created
+  the current-day handoff, and updated the KSM project card from the prior
+  `088c4d4` projection to the live 2026-08-05 02:00 UTC snapshot. The generated
+  board contains 34 cards: 29 blocked, 2 triage and 3 done; it was not
+  hand-edited.
+- **INFORMATIONAL / verified:** authenticated GitHub checks confirmed the
+  recorded heads for `kanban-surface` `main` (`346b1e8`), Ask Ebbi 3
+  `ui-console-alt` (`323db65`), Stunning `main` (`7d07cbd`), Scam Alert UK
+  `feature/sqlite-osint-fixes` (`8ae693b`) and Socialite `main` (`b71646a`)
+  still match their project cards.
+- **REVIEW_REQUIRED / Tony decision:** old collab-mem pull requests #1, #2 and
+  #3 remain open. No merge or close action was taken.
+- No runtime, gateway, launchd, main Hermes config, secret or irreversible
+  operation was attempted.
+
 ## 2026-08-04 — Overnight documentation sweep
 - **AUTO_SAFE / fixed-and-verified:** audited the fetched GitHub `main` at
   `088c4d4`, created the missing current-day handoff, and updated the KSM

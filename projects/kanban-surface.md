@@ -1,5 +1,5 @@
 # Kanban Surface Manager — Hermes-native execution surface over collab-mem
-STATUS: active        UPDATED: 2026-08-04 by overnight documentation sweep
+STATUS: active        UPDATED: 2026-08-05 by overnight documentation sweep
 
 ## What
 
@@ -29,8 +29,8 @@ tokens. The separate KRP daemon was a useful validated detour, not the final MVP
 - Resident profiles: `kba-intake`, `kba-build`, `kba-input`, `kba-verify`,
   `kba-done`
 - Scoped Tony, Rae and Grok gateway credentials are concealed in 1Password.
-- **Current projection:** machine-rendered `docs/board-state.md` at `088c4d4`
-  (2026-08-04 02:00 UTC) shows 28 blocked, 2 triage and 3 done cards, with no
+- **Current projection:** machine-rendered `docs/board-state.md` at `5ffdfdd`
+  (2026-08-05 02:00 UTC) shows 29 blocked, 2 triage and 3 done cards, with no
   ready or running cards. This line is a snapshot; the generated board file is
   the source for the live projection.
 
