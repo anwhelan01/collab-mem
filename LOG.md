@@ -1,5 +1,27 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-05 — Ask Ebbi UAT truth reconciliation
+- Corrected the canonical Ask Ebbi state after live inspection proved the
+  paused/KSM-only record stale. `alwyzon-1` now runs healthy Docker container
+  `ebbi` at deployed application revision `bd16dc04` from
+  `feat/uncle-demo-feedback`, alongside isolated host-native KSM services.
+- Verified the image label, deployment marker, source checksum, loopback health
+  and readiness, public Cloudflare Access gate, 59,294 corpus chunks, current
+  appeals counts, 29 OpenAPI paths, Hermes v0.19.1 and container resource/log
+  controls. The exact deployed application revision passed all 233 project
+  tests (18 deprecation warnings, no failures). No runtime, secret, volume,
+  gateway or ingress mutation was made.
+- Updated M18, host facts, ownership, today's baton and the project card. The
+  UAT branch remains intentionally ahead of `main` pending Tony's acceptance;
+  no stale branch or PR was merged.
+- Re-verified the shared-host identity boundary: the current KSM services all
+  run as host `hermes`, the retired KRP socket is absent, and only `anwhelan`
+  belongs to the Docker group.
+- Reconciled and pushed the Ask Ebbi current deployment docs, then synced those
+  three doc files to the bare host working tree after creating reversible backup
+  `/home/anwhelan/ask-ebbi-backups/docs-reconcile-20260805T082603Z`. No container
+  rebuild or service restart occurred; the running image remains `bd16dc04`.
+
 ## 2026-08-05 — Overnight documentation sweep
 - **AUTO_SAFE / fixed-and-verified:** audited GitHub `main` at `5ffdfdd`, created
   the current-day handoff, and updated the KSM project card from the prior

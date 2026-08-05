@@ -1,80 +1,92 @@
 # ask-ebbi-3 — Ask Ebbi planning intelligence product (the canonical repo)
 
-STATUS: paused        UPDATED: 2026-08-01 by overnight documentation sweep
+STATUS: active UAT        UPDATED: 2026-08-05 by Rae from live deployment evidence
 
 ## What
 
 Ask Ebbi is a Hermes-native planning research and drafting assistant for UK planning consultants:
-cited Q&A over UK planning law, 91,121 PINS appeal precedents, NotebookLM-style casefiles, and
-style-learned drafting, orchestrated by **Ebbi**, a dedicated Hermes agent, behind one dashboard.
-The dashboard is thin glass over the Hermes orchestrator + specialist roles; the Ask Ebbi Library
-owns deterministic retrieval and citations. **This is one product** — no separate LandPro product
-or roadmap. Consolidated 2026-07-12 into this repo from the ask-ebbi-2 lineage plus assets
-recovered from production; historical predecessor retained at [ask-ebbi-2](ask-ebbi-2.md) for
-provenance only.
+cited Q&A over UK planning law, PINS appeal precedents, NotebookLM-style casefiles,
+style-learned drafting and structured tester feedback, orchestrated by **Ebbi**, a dedicated
+Hermes agent behind one dashboard. The Ask Ebbi Library owns deterministic retrieval and
+citations. **This is one product** — no separate LandPro product or roadmap.
+
+The project was reopened by Tony and is now in private UAT. The 2026-07-30 shelf decision is
+historical provenance, not current operating state.
 
 ## Where
 
-- **Canonical local repo:** `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi-3/`
-- **Canonical GitHub repo:** `k3ss-official/ask-ebbi-3` (private) — branch **`ui-console-alt`**,
-  latest `323db65` (recover Hermes runtime on shadowed volumes), on top of the previously recorded
-  `2573361` (gitignore: skill package) and `4c35c3f` (overnight UI rebuild: landing page, brand
-  assets, ops docs, RAE review stack). The branch has diverged from `main`; verify before any
-  reopening or deployment.
-- **M4 staging:** container **`ebbi`** on `127.0.0.1:8051`; UI demo `ebbi-rae` on `127.0.0.1:8052`
-  (further alt demos on 8053–8099, `docs/operations/UI_DEMO_ENVIRONMENTS.md`).
-- **Public beta:** `https://askebbi.com` via a controlled **Cloudflare Tunnel** (health endpoint
-  verified HTTP 200). Telegram gateway active.
-- **VPS placement:** `alwyzon-1` is no longer an Ask Ebbi target. Tony shelved
-  Ask Ebbi on 2026-07-30 and dedicated that host to KSM.
-- **Stack:** FastAPI/Uvicorn + Docker; ChromaDB corpus (46,054 chunks) + 91,121 PINS appeals + 3
-  style documents; MCP server (8 Library tools); xterm.js CLI; Hermes gateway; inference on the
-  Nous `tencent/hy3:free` lane (OpenRouter/Ollama not part of the active architecture).
+- **Canonical local repo:** `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi-3/`, checked out on
+  `feat/uncle-demo-feedback`.
+- **Canonical GitHub repo:** private `k3ss-official/ask-ebbi-3`.
+- **Active UAT source branch:** `feat/uncle-demo-feedback`.
+- **Deployed application revision:** `bd16dc04cc2ed3d658ad9feb0f524aedb8920598`
+  (`restore casefile example and fix UAT links`, 2026-08-04). The image label and
+  `/home/anwhelan/ask-ebbi/DEPLOYED_COMMIT` agree. At deployment this branch was five commits ahead
+  of `main` and zero behind; `main` has not yet been promoted to the accepted UAT state.
+- **Live UAT host:** `alwyzon-1` / hostname `alwyz-dock-01`, user `anwhelan`.
+- **Runtime:** Docker Compose project `ask-ebbi`, container `ebbi`, image `ask-ebbi-ebbi`, loopback
+  `127.0.0.1:8051`, using `/home/anwhelan/ask-ebbi/compose.yaml` plus
+  `compose.uat.yaml` and deployment environment `/etc/ask-ebbi/ask-ebbi.env`.
+- **Public UAT:** `https://askebbi.com`, protected by Cloudflare Access. Anonymous root and health
+  requests receive the expected Access login redirect rather than the origin response.
+- **Persistent state:** `ask-ebbi_ebbi_data` → `/app/data` and
+  `ask-ebbi_ebbi_hermes` → `/home/ebbi/.hermes`.
+- **Coexistence boundary:** KSM remains a host-native systemd stack. Ask Ebbi is the single Docker
+  workload, isolated on bridge `ask-ebbi-uat`; no KSM identity is in the Docker group.
+
+## Live verified state — 2026-08-05
+
+- Container created and started 2026-08-04 16:05 UTC; status `running`, health `healthy`.
+- `/api/health`: `status=ok`, 59,294 Chroma chunks, 0 loaded style documents.
+- `/api/ready`: core, database, embeddings, corpus and Hermes all ready/configured.
+- Appeals source note: 91,212 ingested cases; `/api/appeals/stats` currently reports 91,019
+  outcome-bearing/statistical rows, 24,244 allowed and a 26.6% success rate.
+- OpenAPI: 29 paths on the loopback origin; public API documentation remains blocked by the public
+  host policy and Cloudflare Access.
+- Runtime: Hermes Agent v0.19.1 (2026.7.30), Python 3.12.13 application runtime.
+- Exact deployed application revision test suite: 233 passed, 18 deprecation
+  warnings and no failures on 2026-08-05.
+- Controls: edge authentication enabled; 10-minute sessions; inference concurrency 2; queue timeout
+  5s; inference timeout 300s; request cap 12/minute; intelligence poller disabled for UAT.
+- Container limits: 3.5 GB RAM, 1 GB reservation, 5 GB memory+swap ceiling, 2 CPUs, 512 PIDs,
+  `on-failure:3`, Docker `local` logging at 10 MB × 3.
+- Current use at inspection: about 669 MiB RAM and 35 PIDs; host root disk 44% used.
+- Initial checksum comparison against the deployed GitHub revision found identical tracked content.
+  Current operational docs were then reconciled on the same branch and synced to the host without a
+  rebuild/restart; application code and the running image remain at `bd16dc04`. The live tree also
+  contains `DEPLOYED_COMMIT` and one unreferenced duplicate transparent-logo asset.
 
 ## Done (newest first)
 
-- **2026-07-30 — shelved by Tony.** The approved `alwyzon-1` cleanup removed
-  Ask Ebbi/ChadAI/Cloudflare/Docker residue from that host after a verified
-  archive was copied to the local 2 TB backup volume. No Ask Ebbi VPS deployment
-  is active.
-- **2026-07-20 — overnight UI rebuild pushed.** `4c35c3f` (landing page rebuild + brand assets +
-  ops docs + RAE review stack) + `2573361` (gitignore cleanup). Both on `ui-console-alt`, pushed.
-- **2026-07-17 (Ask Ebbi Codex)** — canonical repo confirmed as future source of truth; primary
-  (`8051`) and demo (`8052`) UI containers isolated by port; casefile event-loop defect fixed and
-  casefile/list/appeals health checks verified; planning-intelligence feed + delegation-visibility
-  stub added; local test suite 14 passed; public admin/docs/OpenAPI/CLI surfaces blocked from
-  public ingress; `collab-mem` confirmed as the off-box coordination ledger (not app memory).
-- **2026-07-12 — consolidated as the canonical repo** from the ask-ebbi-2 lineage plus
-  production-recovered assets; migration/provenance docs added (`docs/migration/`).
-- Inherited from ask-ebbi-2: 91,121-case appeals DB, casefiles, 8-tool Library MCP, Ebbi-as-
-  backend architecture — see [ask-ebbi-2](ask-ebbi-2.md) → Done for the full pre-consolidation
-  history.
+- **2026-08-05 — canonical truth reconciled from live UAT.** Replaced the stale paused/M4 record with
+  the verified alwyzon-1 deployment, branch, commit, runtime, health, data counts and access boundary.
+- **2026-08-04 — current UAT build deployed.** The five-commit
+  `feat/uncle-demo-feedback` release added UAT authentication/feedback polish, mobile responsiveness,
+  the pilot model, isolated Library MCP Python and restored casefile/UAT links; deployed revision is
+  `bd16dc04`.
+- **2026-07-30 — historical shelf/cleanup.** The prior Ask Ebbi tenant was removed and archived before
+  the current UAT deployment was later installed. Do not mistake this historical event for current
+  host state.
+- **2026-07-12 — canonical repo consolidated** from the ask-ebbi-2 lineage plus recovered production
+  assets. Historical predecessor: [ask-ebbi-2](ask-ebbi-2.md).
 
 ## Outstanding
 
-- **Paused:** do not resume build, deployment, Cloudflare or runtime work until
-  Tony explicitly reopens the project.
-- **Responsiveness status is unverified** — horizontal overflow + iPad portrait layout was reported
-  broken during the earlier UI work, but the project is paused and the fix has not been re-verified.
-  Do not assume it landed until the project is reopened and the current branch is checked.
-- Reconcile the canonical Git branch(es) and any uncommitted UI/research work before VPS
-  deployment (`ui-console-alt` vs. whatever Ask Ebbi Codex is tracking — check for drift).
-- Defer the dedicated Ask Ebbi Compose build until Tony reopens the project and selects a new
-  runtime target; `alwyzon-1` is dedicated to KSM and must not be targeted.
-- Replace the beta CLI subprocess transport with an authenticated Hermes gateway boundary once
-  the local beta is stable; finish app auth + operational hardening before wider public access.
-- Verify Telegram round-trip end-to-end; resolve the separate `rae.askebbi.com` DNS/demo record
-  if that demo is still needed.
-- Decide the legacy-citation source-of-truth/vault boundary (append-only provenance) — ChadAI's
-  Open Notebook is not automatically the Ask Ebbi SOT.
-- Register free acquisition channels (APIs, email signups, downloads, RSS/Atom, crawler adapters)
-  with licensing/provenance checks.
-- Carried from ask-ebbi-2, not independently re-verified: SOUL citation-leak risk on uncited
-  comparators.
+- Continue the Tony/Rae UAT loop against the live Access-protected service and reconcile only verified
+  findings.
+- Decide after UAT acceptance whether to fast-forward/promote `feat/uncle-demo-feedback` to `main`.
+  Do not treat stale `ui-console-alt` PR #2 as the promotion path; it conflicts with current `main`.
+- Capture a current encrypted/restorable backup of both named volumes and verify restore manifests
+  before broader beta use.
+- Add off-host uptime/alerting and complete the remaining production smoke/rollback acceptance.
+- Decide whether the UAT-disabled intelligence poller should remain disabled or be enabled after its
+  data/licensing behavior is accepted.
+- Remove or deliberately track the unreferenced duplicate static logo during a later hygiene pass;
+  it is not a UAT blocker.
 
 ## Next (ordered)
 
-1. **Tony:** explicitly reopen Ask Ebbi and select its new runtime target.
-2. On reopening, verify local/GitHub/container/Cloudflare state before trusting
-   the 2026-07-20 status above; then resume from the responsiveness and branch
-   reconciliation work without targeting `alwyzon-1`.
+1. **Tony + Rae:** continue the current Ask Ebbi UAT and close the verified feedback loop.
+2. **Rae:** keep the source branch, deployed revision and project records aligned after each accepted
+   UAT change.
+3. **Tony:** after acceptance, approve branch promotion to `main` and the broader-beta cutover gates.

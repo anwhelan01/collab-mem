@@ -1,56 +1,63 @@
 # FACTS — durable truths (state once; update when they change; never re-paste into daily/LOG)
 
-## Current as of 2026-07-30
-- **KSM host boundary:** `ssh alwyzon-1` → `anwhelan@203.34.137.49`, port
-  **42**, live hostname `alwyz-dock-01`. Tony shelved Ask Ebbi and explicitly
-  approved removal of all Ask Ebbi/ChadAI/Cloudflare/Docker MVP residue from this
-  host. It is now the dedicated, dark Kanban Surface Manager MVP host.
-- **Strict host baseline accepted:** after two clean reboots on 2026-07-30, the
-  KVM VPS had no Docker/containerd, Snap/LXD, cron, cloud-init, Ubuntu Pro,
-  Landscape, Apport, PackageKit/Polkit, VMware tools, firmware/modem/multipath,
-  LVM/iSCSI/RAID/udisks or unused filesystem/appliance stack. APT reported no
-  orphan packages; `dpkg --audit`, `apt-get check` and systemd failed-unit
-  checks passed. The final snapshot used 367 MiB RAM and 8.2 GiB of the
-  232 GiB root disk.
-- **Recoverability:** the verified shelf archive is local at
-  `/Volumes/hotblack-2tb/.config-bak/server-shelves/alwyzon-1/2026-07-30/ask-ebbi-shelf-20260730.tar.zst`;
-  SHA-256 is
-  `9befda91a191a65418b5bfa2d9ffd179f114247808112bd6b3ccdff63b8f4fab`.
-  The purged VPS copies require that archive or another existing backup to
-  recover.
+## Current as of 2026-08-05
+- **Host boundary:** `ssh alwyzon-1` → `anwhelan@203.34.137.49`, port **42**,
+  live hostname `alwyz-dock-01`, Ubuntu 24.04.4 LTS. The 2026-07-30
+  KSM-only/dark-host statement is superseded: KSM remains host-native and Ask
+  Ebbi has since returned as one isolated Docker UAT workload. ChadAI remains
+  absent.
+- **Ask Ebbi UAT runtime:** Docker Compose project `ask-ebbi`, container `ebbi`,
+  image `ask-ebbi-ebbi`, loopback `127.0.0.1:8051`, bridge `ask-ebbi-uat`.
+  Compose uses `/home/anwhelan/ask-ebbi/compose.yaml` plus
+  `compose.uat.yaml` and deployment environment
+  `/etc/ask-ebbi/ask-ebbi.env`. Never print the environment file.
+- **Ask Ebbi source identity:** private repo `k3ss-official/ask-ebbi-3`, active
+  UAT branch `feat/uncle-demo-feedback`, deployed application revision
+  `bd16dc04cc2ed3d658ad9feb0f524aedb8920598`. The OCI image revision label and
+  `DEPLOYED_COMMIT` marker agree. At deployment the branch was five commits
+  ahead of `main` and zero behind; promotion to `main` waits for UAT acceptance.
+- **Ask Ebbi health/data:** container created and started 2026-08-04 16:05 UTC,
+  running and healthy. `/api/health` reports 59,294 Chroma chunks;
+  `/api/ready` reports database, embeddings, corpus and Hermes ready/configured.
+  The appeals source note records 91,212 ingested cases; current stats contain
+  91,019 rows, 24,244 allowed, 53,586 dismissed and 26.6% success. Loopback
+  OpenAPI contains 29 paths.
+- **Ask Ebbi access/control:** `https://askebbi.com` is private UAT behind
+  Cloudflare Access; anonymous root and health requests receive the expected
+  Access login redirect. Edge auth and Hermes gateway are enabled. Sessions are
+  10 minutes; inference concurrency is 2, queue timeout 5 seconds, request
+  timeout 300 seconds and request cap 12/minute. The intelligence poller is
+  disabled for current UAT.
+- **Ask Ebbi isolation/resources:** named volumes `ask-ebbi_ebbi_data` and
+  `ask-ebbi_ebbi_hermes` own app and agent state. The container is capped at
+  3.5 GB RAM, 2 CPUs and 512 PIDs, with Docker `local` logs at 10 MB × 3.
+  Ebbi runs Hermes Agent v0.19.1 inside the container and never uses host KSM or
+  Rae Hermes homes.
+- **Ask Ebbi source reconciliation:** the initial checksum comparison found
+  deployed tracked content identical to revision `bd16dc04`. Current operational
+  docs were then reconciled on the same branch and synced to the host without a
+  rebuild/restart; application code and the running image remain at `bd16dc04`.
+  The tree also contains `DEPLOYED_COMMIT` and one unreferenced duplicate logo.
+  The old 2026-07-30 shelf archive predates this deployment and is historical
+  recovery evidence, not a current UAT backup.
 - **KSM runtime:** `hermes-ksm.service`, `kanban-surface.service` and
-  `kanban-watcher.service` are enabled and active; `kanban-intake.timer` and
-  `kanban-snapshot.timer` are active. Canonical state is
+  `kanban-watcher.service` remain enabled and active. Canonical state is
   `/var/lib/hermes/.hermes/kanban/boards/kanban-surface/kanban.db`.
-  Agent IPC is `/run/ksm/krp.sock` (`0660 ksm:ksm-runtime`). Agents can use
-  the socket only when KSM gives them a run capability; they cannot read the
-  database.
-- **Agent isolation:** `ksm`, `hermes`, and `ksm-worker` are separate locked
-  service identities and none belongs to the Docker group. Hermes and Codex
-  keep separate OAuth stores. Hermes is the planning runtime; Codex is the
-  coding runtime.
-- **Canonical implementation:** private GitHub repo
-  `k3ss-official/kanban-surface`. The former
-  `k3ss-official/kanban-surface-manager` repo is the historical KRP protocol
-  spike. Hermes-native Kanban is the active execution surface; ACP is a
-  replaceable runtime adapter and MCP remains deliberately outside the core
-  loop.
-- **Accepted release:** `346b1e851169` from the active `kanban-surface` main
-  branch (manual admission controls, merged PR #7). The historical KRP pilot
-  release was `9b98356249e4fbdd0c447e7e0930abb0e6d70df5`. The live deterministic
-  health check is read-only and returns
-  `{"ok":true,"quick_check":"ok","schema":"ready"}`.
-- **Runtime acceptance:** real post-cleanup ACP turns returned exactly
-  `HERMES_ACP_SMOKE_OK` and `CODEX_ACP_SMOKE_OK`, ended `end_turn`, and left
-  their workspaces unchanged. Hermes v0.19.0, Node v22.23.2, Codex v0.146.0
-  and `codex-acp` v1.1.7 remain on-demand runtimes, not daemons.
-- **Ingress:** only SSH TCP 42 is externally listening. UFW default-deny,
-  Fail2ban, auditd and unattended security updates remain active. SSH
-  forwarding is disabled with `PermitOpen none`; the retired 8051 allowance is
-  gone.
-- **Superseded boundary:** the 2026-07-17 two-tenant ChadAI/Ask Ebbi plan for
-  this VPS is historical. Ask Ebbi is shelved; no ChadAI or Ask Ebbi workload
-  remains on `alwyzon-1`.
+  The retired `/run/ksm/krp.sock` is absent.
+- **KSM identity/isolation:** all three current KSM services run as the locked
+  host `hermes` identity with no supplementary groups. The Docker group contains
+  only deployment user `anwhelan`; host `hermes` cannot operate Docker. Ask
+  Ebbi's container and named volumes remain outside the KSM identity boundary.
+- **KSM implementation:** private GitHub repo `k3ss-official/kanban-surface`.
+  Accepted release `346b1e851169` from active `main`; the former
+  `kanban-surface-manager` repo and KRP pilot release are historical.
+- **Ingress:** SSH TCP 42 remains the direct public listener. Ask Ebbi binds only
+  to loopback and is reached through the outbound Cloudflare connector; KSM UI
+  remains loopback-only at 8742. UFW default-deny, Fail2ban, auditd and
+  unattended security updates remain active.
+- **Host capacity at inspection:** about 6.3 GiB RAM available, 4 GiB swap and
+  44% of the 232 GiB root filesystem used. Ask Ebbi used about 669 MiB and 35
+  PIDs.
 
 Older entries below are retained as historical provenance; when they conflict with this dated section, this section wins.
 

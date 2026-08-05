@@ -3,23 +3,28 @@
 > How it works in practice: **Tony** at the top; **Rae** and **Grok** are his backend build crew;
 > **Chad** is the product they build (not a crew member); **Janet** guards the perimeter.
 
-## Current ownership boundary — 2026-07-30
+## Current ownership boundary — 2026-08-05
 
 - **Tony** — final operator and architect; approves external auth, destructive
   cleanup, data-boundary decisions and public cutovers.
-- **KSM / Codex lane** — owns the active `kanban-surface` MVP and the
-  dedicated `alwyzon-1` control host.
-- **`ksm` identity** — deterministic control plane and only canonical SQLite
-  writer. It grants, resumes and cancels work.
-- **`hermes` identity** — planning runtime. It receives only a scoped KSM run
-  capability and reaches KSM through the local KRP socket.
-- **`ksm-worker` identity** — Codex coding runtime with a repo-scoped GitHub
-  deploy key. It uses isolated worktrees and cannot read KSM state directly.
-- **Isolation rule** — all three service identities are locked, have separate
-  homes/credentials, run without any Docker runtime/group, and share only the
-  `ksm-runtime` socket group where required.
-- **Ask Ebbi / ChadAI on this host** — shelved and removed under Tony's explicit
-  approval. Their previous two-tenant ownership notes are historical only.
+- **Tony + Rae / Ask Ebbi UAT lane** — own the active private UAT, source
+  reconciliation and acceptance decisions. The live application is the isolated
+  `ask-ebbi` Docker project on `alwyzon-1`, deployed from
+  `feat/uncle-demo-feedback` at application revision `bd16dc04`.
+- **Ebbi identity** — dedicated Hermes installation inside the `ebbi` container.
+  It owns its own Hermes home and Library access; it never uses the host KSM or
+  Rae Hermes homes.
+- **KSM / Codex lane** — owns the active host-native `kanban-surface` MVP on
+  `alwyzon-1`.
+- **Host `hermes` identity** — runs the current KSM gateway, surface and watcher
+  services with no supplementary groups. It is not in the Docker group and
+  cannot operate the Ask Ebbi container.
+- **Isolation rule** — Docker group membership is limited to deployment user
+  `anwhelan`. Ask Ebbi is owned by its Compose/container boundary and isolated
+  named volumes/network; KSM is owned by the host `hermes` service boundary.
+- **ChadAI on this host** — still shelved and absent. The former peer-Docker
+  two-tenant plan is historical and must not be inferred from Ask Ebbi's current
+  UAT return.
 
 The historical Rae/Grok ownership notes below remain useful context but do not override the current lane ownership above.
 
