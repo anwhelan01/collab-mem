@@ -1,9 +1,9 @@
 # board-state — live Kanban Surface projection
 
-_Machine-rendered 2026-08-05 04:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
+_Machine-rendered 2026-08-05 05:00 UTC by kanban-surface/sync/done_render.py — do not hand-edit._
 _In-flight state lives on the board; this file exists so a KS outage loses nothing._
 
-## kba-intake  (31)
+## kba-intake  (32)
 
 | id | status | cm_ref | title |
 |----|--------|--------|-------|
@@ -32,6 +32,7 @@ _In-flight state lives on the board; this file exists so a KS outage loses nothi
 | t_a4b9cb91 | blocked | M11 | AgentOS consolidation — collapse the 5-repo sprawl into `3to5er-agentos/` as sou |
 | t_a8bf3415 | blocked | projects/kanban-surface.md#next-2 | Codex: open and verify the loopback UI, then complete two-boot acceptance and |
 | t_abe092d9 | blocked | M17 | `chadai` repo triage — Tony imported "The AI Guy" (Nate's Substack curation: 39  |
+| t_b27fd6ed | blocked | 2026-08-05#D4 | Decide the disposition of old collab-mem pull requests #1–#3 |
 | t_d4150158 | done | projects/kanban-surface.md#next-1 | Codex: select this project's current card, start Hermes, and verify one |
 | t_dc30078d | blocked | 2026-07-30#D7 | Verify one native resident-worker dispatch and open the UI through SSH |
 | t_ea6a91e0 | blocked | projects/chadai.md#next-1 | ChadAI Codex continues its current roadmap from `ChadAI/HANDOFF.md`. |
