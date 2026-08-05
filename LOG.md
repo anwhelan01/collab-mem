@@ -1,5 +1,18 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-05 — Final Ask Ebbi orphan-volume cleanup
+- Re-verified `ebbi_ui_home` (1.8 GB) and `ebbi_ui_data` (376 KB) on
+  `alwyzon-1`: both were unattached, unlabeled legacy volumes. The former held
+  an obsolete Hermes home with seven `.env` files; no secret values were read
+  or exposed.
+- Permanently removed exactly those two volumes. Preserved the live
+  `ask-ebbi_ebbi_data` and `ask-ebbi_ebbi_hermes` volumes.
+- Post-removal verification: container `ebbi` remained running/healthy and both
+  `/api/health` and `/api/ready` returned successfully.
+- Routed the stale readiness corpus-count correction to engineering and gated
+  the next controlled rebuild on all reviewed UAT fixes. That rebuild must
+  restore bundled `hermes/RUNBOOK.md` parity and stamp the OCI source revision.
+
 ## 2026-08-05 — Three genuine Ask Ebbi feedback rows recovered
 - Investigated Tony's report that a user's 2026-08-04 feedback was absent from
   the iCloud inbox. Production and iCloud contained only Tony's later test row;
