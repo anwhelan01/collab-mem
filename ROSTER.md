@@ -8,9 +8,9 @@
 - **Tony** — final operator and architect; approves external auth, destructive
   cleanup, data-boundary decisions and public cutovers.
 - **Tony + Rae / Ask Ebbi UAT lane** — own the active private UAT, source
-  reconciliation and acceptance decisions. The live application is the isolated
-  `ask-ebbi` Docker project on `alwyzon-1`, deployed from
-  `feat/uncle-demo-feedback` at application revision `bd16dc04`.
+  reconciliation and acceptance decisions. Canonical source is private
+  `k3ss-official/ask-ebbi-uat/main`; the live application is the isolated
+  `ask-ebbi` Docker project on `alwyzon-1`.
 - **Ebbi identity** — dedicated Hermes installation inside the `ebbi` container.
   It owns its own Hermes home and Library access; it never uses the host KSM or
   Rae Hermes homes.

@@ -11,13 +11,14 @@
   Compose uses `/home/anwhelan/ask-ebbi/compose.yaml` plus
   `compose.uat.yaml` and deployment environment
   `/etc/ask-ebbi/ask-ebbi.env`. Never print the environment file.
-- **Ask Ebbi source identity:** private repo `k3ss-official/ask-ebbi-3`, active
-  UAT branch `feat/uncle-demo-feedback`, deployed application revision
-  `bd16dc04cc2ed3d658ad9feb0f524aedb8920598`. The OCI image revision label and
-  `DEPLOYED_COMMIT` marker agree. At deployment the branch was five commits
-  ahead of `main` and zero behind; promotion to `main` waits for UAT acceptance.
-- **Ask Ebbi health/data:** container created and started 2026-08-04 16:05 UTC,
-  running and healthy. `/api/health` reports 59,294 Chroma chunks;
+- **Ask Ebbi source identity:** private repo `k3ss-official/ask-ebbi-uat`, branch
+  `main`, reconciled snapshot `1c3d257ea35adaea2c6f8cd755fc330f0d00646b`.
+  GitHub, local checkout, all 182 host tracked files and the host
+  `DEPLOYED_COMMIT` marker agree. `ask-ebbi-3` is retained as source history.
+  The current recovery image has no OCI revision label; the next deliberate
+  build must restore machine-readable `APP_SOURCE_COMMIT` provenance.
+- **Ask Ebbi health/data:** current container is running and healthy.
+  `/api/health` reports 59,902 live Chroma chunks;
   `/api/ready` reports database, embeddings, corpus and Hermes ready/configured.
   The appeals source note records 91,212 ingested cases; current stats contain
   91,019 rows, 24,244 allowed, 53,586 dismissed and 26.6% success. Loopback
@@ -33,13 +34,12 @@
   3.5 GB RAM, 2 CPUs and 512 PIDs, with Docker `local` logs at 10 MB × 3.
   Ebbi runs Hermes Agent v0.19.1 inside the container and never uses host KSM or
   Rae Hermes homes.
-- **Ask Ebbi source reconciliation:** the initial checksum comparison found
-  deployed tracked content identical to revision `bd16dc04`. Current operational
-  docs were then reconciled on the same branch and synced to the host without a
-  rebuild/restart; application code and the running image remain at `bd16dc04`.
-  The tree also contains `DEPLOYED_COMMIT` and one unreferenced duplicate logo.
-  The old 2026-07-30 shelf archive predates this deployment and is historical
-  recovery evidence, not a current UAT backup.
+- **Ask Ebbi source reconciliation:** all 182 tracked repository files match
+  `/home/anwhelan/ask-ebbi` byte-for-byte; all 64 application-bearing files
+  match between host and running container. Runtime databases, named-volume
+  state, credentials, logs, caches and `DEPLOYED_COMMIT` are deliberately
+  untracked. The reconciled suite passes 233 tests. Reversible pre-sync archive:
+  `/home/anwhelan/ask-ebbi-backups/source-before-uat-repo-20260805T125430Z.tar.gz`.
 - **KSM runtime:** `hermes-ksm.service`, `kanban-surface.service` and
   `kanban-watcher.service` remain enabled and active. Canonical state is
   `/var/lib/hermes/.hermes/kanban/boards/kanban-surface/kanban.db`.

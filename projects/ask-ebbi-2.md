@@ -5,14 +5,14 @@ STATUS: done        UPDATED: 2026-07-17 by Ask Ebbi Codex
 ## What
 
 This is the historical Ask Ebbi 2 product/repository record. It is retained for provenance and
-selective asset recovery only. It is superseded by `projects/ask-ebbi-3.md`; do not treat this card
-as the current deployment, branch or source of truth.
+selective asset recovery only. It is superseded by `projects/ask-ebbi-uat.md`; do not treat this
+card as the current deployment, branch or source of truth.
 
 ## Where
 
 - Historical local collection: `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi/ask-ebbi-2/`
-- Historical deployment: the former `alwyzon` loopback service and Hermes home, before the current two-tenant Docker boundary.
-- Current canonical product: [Ask Ebbi 3](ask-ebbi-3.md).
+- Historical deployment: the former `alwyzon` loopback service and Hermes home.
+- Current canonical product: [Ask Ebbi UAT](ask-ebbi-uat.md).
 
 ## Done
 
@@ -28,4 +28,4 @@ as the current deployment, branch or source of truth.
 
 ## Next
 
-1. Use this card only to trace provenance when Ask Ebbi 3 assets need review.
+1. Use this card only to trace provenance when historical Ask Ebbi assets need review.

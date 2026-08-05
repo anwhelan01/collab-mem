@@ -1,5 +1,21 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-05 — Ask Ebbi UAT repository established
+- Created private `k3ss-official/ask-ebbi-uat`, reconciled from the live
+  `alwyzon-1` source plus the known-good build/test baseline, and pushed
+  `main` at `1c3d257`.
+- Preserved the live UK relay code absent from every prior GitHub branch,
+  restored coherent tests/build policy, and synced the reconciled tracked tree
+  back to the host without rebuilding or restarting the service.
+- Verified 182/182 tracked files match GitHub/local/host, 64/64
+  application-bearing files match host/container, 233 tests pass, the private
+  repository contains no runtime data or detected secrets, and `ebbi` remains
+  healthy/ready.
+- Archived the pre-sync source at
+  `/home/anwhelan/ask-ebbi-backups/source-before-uat-repo-20260805T125430Z.tar.gz`.
+  The unlabelled recovery image remains live; the next deliberate build must
+  restore OCI `APP_SOURCE_COMMIT` provenance.
+
 ## 2026-08-05 — Ask Ebbi UAT truth reconciliation
 - Corrected the canonical Ask Ebbi state after live inspection proved the
   paused/KSM-only record stale. `alwyzon-1` now runs healthy Docker container
