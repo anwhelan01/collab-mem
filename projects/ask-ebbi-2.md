@@ -11,6 +11,8 @@ card as the current deployment, branch or source of truth.
 ## Where
 
 - Historical local collection: `/Volumes/deep-1t/Users/k3ss/k3ss-official/ask-ebbi/ask-ebbi-2/`
+- Historical GitHub repository `k3ss-official/ask-ebbi-2` was deleted on Tony's
+  command on 2026-08-05; the remote now returns 404.
 - Historical deployment: the former `alwyzon` loopback service and Hermes home.
 - Current canonical product: [Ask Ebbi UAT](ask-ebbi-uat.md).
 

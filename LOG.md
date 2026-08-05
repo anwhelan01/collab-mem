@@ -1,5 +1,13 @@
 # LOG — what's been done (newest on top; operational, not literary)
 
+## 2026-08-05 — Superseded Ask Ebbi remotes deleted
+- On Tony's explicit command, deleted private GitHub repositories
+  `k3ss-official/askebbi-planner-tool`, `k3ss-official/Ask-Ebbi`,
+  `k3ss-official/ask-ebbi-2` and `k3ss-official/ask-ebbi-3`.
+- Verified each exact remote through the GitHub API after deletion: all four
+  return HTTP 404 / Not Found. Local checkouts and backups were not deleted.
+- Canonical private UAT remains `k3ss-official/ask-ebbi-uat`.
+
 ## 2026-08-05 — Ask Ebbi UAT repository established
 - Created private `k3ss-official/ask-ebbi-uat`, reconciled from the live
   `alwyzon-1` source plus the known-good build/test baseline, and pushed

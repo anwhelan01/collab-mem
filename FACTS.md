@@ -14,8 +14,11 @@
 - **Ask Ebbi source identity:** private repo `k3ss-official/ask-ebbi-uat`, branch
   `main`, reconciled snapshot `1c3d257ea35adaea2c6f8cd755fc330f0d00646b`.
   GitHub, local checkout, all 182 host tracked files and the host
-  `DEPLOYED_COMMIT` marker agree. `ask-ebbi-3` is retained as source history.
-  The current recovery image has no OCI revision label; the next deliberate
+  `DEPLOYED_COMMIT` marker agree. Tony ordered the remote historical repositories
+  `askebbi-planner-tool`, `Ask-Ebbi`, `ask-ebbi-2` and `ask-ebbi-3` deleted on
+  2026-08-05; verified GitHub API responses are now 404. Local checkouts were
+  outside that deletion order and remain untouched. The current recovery image
+  has no OCI revision label; the next deliberate
   build must restore machine-readable `APP_SOURCE_COMMIT` provenance.
 - **Ask Ebbi health/data:** current container is running and healthy.
   `/api/health` reports 59,902 live Chroma chunks;
