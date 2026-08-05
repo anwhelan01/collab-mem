@@ -9,9 +9,14 @@
   `ask-ebbi_ebbi_data` and `ask-ebbi_ebbi_hermes` volumes.
 - Post-removal verification: container `ebbi` remained running/healthy and both
   `/api/health` and `/api/ready` returned successfully.
+- Removed seven exact temporary Ask Ebbi audit/build trees, including the 3.6 GB
+  extracted `/tmp/imgroot`; `/tmp` fell to 18 MB and root-disk use fell from
+  82 GB to 78 GB, leaving 154 GB free.
 - Routed the stale readiness corpus-count correction to engineering and gated
   the next controlled rebuild on all reviewed UAT fixes. That rebuild must
-  restore bundled `hermes/RUNBOOK.md` parity and stamp the OCI source revision.
+  restore bundled `hermes/RUNBOOK.md` parity, stamp the OCI source revision,
+  and assess the 62.88 GB BuildKit cache plus a 4.02 GB dangling Hermes image
+  only after a verified candidate/rollback lane exists.
 
 ## 2026-08-05 — Three genuine Ask Ebbi feedback rows recovered
 - Investigated Tony's report that a user's 2026-08-04 feedback was absent from
