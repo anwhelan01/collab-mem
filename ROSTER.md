@@ -55,3 +55,11 @@ host on 2026-07-30, and no current runtime target is recorded here.
 ## Coordination rule
 One owner per item (claim it in the daily). Read today's daily before you start. Log when you finish.
 Don't touch an item someone else owns; if you're blocked on them, say so in the daily.
+
+
+## desk-os-drill seats (2026-09-04)
+- Brett — Grok Bot Number One / desk orchestrator
+- Rae — M4 Hermes KSM (Kanban centre)
+- Janet/Guardian — MBP Hermes plane
+- Factory — Source/Scribe/Reed/Gate/Press (+ Frame/Tally/Clock/Build)
+- Hire pools — Cursor Cloud Agent, Codex, API models (Mercury/NVIDIA/OpenCode), Grok Build CLI
