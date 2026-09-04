@@ -210,7 +210,8 @@ When two receipts disagree on state for the same card:
 3. Name `owner` and `verifier` when known (they must differ before `submitted`).
 4. Point at evidence location (collab-mem path or expected artifact name).
 5. Do not hire for publish or X actions in this pilot.
-6. Name the model pool when cost or capability matters (`pool: api|subscription|local|hermes`).
+6. Respect parent depth limit (section 3.1).
+7. Name the model pool when cost or capability matters (`pool: api|subscription|local|hermes`).
 
 ---
 
@@ -229,9 +230,9 @@ When two receipts disagree on state for the same card:
 This `CARD-CONTRACT.md` is accepted when:
 
 1. Sections 1-11 are present and unambiguous enough to run a drill.
-2. Brett verifies (including owner/verifier, receipt conflict, parent-depth).
-3. A sample receipt for this draft is attached.
-4. File lands in collab-mem via PR (human merge gated by `APPROVE:desk-os-drill`).
+2. Owner vs verifier, receipt conflict, and parent-depth rules are explicit.
+3. Brett folds into collab-mem (PR update).
+4. Human merge still waits on `APPROVE:desk-os-drill`.
 
 ---
 
@@ -255,5 +256,5 @@ receipt:
 ## Verify notes (Brett 2026-09-04)
 
 - v2 accepted: closes parent-depth (max 2), owner vs verifier, receipt conflict order.
-- Delivery truncated mid section 10 in agent channel; sections 10-12 reconstructed from v1 + new hire rule 3. Scribe may confirm tail if anything material was lost.
+- Delivery truncated mid section 10; Scribe resent hire rule 6 (parent depth) + §12 v2 wording; patched.
 - Status: ready for Tony gate `APPROVE:desk-os-drill` before merge.
